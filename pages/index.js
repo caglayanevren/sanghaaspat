@@ -13,12 +13,10 @@ export async function getStaticProps({ locale }) {
     const pageId =
         locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
-    //const response = await notion.pages.retrieve({ page_id: pageId });
     const response = await notion.blocks.children.list({
         block_id: pageId,
         page_size: 50,
     });
-    //console.log(pageId);
     return {
         props: {
             results: response,
@@ -32,7 +30,7 @@ export async function getStaticProps({ locale }) {
 export default function Home(props) {
     return (
         <Layout>
-            {console.log(props.results)}
+            {/* {console.log(props.results)} */}
             <Head>
                 <title>
                     {props.locale === 'en'
