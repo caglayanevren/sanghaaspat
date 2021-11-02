@@ -29,7 +29,7 @@ export async function getStaticProps({ locale }) {
 export default function About(props) {
     return (
         <Layout>
-            {console.log(props.results)}
+            {/* {console.log(props.results)} */}
             <Head>
                 <title>
                     {props.locale === 'en'
