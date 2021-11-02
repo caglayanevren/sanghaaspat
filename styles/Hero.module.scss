@@ -1,0 +1,14 @@
+.blur {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        //background-color: rgba(rgb(224, 11, 11), 0.8);
+        z-index: 0;
+        backdrop-filter: blur(10px);
+    }
+}

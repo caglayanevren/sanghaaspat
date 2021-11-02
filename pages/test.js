@@ -1,29 +1,28 @@
 import Head from 'next/head';
-const { Client } = require('@notionhq/client');
+//import Image from 'next/image';
 import Layout from '../components/layout';
-//import styles from '../styles/Home.module.scss';
-import Hero from '../components/Hero';
-//import { Box } from '@chakra-ui/react';
+import styles from '../styles/Home.module.scss';
+const { Client } = require('@notionhq/client');
 
 export async function getStaticProps({ locale }) {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const pageIdEn = '366afccc9ec74e3cae9f89af70b33459';
-    const pageIdTr = 'b3a0c0fede8d457499a7da71a0e010db';
+    const menuIdEn = '6081420da2c4414594e537374c54fe4c';
+    const menuIdTr = '443f135100da45018602c25da471a94d';
 
-    const pageId =
-        locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
+    const menuId =
+        locale === 'en' ? menuIdEn : locale === 'tr' ? menuIdTr : 'lang error';
 
-    //const response = await notion.pages.retrieve({ page_id: pageId });
+    //console.log(menuId);
+    //const response = await notion.pages.retrieve({ page_id: menuId });
     const response = await notion.blocks.children.list({
-        block_id: pageId,
+        block_id: menuId,
         page_size: 50,
     });
-    //console.log(pageId);
     return {
         props: {
-            results: response,
+            results: response.results,
             locale,
-            pageId,
+            menuid: menuId,
         },
         revalidate: 30,
     };
@@ -32,7 +31,6 @@ export async function getStaticProps({ locale }) {
 export default function Home(props) {
     return (
         <Layout>
-            {console.log(props.results)}
             <Head>
                 <title>
                     {props.locale === 'en'
@@ -49,9 +47,14 @@ export default function Home(props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Hero
-                motto={props.results.results[0].paragraph.text[0].text.content}
-            />
+            <div className={styles.container}>
+                test: {JSON.stringify(props.results[0].paragraph.text[0].text.content,null,2)}
+                {/* {console.log(props.results[0])} */}
+                {/* {props.results.properties.Title.title[0].text.content} */}
+                {/* {props.results.map((result) => {
+                    console.log(result);
+                })} */}
+            </div>
         </Layout>
     );
 }
