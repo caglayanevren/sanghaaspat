@@ -20,7 +20,7 @@ export default function MenuLinks({ isOpen }) {
                 <MenuItem to="/">
                     <SunIcon />
                 </MenuItem>
-                <MenuItem to="/about-sangha">About Sangha</MenuItem>
+                <MenuItem to="/sangha">About Sangha</MenuItem>
                 <MenuItem to="/classes">Classes</MenuItem>
                 <MenuItem to="/qi-massage">Qi Massage</MenuItem>
                 <MenuItem to="/events">Events</MenuItem>
