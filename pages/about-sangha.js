@@ -1,24 +1,21 @@
 import Head from 'next/head';
 const { Client } = require('@notionhq/client');
 import Layout from '../components/layout';
-//import styles from '../styles/Home.module.scss';
-import Hero from '../components/Hero';
+import Band from '../components/Band';
 //import { Box } from '@chakra-ui/react';
 
 export async function getStaticProps({ locale }) {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const pageIdEn = '366afccc9ec74e3cae9f89af70b33459';
-    const pageIdTr = 'b3a0c0fede8d457499a7da71a0e010db';
+    const pageIdEn = '77c9eaae32e24958aaf3650265dac47a';
+    const pageIdTr = '2a209e6b6d5d4400954c5e8512ba8b56';
 
     const pageId =
         locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
-    //const response = await notion.pages.retrieve({ page_id: pageId });
     const response = await notion.blocks.children.list({
         block_id: pageId,
         page_size: 50,
     });
-    //console.log(pageId);
     return {
         props: {
             results: response,
@@ -29,29 +26,27 @@ export async function getStaticProps({ locale }) {
     };
 }
 
-export default function Home(props) {
+export default function About(props) {
     return (
         <Layout>
             {console.log(props.results)}
             <Head>
                 <title>
                     {props.locale === 'en'
-                        ? 'Sangha Aspat | Home'
-                        : 'Sangha Aspat | Anasayfa'}
+                        ? 'Sangha Aspat | About Sangha'
+                        : 'Sangha Aspat | Sangha Hakkında'}
                 </title>
                 <meta
                     name="description"
                     content={
                         props.locale === 'en'
-                            ? 'Sangha Aspat | Home'
-                            : 'Sangha Aspat | Anasayfa'
+                            ? 'Sangha Aspat | About Sangha'
+                            : 'Sangha Aspat | Sangha Hakkında'
                     }
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Hero
-                motto={props.results.results[0].paragraph.text[0].text.content}
-            />
+            <Band />
         </Layout>
     );
 }
