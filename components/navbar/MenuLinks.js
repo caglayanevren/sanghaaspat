@@ -1,10 +1,14 @@
 import { Box, Stack, Link, Icon } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { SunIcon } from '@chakra-ui/icons';
+import { useRouter } from 'next/router';
 //import ChangeColorMode from './ChangeColorMode';
 import MenuItem from './MenuItem';
+import LocaleSwitcher from '../LocaleSwitcher';
 
 export default function MenuLinks({ isOpen }) {
+    const router = useRouter();
+    const { locale, locales, defaultLocale } = router;
     return (
         <Box
             display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
@@ -17,24 +21,47 @@ export default function MenuLinks({ isOpen }) {
                 direction={['column', 'column', 'row', 'row']}
                 pt={[4, 4, 0, 0]}
             >
-                <MenuItem to="/">
+                <Link
+                    href={
+                        locale === 'en'
+                            ? '/'
+                            : locale === 'tr'
+                            ? '/tr/'
+                            : 'lang error'
+                    }
+                >
                     <SunIcon />
-                </MenuItem>
-                <MenuItem to="/sangha">About Sangha</MenuItem>
-                <MenuItem to="/classes">Classes</MenuItem>
-                <MenuItem to="/qi-massage">Qi Massage</MenuItem>
-                <MenuItem to="/events">Events</MenuItem>
-                <MenuItem to="/reviews">Reviews</MenuItem>
-                <MenuItem to="/contact">Contact</MenuItem>
+                </Link>
+                <MenuItem
+                    to="/sangha"
+                    textEn="About&nbsp;Sangha"
+                    textTr="Sangha&nbsp;Hakkında"
+                />
+                <MenuItem to="/classes" textEn="Classes" textTr="Sınıflar" />
+                <MenuItem
+                    to="/qimassage"
+                    textEn="Qi&nbsp;Massage"
+                    textTr="Qi&nbsp;Masaj"
+                />
+                <MenuItem to="/events" textEn="Events" textTr="Etkinlikler" />
+                <MenuItem to="/reviews" textEn="Reviews" textTr="Yorumlar" />
+                <MenuItem to="/contact" textEn="Contact" textTr="İletişim" />
                 {/* <ChangeColorMode /> */}
                 <Stack direction={'row'}>
-                    <Link to="#">
+                    <Link
+                        href="https://www.facebook.com/bodrumqigong"
+                        isExternal
+                    >
                         <Icon as={FaFacebook} />
                     </Link>
-                    <Link to="#">
+                    <Link
+                        href="https://www.instagram.com/sanghaaspat/"
+                        isExternal
+                    >
                         <Icon as={FaInstagram} />
                     </Link>
                 </Stack>
+                <LocaleSwitcher />
             </Stack>
         </Box>
     );

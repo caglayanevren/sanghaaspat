@@ -4,6 +4,7 @@ module.exports = {
     i18n: {
         locales: ['en', 'tr'],
         defaultLocale: 'en',
+        localeDetection: false,
     },
     trailingSlash: true,
     webpack(config) {
@@ -11,7 +12,24 @@ module.exports = {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
-
         return config;
     },
+    /* async rewrites() {
+        return [
+            {
+                source: '/tr/siniflar',
+                destination: '/tr/classes',
+                locale: false,
+            },
+        ];
+    }, */
+    /* async redirects() {
+        return [
+            {
+                source: '/tr/siniflar',
+                destination: '/tr/classes',
+                permanent: true,
+            },
+        ];
+    }, */
 };

@@ -8,6 +8,7 @@ export default function Band() {
             w={'100%'}
             position={'relative'}
             align={'center'}
+            paddingY={'10px'}
         >
             <Box
                 zIndex={0}

@@ -16,7 +16,8 @@ export default {
     initialColorMode: 'dark',
     useSystemColorMode: true,
     fonts: {
-        heading: 'Playfair Display',
+        //heading: 'Playfair Display',
+        heading: 'Raleway',
         body: 'Raleway',
     },
     styles: {

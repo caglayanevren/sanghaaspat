@@ -18,13 +18,13 @@ export default function Layout({ children }) {
             <NavBar
                 position={{ base: 'absolute', md: 'relative' }}
                 zIndex={3}
-                pb={1}
+                pb={8}
             />
             <Wrap
                 id="main"
                 minHeight={{
-                    base: 'calc(100vh - 116px)',
-                    md: 'calc(100vh - 176px)',
+                    base: 'calc(100vh - 120px)',
+                    md: 'calc(100vh - 180px)',
                 }}
             >
                 {children}

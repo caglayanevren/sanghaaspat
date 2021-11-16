@@ -2,9 +2,8 @@ import Head from 'next/head';
 const { Client } = require('@notionhq/client');
 import Layout from '../components/layout';
 import Band from '../components/Band';
-//import { Box } from '@chakra-ui/react';
 
-export async function getStaticProps({ locale }) {
+/* export async function getStaticProps({ locale }) {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
     const pageIdEn = '77c9eaae32e24958aaf3650265dac47a';
     const pageIdTr = '2a209e6b6d5d4400954c5e8512ba8b56';
@@ -24,12 +23,11 @@ export async function getStaticProps({ locale }) {
         },
         revalidate: 30,
     };
-}
+} */
 
 export default function About(props) {
     return (
         <Layout>
-            {/* {console.log(props.results)} */}
             <Head>
                 <title>
                     {props.locale === 'en'
@@ -47,7 +45,7 @@ export default function About(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Band />
-            <p>About Sangha/ Sangha Hakkında</p>
+            <p>Classes/Sınıflar</p>
         </Layout>
     );
 }
