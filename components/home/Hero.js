@@ -1,21 +1,15 @@
 import Image from 'next/image';
-import { Link, Icon, Stack, Flex, VStack, Box } from '@chakra-ui/react';
+import { Link, Icon, Flex, VStack, Box } from '@chakra-ui/react';
 import { HiChevronDoubleDown } from 'react-icons/hi';
-import Sanghalogo from './Sanghalogo';
-import { blur } from '../styles/Hero.module.scss';
+import Sanghalogo from '../Sanghalogo';
+import { blur, bounceicon } from '../../styles/Hero.module.scss';
 
 export default function Hero({ motto }) {
     return (
-        <Flex
-            w={'full'}
-            h={{ base: '100vh', md: 'calc(100vh - 88px)' }}
-            //backgroundImage={'url(hero.jpg)'}
-            //backgroundSize={'cover'}
-            //backgroundPosition={'20% 50%'}
-        >
+        <Flex w={'full'} h={{ base: '100vh', md: 'calc(100vh - 88px)' }}>
             <VStack w={'full'} position="relative">
                 <Image
-                    src="/hero.jpg"
+                    src="/images/home/hero.jpg"
                     alt="hero"
                     layout="fill"
                     objectFit="cover"
@@ -34,9 +28,10 @@ export default function Hero({ motto }) {
                         h={'100%'}
                         id="evrentest2"
                         zIndex={'2'}
+                        spacing="0"
                     >
                         <Box>&nbsp;</Box>
-                        <Stack align={'center'} marginTop={0}>
+                        <VStack align={'center'} spacing="20px">
                             <Box
                                 width={{ base: '250px', md: '350px' }}
                                 height={{ base: '250px', md: '350px' }}
@@ -56,9 +51,14 @@ export default function Hero({ motto }) {
                             >
                                 {motto}
                             </Box>
-                        </Stack>
-                        <Link to={'#'}>
-                            <Icon boxSize={'2rem'} as={HiChevronDoubleDown} />
+                        </VStack>
+                        <Link href="#sangha">
+                            <Icon
+                                className={bounceicon}
+                                marginBottom={4}
+                                boxSize={'2rem'}
+                                as={HiChevronDoubleDown}
+                            />
                         </Link>
                     </VStack>
                 </VStack>

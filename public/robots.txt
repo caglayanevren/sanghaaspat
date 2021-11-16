@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /*
+Allow: /post/*
+Allow: /guides/*
+
+Disallow: /api/*
+Disallow: /_next/*
+Disallow: /js

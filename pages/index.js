@@ -1,9 +1,8 @@
 import Head from 'next/head';
+import Layout from '../components/layout-home';
+import Hero from '../components/home/Hero';
+import FirstSection from '../components/home/FirstSection';
 const { Client } = require('@notionhq/client');
-import Layout from '../components/layout';
-//import styles from '../styles/Home.module.scss';
-import Hero from '../components/Hero';
-//import { Box } from '@chakra-ui/react';
 
 export async function getStaticProps({ locale }) {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -17,9 +16,21 @@ export async function getStaticProps({ locale }) {
         block_id: pageId,
         page_size: 50,
     });
+
+    const firstSectionContents = [];
+    const firstSectionContentLength = response.results.length;
+
+    for (let i = 2; i < firstSectionContentLength; i++) {
+        firstSectionContents.push(
+            response.results[i].paragraph.text[0].text.content
+        );
+    }
+
     return {
         props: {
             results: response,
+            firstSectionContents,
+            firstSectionContentLength,
             locale,
             pageId,
         },
@@ -30,7 +41,7 @@ export async function getStaticProps({ locale }) {
 export default function Home(props) {
     return (
         <Layout>
-            {/* {console.log(props.results)} */}
+            {console.log('ALL: ', props.results)}
             <Head>
                 <title>
                     {props.locale === 'en'
@@ -39,16 +50,17 @@ export default function Home(props) {
                 </title>
                 <meta
                     name="description"
-                    content={
-                        props.locale === 'en'
-                            ? 'Sangha Aspat | Home'
-                            : 'Sangha Aspat | Anasayfa'
-                    }
+                    content={props.locale === 'en' ? 'en desc' : 'tr desc'}
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Hero
                 motto={props.results.results[0].paragraph.text[0].text.content}
+            />
+            <FirstSection
+                title={props.results.results[1].heading_2.text[0].text.content}
+                contents={props.firstSectionContents}
+                contentlength={props.firstSectionContentLength}
             />
         </Layout>
     );
