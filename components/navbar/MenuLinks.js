@@ -1,4 +1,4 @@
-import { Box, Stack, Link, Icon } from '@chakra-ui/react';
+import { Box, Stack, Link, Icon, Container } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { SunIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
@@ -33,19 +33,26 @@ export default function MenuLinks({ isOpen }) {
                     <SunIcon />
                 </Link>
                 <MenuItem
-                    to="/sangha"
-                    textEn="About&nbsp;Sangha"
-                    textTr="Sangha&nbsp;Hakkında"
+                    to="/about-sangha"
+                    toTr="/sangha-hakkinda"
+                    textEn={<div style={{lineHeight:"1.25",textAlign:"center"}}>About<br />Sangha</div>}
+                    textTr={<div style={{lineHeight:"1.25",textAlign:"center"}}>Sangha<br />Hakkında</div>}
                 />
-                <MenuItem to="/classes" textEn="Classes" textTr="Sınıflar" />
+                <MenuItem
+                    to="/qigong-classes"
+                    toTr="/qigong-dersleri"
+                    textEn={<div style={{lineHeight:"1.25",textAlign:"center"}}>Qi&nbsp;Gong<br />Classes</div>}
+                    textTr={<div style={{lineHeight:"1.25",textAlign:"center"}}>Qi&nbsp;Gong<br />Dersleri</div>}
+                />
                 <MenuItem
                     to="/qimassage"
+                    toTr="/qimasaj"
                     textEn="Qi&nbsp;Massage"
                     textTr="Qi&nbsp;Masaj"
                 />
-                <MenuItem to="/events" textEn="Events" textTr="Etkinlikler" />
-                <MenuItem to="/reviews" textEn="Reviews" textTr="Yorumlar" />
-                <MenuItem to="/contact" textEn="Contact" textTr="İletişim" />
+                <MenuItem to="/events" toTr="/etkinlikler" textEn="Events" textTr="Etkinlikler" />
+                <MenuItem to="/reviews" toTr="/yorumlar" textEn="Reviews" textTr="Yorumlar" />
+                <MenuItem to="/contact" toTr="/iletisim" textEn="Contact" textTr="İletişim" />
                 {/* <ChangeColorMode /> */}
                 <Stack direction={'row'}>
                     <Link

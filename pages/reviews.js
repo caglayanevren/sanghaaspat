@@ -25,7 +25,7 @@ import Band from '../components/Band';
     };
 } */
 
-export default function About(props) {
+export default function Reviews(props) {
     return (
         <Layout>
             <Head>
@@ -45,7 +45,7 @@ export default function About(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Band />
-            <p>Classes/Sınıflar</p>
+            <p>Reviews/Yorumlar</p>
         </Layout>
     );
 }
