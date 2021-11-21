@@ -31,10 +31,10 @@ export default function Hero({ motto }) {
                         spacing="0"
                     >
                         <Box>&nbsp;</Box>
-                        <VStack align={'center'} spacing="20px">
+                        <VStack align={'center'} spacing="50px">
                             <Box
-                                width={{ base: '250px', md: '350px' }}
-                                height={{ base: '250px', md: '350px' }}
+                                width={{ base: '250px', md: '300px' }}
+                                height={{ base: '250px', md: '300px' }}
                             >
                                 <Sanghalogo />
                             </Box>
@@ -45,8 +45,6 @@ export default function Hero({ motto }) {
                                     sm: '2rem',
                                     md: '2.25rem',
                                 }}
-                                marginTop={16}
-                                mt={5}
                                 textAlign={'center'}
                             >
                                 {motto}
