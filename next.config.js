@@ -51,13 +51,13 @@ module.exports = {
     env: {
         siteTitle: 'Sangha Aspat',
         home: {
-            en: {
+            english: {
                 title: 'Home',
                 desc: 'Home description',
                 path: '/',
                 notionPageId: '366afccc9ec74e3cae9f89af70b33459',
             },
-            tr: {
+            turkish: {
                 title: 'Anasayfa',
                 desc: 'Anasayfa açıklama',
                 path: '/tr/',
@@ -65,27 +65,31 @@ module.exports = {
             },
         },
         aboutSangha: {
-            en: {
+            english: {
                 title: 'About Sangha',
                 desc: 'About Sangha description',
                 path: '/about-sangha',
                 notionPageId: '77c9eaae32e24958aaf3650265dac47a',
+                firstCVId: '91e924e8-28e2-4a77-871f-2fb46723d2d4',
+                secondCVId: '294f2599-87da-4fb7-a204-70c5a8a41d41',
             },
-            tr: {
+            turkish: {
                 title: 'Sangha Hakkında',
                 desc: 'Sangha Hakkında açıklama',
                 path: '/sangha-hakkinda',
                 notionPageId: '2a209e6b6d5d4400954c5e8512ba8b56',
+                firstCVId: 'bc132381-cd85-43fb-988d-4b24ba698807',
+                secondCVId: 'db06f5d1-d563-4676-bbb1-5937e9c3a740',
             },
         },
         qigongClasses: {
-            en: {
+            english: {
                 title: 'Qi Gong Classes',
                 desc: 'Qi Gong Classes description',
                 path: '/qigong-classes',
                 notionPageId: '',
             },
-            tr: {
+            turkish: {
                 title: 'Qi Gong Dersleri',
                 desc: 'Qi Gong Dersleri açıklama',
                 path: '/qigong-dersleri',
@@ -93,13 +97,13 @@ module.exports = {
             },
         },
         qimassage: {
-            en: {
+            english: {
                 title: 'Qi Massage',
                 desc: 'Qi Massage description',
                 path: '/qimassage',
                 notionPageId: '',
             },
-            tr: {
+            turkish: {
                 title: 'Qi Masaj',
                 desc: 'Qi Masaj açıklama',
                 path: '/qimasaj',
@@ -107,13 +111,13 @@ module.exports = {
             },
         },
         events: {
-            en: {
+            english: {
                 title: 'Events',
                 desc: 'Events description',
                 path: '/events',
                 notionPageId: '',
             },
-            tr: {
+            turkish: {
                 title: 'Etkinlikler',
                 desc: 'Etkinlikler açıklama',
                 path: '/etkinlikler',
@@ -121,13 +125,13 @@ module.exports = {
             },
         },
         reviews: {
-            en: {
+            english: {
                 title: 'Reviews',
                 desc: 'Reviews description',
                 path: '/reviews',
                 notionPageId: '',
             },
-            tr: {
+            turkish: {
                 title: 'Yorumlar',
                 desc: 'Yorumlar açıklama',
                 path: '/yorumlar',
@@ -135,13 +139,13 @@ module.exports = {
             },
         },
         contact: {
-            en: {
+            english: {
                 title: 'Contact',
                 desc: 'Contact description',
                 path: '/contact',
                 notionPageId: '',
             },
-            tr: {
+            turkish: {
                 title: 'İletişim',
                 desc: 'İletişim açıklama',
                 path: '/iletisim',
