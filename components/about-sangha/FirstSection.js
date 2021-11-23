@@ -26,7 +26,7 @@ export default function FirstSection({ title, contents }) {
                 <Container maxW="container.xl" className={imagecontainer}>
                     <Image
                         className={'image'}
-                        src="/images/home/about-sangha.jpg"
+                        src="/images/about-sangha/about-sangha.jpg"
                         alt={title}
                         layout="responsive"
                         width={1919}

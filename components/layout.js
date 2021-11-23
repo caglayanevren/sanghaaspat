@@ -20,7 +20,7 @@ export default function Layout({ children }) {
                 zIndex={3}
                 pb={1}
             />
-            <Wrap
+            <Box
                 id="main"
                 minHeight={{
                     base: 'calc(100vh - 116px)',
@@ -28,7 +28,7 @@ export default function Layout({ children }) {
                 }}
             >
                 {children}
-            </Wrap>
+            </Box>
             <Footer />
         </>
     );

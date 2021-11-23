@@ -9,24 +9,23 @@ export default function Hero({ motto }) {
         <Flex w={'full'} h={{ base: '100vh', md: 'calc(100vh - 88px)' }}>
             <VStack w={'full'} position="relative">
                 <Image
-                    src="/images/home/hero.jpg"
-                    alt="hero"
+                    src="/images/home/hero_v3.jpg"
+                    alt="Sangha Aspat"
                     layout="fill"
                     objectFit="cover"
                     objectPosition="center"
                     priority={true}
+                    as="image"
                 />
                 <VStack
-                    id="evrentest"
                     w={'full'}
-                    bgGradient={'linear(to-r, blackAlpha.600, blackAlpha.600)'}
+                    //bgGradient={'linear(to-r, blackAlpha.600, blackAlpha.600)'}
                     className={blur}
                 >
                     <VStack
                         justify={'space-between'}
                         w={'full'}
                         h={'100%'}
-                        id="evrentest2"
                         zIndex={'2'}
                         spacing="0"
                     >
