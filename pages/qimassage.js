@@ -2,6 +2,7 @@ import Head from 'next/head';
 const { Client } = require('@notionhq/client');
 import Layout from '../components/layout';
 import Band from '../components/Band';
+import CustomHead from '../components/CustomHead';
 
 /* export async function getStaticProps({ locale }) {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -28,22 +29,10 @@ import Band from '../components/Band';
 export default function QiMassage(props) {
     return (
         <Layout>
-            <Head>
-                <title>
-                    {props.locale === 'en'
-                        ? 'Sangha Aspat | About Sangha'
-                        : 'Sangha Aspat | Sangha Hakkında'}
-                </title>
-                <meta
-                    name="description"
-                    content={
-                        props.locale === 'en'
-                            ? 'Sangha Aspat | About Sangha'
-                            : 'Sangha Aspat | Sangha Hakkında'
-                    }
-                />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <CustomHead
+                pageName={process.env.qimassage}
+                locale={props.locale}
+            />
             <Band />
             <p>Qi Massage/Qi Masaj</p>
         </Layout>
