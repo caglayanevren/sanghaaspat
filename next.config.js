@@ -49,6 +49,8 @@ module.exports = {
         ];
     },
     env: {
+        NEXT_PUBLIC_GOOGLEMAP_API_KEY:
+            'AIzaSyCxPye5uM863Q_MphOEu4ie1xFJvaogGrI',
         siteTitle: 'Sangha Aspat',
         home: {
             english: {
