@@ -1,38 +1,36 @@
 import Image from 'next/image';
 import {
-    //Image,
     Link,
     Flex,
     VStack,
-    HStack,
     Stack,
     Box,
     Heading,
     Text,
     Container,
-    Button,
-    Spacer,
-    Icon
+    Icon,
 } from '@chakra-ui/react';
-import {
-    imagecontainer,
-    //firstSectionContainer,
-} from '../../styles/Triple.module.scss';
+import { imagecontainer } from '../../styles/Triple.module.scss';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import { useRouter } from 'next/router';
+import sanghaImage from '../../public/images/home/sangha.jpg';
+import qigongImage from '../../public/images/home/qigong.jpg';
+import tqhImage from '../../public/images/home/tqh.jpg';
 
-export function Sek({ title, text, name, link }) {
+export function Sek({ title, text, imagesrc, link }) {
     return (
         <VStack spacing={8} direction="column" alignItems="flex-start">
             <Box className={imagecontainer}>
                 <Image
                     className={'image'}
-                    src={`/images/home/${name}.jpg`}
+                    src={imagesrc}
                     alt={title}
                     layout="responsive"
                     width={350}
                     height={257}
                     rounded={8}
+                    placeholder="blur"
+                    blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 />
             </Box>
             <Heading as="h2" fontWeight="400">
@@ -59,7 +57,7 @@ export default function Triple({
     tqhtext,
 }) {
     const router = useRouter();
-    const {locale}= router;
+    const { locale } = router;
     return (
         <Flex w={'full'} pb={0} pt={6} id="sangha">
             <Container maxW="container.xl">
@@ -69,9 +67,27 @@ export default function Triple({
                     paddingY={16}
                     spacing={12}
                 >
-                    <Sek title={sanghatitle} text={sanghatext} name="sangha" link={locale==='en' ? process.env.aboutSangha.english.path : `/tr${process.env.aboutSangha.turkish.path}`} />
-                    <Sek title={qigongtitle} text={qigongtext} name="qigong" link={locale==='en' ? process.env.qigongClasses.english.path : `/tr${process.env.qigongClasses.turkish.path}`} />
-                    <Sek title={tqhtitle} text={tqhtext} name="tqh" />
+                    <Sek
+                        title={sanghatitle}
+                        text={sanghatext}
+                        imagesrc={sanghaImage}
+                        link={
+                            locale === 'en'
+                                ? process.env.aboutSangha.english.path
+                                : `/tr${process.env.aboutSangha.turkish.path}`
+                        }
+                    />
+                    <Sek
+                        title={qigongtitle}
+                        text={qigongtext}
+                        imagesrc={qigongImage}
+                        link={
+                            locale === 'en'
+                                ? process.env.qigongClasses.english.path
+                                : `/tr${process.env.qigongClasses.turkish.path}`
+                        }
+                    />
+                    <Sek title={tqhtitle} text={tqhtext} imagesrc={tqhImage} />
                 </Stack>
             </Container>
         </Flex>
