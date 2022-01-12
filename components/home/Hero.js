@@ -49,7 +49,7 @@ export default function Hero({ motto }) {
                                 {motto}
                             </Box>
                         </VStack>
-                        <Link href="#sangha">
+                        <Link href="#sangha" aria-label="Down">
                             <Icon
                                 className={bounceicon}
                                 marginBottom={4}
