@@ -5,6 +5,8 @@ import CustomHead from '../components/CustomHead';
 import Band from '../components/Band';
 import FirstSection from '../components/about-sangha/FirstSection';
 import CVLayout from '../components/about-sangha/CVLayout';
+import zeynepCVImage from '../public/images/about-sangha/zeynep.jpg';
+import hazalCVImage from '../public/images/about-sangha/hazal.jpg';
 
 export async function getStaticProps({ locale }) {
     //const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -66,12 +68,10 @@ export async function getStaticProps({ locale }) {
             contents: sectionContents,
             firstcvresults: firstpageresponse,
             firstcvcontents: firstCVContents,
+            firstCVdegree: firstpageresponse.properties.Degree.rich_text[0].text.content,
             secondcvresults: secondpageresponse,
             secondcvcontents: secondCVContents,
-            firstCVdegree:
-                firstpageresponse.properties.Degree.rich_text[0].text.content,
-            secondCVdegree:
-                secondpageresponse.properties.Degree.rich_text[0].text.content,
+            secondCVdegree: secondpageresponse.properties.Degree.rich_text[0].text.content,
             locale,
             pageId,
         },
@@ -94,20 +94,18 @@ export default function About(props) {
                 contents={props.contents}
             />
             <CVLayout
-                title={
-                    props.firstcvresults.properties.Title.title[0].text.content
-                }
+                title={props.firstcvresults.properties.Title.title[0].text.content}
                 degree={props.firstCVdegree}
                 contents={props.firstcvcontents}
                 name="zeynep"
+                CVImage={zeynepCVImage}
             />
             <CVLayout
-                title={
-                    props.secondcvresults.properties.Title.title[0].text.content
-                }
+                title={props.secondcvresults.properties.Title.title[0].text.content}
                 degree={props.secondCVdegree}
                 contents={props.secondcvcontents}
                 name="hazal"
+                CVImage={hazalCVImage}
             />
         </Layout>
     );

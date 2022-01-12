@@ -17,7 +17,13 @@ import {
     //firstSectionContainer,
 } from '../../styles/CVLayout.module.scss';
 
-export default function CVLayout({ title, degree, contents = [], name }) {
+export default function CVLayout({
+    title,
+    degree,
+    contents = [],
+    name,
+    CVImage,
+}) {
     return (
         <Flex w={'full'} paddingBottom={12} id={`${name}_cv`}>
             <Container maxW="container.lg">
@@ -44,12 +50,14 @@ export default function CVLayout({ title, degree, contents = [], name }) {
                         <Box flex="1" className={imagecontainer}>
                             <Image
                                 className={'image'}
-                                src={`/images/about-sangha/${name}.jpg`}
+                                //src={`/images/about-sangha/${name}.jpg`}
+                                src={CVImage}
                                 alt={title}
                                 layout="responsive"
                                 width={555}
                                 height={740}
-                                priority={true}
+                                placeholder="blur"
+                                blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                             />
                         </Box>
                     </Stack>

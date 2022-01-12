@@ -13,7 +13,7 @@ import {
     imagecontainer,
     firstSectionContainer,
 } from '../../styles/FirstSection.module.scss';
-
+import firstImage from '../../public/images/about-sangha/about-sangha.jpg';
 export default function FirstSection({ title, contents }) {
     return (
         <Flex
@@ -26,7 +26,7 @@ export default function FirstSection({ title, contents }) {
                 <Container maxW="container.xl" className={imagecontainer}>
                     <Image
                         className={'image'}
-                        src="/images/about-sangha/about-sangha.jpg"
+                        src={firstImage}
                         alt={title}
                         layout="responsive"
                         width={1919}
