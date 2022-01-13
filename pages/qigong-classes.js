@@ -1,32 +1,49 @@
-import Head from 'next/head';
 const { Client } = require('@notionhq/client');
+import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
 import Layout from '../components/layout';
-import Band from '../components/Band';
 import CustomHead from '../components/CustomHead';
+import Band from '../components/Band';
+import Image from 'next/image';
+import {
+    Link,
+    Flex,
+    VStack,
+    Box,
+    Spacer,
+    Heading,
+    Text,
+    Container,
+    Button,
+    SimpleGrid,
+} from '@chakra-ui/react';
+import firstImage from '../public/images/qigong-classes/qigong-classes.jpg';
+import {
+    imagecontainer,
+    firstSectionContainer,
+} from '../styles/QiGongClasses.module.scss';
 
-/* export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale }) {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const pageIdEn = '77c9eaae32e24958aaf3650265dac47a';
-    const pageIdTr = '2a209e6b6d5d4400954c5e8512ba8b56';
+    const pageIdEn = process.env.qigongClasses.english.notionPageId;
+    const pageIdTr = process.env.qigongClasses.turkish.notionPageId;
 
     const pageId =
         locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
-    const response = await notion.blocks.children.list({
-        block_id: pageId,
-        page_size: 50,
-    });
+    const pageresponse = await getPage(pageId);
+    const blockresponse = await getBlocks(pageId);
     return {
         props: {
-            results: response,
+            pageresponse,
+            blockresponse,
             locale,
             pageId,
         },
         revalidate: 30,
     };
-} */
+}
 
-export default function About(props) {
+export default function QiGongClasses(props) {
     return (
         <Layout>
             <CustomHead
@@ -34,7 +51,80 @@ export default function About(props) {
                 locale={props.locale}
             />
             <Band />
-            <p>Classes/Sınıflar</p>
+            {/* {console.log('pageresponse: ', props.pageresponse)} */}
+            {/* {console.log('blockresponse: ', props.blockresponse)} */}
+            <Flex
+                w={'full'}
+                className={firstSectionContainer}
+                paddingBottom={12}
+                id="qigongclasses"
+            >
+                <VStack w={'full'} spacing={12}>
+                    <Container maxW="container.xl" className={imagecontainer}>
+                        <Image
+                            className={'image'}
+                            src={firstImage}
+                            alt={
+                                props.pageresponse.properties.Title.title[0]
+                                    .plain_text
+                            }
+                            layout="responsive"
+                            width={1280}
+                            height={461}
+                            priority={true}
+                        />
+                    </Container>
+                    <Heading as="h2" fontWeight="400">
+                        {
+                            props.pageresponse.properties.Title.title[0]
+                                .plain_text
+                        }
+                    </Heading>
+                    <Container maxW="container.xl">
+                        <SimpleGrid columns={{base:'1', md:'3'}} spacing={10} >
+                            <Box>
+                                <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[0].heading_2.text[0].plain_text}</Text>
+                                <Text as="h3" fontSize='xl'>{props.blockresponse.results[1].heading_3.text[0].plain_text}</Text>
+                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[2].paragraph.text[0].plain_text}</Text>
+                                <Text as="p" marginTop='1rem'>{props.blockresponse.results[3].paragraph.text[0].plain_text}</Text>
+                            </Box>
+                            <Box>
+                                <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[4].heading_2.text[0].plain_text}</Text>
+                                <Text as="h3" fontSize='xl'>{props.blockresponse.results[5].heading_3.text[0].plain_text}</Text>
+                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[6].paragraph.text[0].plain_text}</Text>
+                                <Text as="p" marginTop='1rem'>{props.blockresponse.results[7].paragraph.text[0].plain_text}</Text>
+                            </Box>
+                            <Box>
+                                <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[8].heading_2.text[0].plain_text}</Text>
+                                <Text as="h3" fontSize='xl'>{props.blockresponse.results[9].heading_3.text[0].plain_text}</Text>
+                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[10].paragraph.text[0].plain_text}</Text>
+                                <Text as="p" marginTop='1rem'>{props.blockresponse.results[11].paragraph.text[0].plain_text}</Text>
+                                <Text as="p" marginTop='1rem'>{props.blockresponse.results[12].paragraph.text[0].plain_text}</Text>
+                            </Box>
+                        </SimpleGrid>
+                    </Container>
+                    <Container maxW="container.xl">
+                        <SimpleGrid columns={{base:'1', md:'3'}} spacing={10} >
+                            <Box>
+                                <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[13].heading_2.text[0].plain_text}</Text>
+                                <Text as="h3" fontSize='xl'>{props.blockresponse.results[14].heading_3.text[0].plain_text}</Text>
+                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[15].paragraph.text[0].plain_text}</Text>
+                                <Text as="p" marginTop='1rem'>{props.blockresponse.results[16].paragraph.text[0].plain_text}</Text>
+                            </Box>
+                            <Box>
+                                <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[17].heading_2.text[0].plain_text}</Text>
+                                <Text as="h3" fontSize='xl'>{props.blockresponse.results[18].heading_3.text[0].plain_text}</Text>
+                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[19].paragraph.text[0].plain_text}</Text>
+                            </Box>
+                            <Box>
+                                <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[20].heading_2.text[0].plain_text}</Text>
+                                <Text as="h3" fontSize='xl'>{props.blockresponse.results[21].heading_3.text[0].plain_text}</Text>
+                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[22].paragraph.text[0].plain_text}</Text>
+                            </Box>
+                        </SimpleGrid>
+                    </Container>
+                </VStack>
+            </Flex>
         </Layout>
     );
 }
