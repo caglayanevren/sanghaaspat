@@ -89,13 +89,13 @@ module.exports = {
                 title: 'Qi Gong Classes',
                 desc: 'Qi Gong Classes description',
                 path: '/qigong-classes',
-                notionPageId: '',
+                notionPageId: 'b61625199c4b4663bea5760f7ef4bf95',
             },
             turkish: {
                 title: 'Qi Gong Dersleri',
                 desc: 'Qi Gong Dersleri açıklama',
                 path: '/qigong-dersleri',
-                notionPageId: '',
+                notionPageId: 'f04458ef38c541efb0082eb3c44e7c62',
             },
         },
         qimassage: {
