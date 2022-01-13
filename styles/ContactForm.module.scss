@@ -12,16 +12,9 @@
     margin: 2rem 0;
     border-radius: 6px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-    //max-width: 600px;
-}
-.title {
-    margin: 0 0 1.5rem;
-    font-weight: 500;
-    font-size: 1.5rem;
 }
 .form label {
     display: block;
-    //text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     color: white;
@@ -50,12 +43,8 @@
 .inputs div {
     flex: 1;
 }
-/* .inputs div:first-child {
-    margin-right: 1rem;
-} */
 .btn {
     background-color: var(--chakra-colors-gray-200);
-    //background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
     padding: 0.5rem 1rem;
     border: none;
     color: var(--chakra-colors-gray-900);
@@ -67,9 +56,4 @@
 }
 .pot {
     display: none;
-}
-.map {
-    height: calc(100% - 4rem);
-    min-height: 467px;
-    margin: 2rem 0;
 }
