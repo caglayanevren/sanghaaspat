@@ -1,5 +1,6 @@
 const { Client } = require('@notionhq/client');
 import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
+import { useRouter } from 'next/router';
 import Layout from '../components/layout';
 import CustomHead from '../components/CustomHead';
 import Band from '../components/Band';
@@ -16,14 +17,17 @@ import {
     Button,
     SimpleGrid,
 } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 import firstImage from '../public/images/qigong-classes/qigong-classes.jpg';
 import {
     imagecontainer,
     firstSectionContainer,
 } from '../styles/QiGongClasses.module.scss';
+import en from '../locales/en';
+import tr from '../locales/tr';
 
 export async function getStaticProps({ locale }) {
-    const notion = new Client({ auth: process.env.NOTION_API_KEY });
+    //const notion = new Client({ auth: process.env.NOTION_API_KEY });
     const pageIdEn = process.env.qigongClasses.english.notionPageId;
     const pageIdTr = process.env.qigongClasses.turkish.notionPageId;
 
@@ -44,6 +48,11 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function QiGongClasses(props) {
+
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : tr;
+
     return (
         <Layout>
             <CustomHead
@@ -119,7 +128,8 @@ export default function QiGongClasses(props) {
                             <Box>
                                 <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[20].heading_2.text[0].plain_text}</Text>
                                 <Text as="h3" fontSize='xl'>{props.blockresponse.results[21].heading_3.text[0].plain_text}</Text>
-                                <Text as="p" fontStyle='italic'>{props.blockresponse.results[22].paragraph.text[0].plain_text}</Text>
+                                <Text as="p">{props.blockresponse.results[22].paragraph.text[0].plain_text}</Text>
+                                <Link href="/qimassage" _hover={{textDecoration:'none'}}><Button rightIcon={<ArrowForwardIcon />}>{t.qigongClasses.qigongmassageLinkText}</Button></Link>
                             </Box>
                         </SimpleGrid>
                     </Container>
