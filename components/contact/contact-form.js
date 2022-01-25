@@ -1,7 +1,15 @@
-import { Flex, Button, Input, Textarea, FormLabel } from '@chakra-ui/react';
+import {
+    Flex,
+    Button,
+    Input,
+    Textarea,
+    FormControl,
+    FormLabel,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
+import InputMask from 'react-input-mask';
 import 'react-toastify/dist/ReactToastify.min.css';
 import en from '../../locales/en';
 import tr from '../../locales/tr';
@@ -11,7 +19,7 @@ export default function ContactForm(params) {
     // Input states
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    //const [purpose, setPurpose] = useState('');
+    const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
     const [pot, setPot] = useState('');
     const [disabled, setDisabled] = useState(false);
@@ -23,6 +31,7 @@ export default function ContactForm(params) {
     const clearState = () => {
         setName('');
         setEmail('');
+        setPhone('');
         setPot('');
         setMessage('');
         const timeout = setTimeout(() => {
@@ -39,7 +48,7 @@ export default function ContactForm(params) {
         }
         const res = await fetch('/api/submit-form', {
             method: 'POST',
-            body: JSON.stringify({ name, email, message }), //, purpose
+            body: JSON.stringify({ name, phone, email, message }), //, purpose
         });
         // Success if status code is 201
         if (res.status === 201) {
@@ -78,6 +87,21 @@ export default function ContactForm(params) {
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
+                </div>
+                <div>
+                    <FormControl>
+                        <FormLabel htmlFor="phone">{t.phone}</FormLabel>
+                        <Input
+                            as={InputMask}
+                            mask="999 999 99 99"
+                            maskChar={null}
+                            type="phone"
+                            name="phone"
+                            placeholder={t.phonePlaceholder}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                        />
+                    </FormControl>
                 </div>
                 <div>
                     <FormLabel htmlFor="email">{t.email}</FormLabel>

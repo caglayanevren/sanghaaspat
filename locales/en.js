@@ -5,6 +5,8 @@ export default {
     text: 'EN: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, ipsum.',
     fullName: 'Full Name',
     fullNamePlaceholder: 'John Doe',
+    phone: 'Phone Number',
+    phonePlaceholder: '555 555 55 55',
     email: 'E-Mail Address',
     emailPlaceholder: 'johndoe@example.io',
     message: 'Message',
