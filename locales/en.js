@@ -16,4 +16,8 @@ export default {
     qigongClasses: {
         qigongmassageLinkText: 'Click for detailed info',
     },
+    events: {
+        title: 'Events',
+        text: 'EN: Çok yakında diğer etkinliklerimiz bu sayfada, takipte kalın',
+    },
 };
