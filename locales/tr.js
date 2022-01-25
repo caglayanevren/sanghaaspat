@@ -13,4 +13,7 @@ export default {
     messagePlaceholder: '',
     submit: 'Gönder',
     disabled: 'İnaktif: ',
+    qigongClasses: {
+        qigongmassageLinkText: 'Ayrıntılı bilgi için tıklayınız',
+    },
 };

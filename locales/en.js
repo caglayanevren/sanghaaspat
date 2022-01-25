@@ -13,4 +13,7 @@ export default {
     messagePlaceholder: 'Hi there!',
     submit: 'Submit',
     disabled: 'Disabled: ',
+    qigongClasses: {
+        qigongmassageLinkText: 'Click for detailed info',
+    },
 };
