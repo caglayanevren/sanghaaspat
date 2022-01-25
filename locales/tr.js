@@ -5,6 +5,8 @@ export default {
     text: 'TR: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, ipsum.',
     fullName: 'Adınız Soyadınız',
     fullNamePlaceholder: '',
+    phone: 'Telefon Numaranız',
+    phonePlaceholder: '555 555 55 55',
     email: 'E-posta Adresiniz',
     emailPlaceholder: '',
     message: 'Mesajınız',
