@@ -20,4 +20,7 @@ export default {
         title: 'Events',
         text: 'EN: Çok yakında diğer etkinliklerimiz bu sayfada, takipte kalın',
     },
+    reviews: {
+        title: 'Reviews',
+    },
 };
