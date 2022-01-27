@@ -23,8 +23,9 @@ const Button = {
     variants: {
         outline: {
             border: '1px solid',
-            borderColor: 'white',
-            color: 'white',
+            borderColor: 'gray.50',
+            color: 'gray.50',
+            backgroundColor: 'gray.700',
             _hover: {
                 textDecoration: 'none',
                 backgroundColor: 'gray.900',

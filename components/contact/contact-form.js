@@ -88,21 +88,19 @@ export default function ContactForm(params) {
                         required
                     />
                 </div>
-                <div>
-                    <FormControl>
-                        <FormLabel htmlFor="phone">{t.phone}</FormLabel>
-                        <Input
-                            as={InputMask}
-                            mask="999 999 99 99"
-                            maskChar={null}
-                            type="phone"
-                            name="phone"
-                            placeholder={t.phonePlaceholder}
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                        />
-                    </FormControl>
-                </div>
+                <FormControl id="phone">
+                    <FormLabel htmlFor="phone">{t.phone}</FormLabel>
+                    <Input
+                        as={InputMask}
+                        mask="999 999 99 99"
+                        maskChar={null}
+                        type="phone"
+                        name="phone"
+                        placeholder={t.phonePlaceholder}
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                    />
+                </FormControl>
                 <div>
                     <FormLabel htmlFor="email">{t.email}</FormLabel>
                     <Input
@@ -128,7 +126,7 @@ export default function ContactForm(params) {
                 <Flex>
                     <Button
                         disabled={disabled}
-                        className={styles.btn}
+                        //className={styles.btn}
                         type="submit"
                     >
                         {t.submit}
