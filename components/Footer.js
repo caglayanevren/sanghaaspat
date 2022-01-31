@@ -15,7 +15,7 @@ export default function Footer() {
     return (
         <Flex id="footer" w={'full'} paddingY={12} bgColor="gray.900">
             <Container maxW="container.xl">
-                <Center>2021 &copy;</Center>
+                <Center>2022 &copy;</Center>
             </Container>
         </Flex>
     );

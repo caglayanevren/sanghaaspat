@@ -79,6 +79,7 @@ export default {
             body: {
                 bg: 'gray.700',
                 color: 'white',
+                fontSize: { base: 'md', md: 'lg' },
             },
             a: {
                 color: 'eser',
