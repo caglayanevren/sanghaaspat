@@ -33,11 +33,11 @@ import tr from '../locales/tr';
 
 const testimonials = [
     {
-        name: 'Brandon P.',
-        role: 'Chief Marketing Officer',
+        name: 'Evren Ç.',
+        role: 'Web Developer',
         content:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+            'Sangha, son 1 yıldır benim için huzur bulduğum bir kaçış noktası oldu. Devam ettiğim Qi Gong dersleriyle kendime dair bir çok yeni şey keşfetmenin yanında, çok güzel insanlarla da tanıştım. Sağlığınız ile ilgili yeni bakış açıları edinebileceğiniz bu sıcacık ortamı herkese tavsiye ederim.',
+        avatar: '/images/reviews/evren.jpg',
     },
     {
         name: 'Krysta B.',
@@ -116,7 +116,7 @@ function TestmonialCard(props) {
                 <chakra.p pb={4}>{content}</chakra.p>
                 <chakra.p fontWeight={'bold'}>
                     {name}
-                    <chakra.span> - {role}</chakra.span>
+                    <chakra.span fontWeight={'normal'}> - {role}</chakra.span>
                 </chakra.p>
             </Flex>
             <Avatar
@@ -161,6 +161,9 @@ export default function Reviews(props) {
                         <Heading as="h2" fontWeight="400">
                             {t.reviews.title}
                         </Heading>
+                        <Text mt={5} fontWeight="300">
+                            {t.reviews.text}
+                        </Text>
                     </Box>
                     <Container maxW="container.xl">
                         <SimpleGrid
