@@ -103,13 +103,13 @@ module.exports = {
                 title: 'Qi Massage',
                 desc: 'Qi Massage description',
                 path: '/qimassage',
-                notionPageId: '',
+                notionPageId: '955cd0b1b6ba45178a3a8e915b047e71',
             },
             turkish: {
                 title: 'Qi Masaj',
                 desc: 'Qi Masaj açıklama',
                 path: '/qimasaj',
-                notionPageId: '',
+                notionPageId: '85fdbf63ddc844c3a4df86f05c7ce312',
             },
         },
         events: {
