@@ -2,7 +2,7 @@ export default {
     toastThanks: 'Thank you for contacting us!',
     toastError: 'Please re-check your inputs.',
     contactUs: 'Contact Us',
-    text: 'EN: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, ipsum.',
+    text: 'Ask your questions about Sangha...',
     fullName: 'Full Name',
     fullNamePlaceholder: 'John Doe',
     phone: 'Phone Number',
@@ -18,9 +18,10 @@ export default {
     },
     events: {
         title: 'Events',
-        text: 'EN: Çok yakında diğer etkinliklerimiz bu sayfada, takipte kalın',
+        text: 'Our other events coming soon on this page! Stay tuned',
     },
     reviews: {
         title: 'Reviews',
+        text: 'Sangha lovers said',
     },
 };

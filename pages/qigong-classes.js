@@ -129,7 +129,7 @@ export default function QiGongClasses(props) {
                                 <Text as="h2" fontSize='2xl' fontWeight='semibold'>{props.blockresponse.results[20].heading_2.text[0].plain_text}</Text>
                                 <Text as="h3" fontSize='xl'>{props.blockresponse.results[21].heading_3.text[0].plain_text}</Text>
                                 <Text as="p">{props.blockresponse.results[22].paragraph.text[0].plain_text}</Text>
-                                <Link href="/qimassage" _hover={{textDecoration:'none'}}><Button rightIcon={<ArrowForwardIcon />}>{t.qigongClasses.qigongmassageLinkText}</Button></Link>
+                                <Link href={locale == 'en' ? process.env.qimassage.english.path : `/tr${process.env.qimassage.turkish.path}` } _hover={{textDecoration:'none'}}><Button rightIcon={<ArrowForwardIcon />}>{t.qigongClasses.qigongmassageLinkText}</Button></Link>
                             </Box>
                         </SimpleGrid>
                     </Container>
