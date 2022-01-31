@@ -1,30 +1,40 @@
-import Head from 'next/head';
 const { Client } = require('@notionhq/client');
+import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
 import Layout from '../components/layout';
 import Band from '../components/Band';
 import CustomHead from '../components/CustomHead';
+import FirstSection from '../components/qimassage/FirstSection';
 
-/* export async function getStaticProps({ locale }) {
-    const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const pageIdEn = '77c9eaae32e24958aaf3650265dac47a';
-    const pageIdTr = '2a209e6b6d5d4400954c5e8512ba8b56';
+export async function getStaticProps({ locale }) {
+    //const notion = new Client({ auth: process.env.NOTION_API_KEY });
+    const pageIdEn = process.env.qimassage.english.notionPageId;
+    const pageIdTr = process.env.qimassage.turkish.notionPageId;
 
     const pageId =
         locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
-    const response = await notion.blocks.children.list({
-        block_id: pageId,
-        page_size: 50,
-    });
+    const pageresponse = await getPage(pageId);
+    const blockresponse = await getBlocks(pageId);
+
+    const sectionContents = [];
+    const sectionContentLength = blockresponse.results.length;
+
+    for (let i = 0; i < sectionContentLength; i++) {
+        sectionContents.push(
+            blockresponse.results[i].paragraph.text[0].text.content
+        );
+    }
+
     return {
         props: {
-            results: response,
+            results: pageresponse,
+            contents: sectionContents,
             locale,
             pageId,
         },
         revalidate: 30,
     };
-} */
+}
 
 export default function QiMassage(props) {
     return (
@@ -34,7 +44,10 @@ export default function QiMassage(props) {
                 locale={props.locale}
             />
             <Band />
-            <p>Qi Massage/Qi Masaj</p>
+            <FirstSection
+                title={props.results.properties.Title.title[0].text.content}
+                contents={props.contents}
+            />
         </Layout>
     );
 }
