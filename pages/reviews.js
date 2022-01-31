@@ -40,25 +40,25 @@ const testimonials = [
         avatar: '/images/reviews/evren.jpg',
     },
     {
-        name: 'Krysta B.',
-        role: 'Entrepreneur',
+        name: 'User',
+        role: 'Role',
         content:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+        avatar: '',
     },
     {
-        name: 'Darcy L.',
-        role: 'Movie star',
+        name: 'User',
+        role: 'Role',
         content:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
+        avatar: '',
     },
     {
-        name: 'Daniel T.',
-        role: 'Musician',
+        name: 'User',
+        role: 'Role',
         content:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: 'https://images.unsplash.com/photo-1606513542745-97629752a13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+        avatar: '',
     },
 ];
 
