@@ -2,6 +2,7 @@ export default {
     toastThanks: 'Teşekkürler, mesajınız iletilmiştir!',
     toastError: 'Lütfen formu tekrar kontrol edin',
     contactUs: 'Bize Ulaşın',
+    address: 'Atatürk Akyarlar Caddesi No:509 Aspat/Akyarlar Turgutreis Bodrum',
     text: 'Sangha ile ilgili merak ettiklerinizi sorun...',
     fullName: 'Adınız Soyadınız:',
     fullNamePlaceholder: 'Ahmet Yılmaz',

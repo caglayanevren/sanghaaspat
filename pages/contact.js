@@ -5,7 +5,8 @@ import Band from '../components/Band';
 import CustomHead from '../components/CustomHead';
 import GoogleMaps from '../components/contact/google-map';
 import ContactForm from '../components/contact/contact-form';
-import { Flex, Spacer, Box, Container } from '@chakra-ui/react';
+import { Flex, Spacer, Box, Container, chakra } from '@chakra-ui/react';
+import { InfoIcon, EmailIcon } from '@chakra-ui/icons';
 import en from '../locales/en';
 import tr from '../locales/tr';
 import styles from '../styles/ContactPage.module.scss';
@@ -24,7 +25,12 @@ export default function Contact(props) {
             <Flex w={'full'} paddingBottom={12} id="contact">
                 <Container maxW="container.xl">
                     <h1 className={styles.title}>{t.contactUs}</h1>
-                    <p>{t.text}</p>
+                    <chakra.p>
+                        <InfoIcon /> {t.address}
+                    </chakra.p>
+                    <chakra.p>
+                        <EmailIcon /> {/* {t.email} */}
+                    </chakra.p>
                     <Box display={{ md: 'flex' }}>
                         <Box w={['100%', '100%', '49%', '49%']}>
                             <ContactForm />
