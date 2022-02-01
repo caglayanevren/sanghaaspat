@@ -2,6 +2,7 @@ export default {
     toastThanks: 'Thank you for contacting us!',
     toastError: 'Please re-check your inputs.',
     contactUs: 'Contact Us',
+    address: 'Atatürk Akyarlar Caddesi No:509 Aspat/Akyarlar Turgutreis Bodrum',
     text: 'Ask your questions about Sangha...',
     fullName: 'Full Name',
     fullNamePlaceholder: 'John Doe',

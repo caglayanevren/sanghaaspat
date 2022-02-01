@@ -5,6 +5,7 @@ import {
     Textarea,
     FormControl,
     FormLabel,
+    chakra,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -76,6 +77,11 @@ export default function ContactForm(params) {
                     tabIndex="-1"
                     autoComplete="off"
                 />
+                <div>
+                    <chakra.p mb={4} fontWeight={'semibold'}>
+                        {t.text}
+                    </chakra.p>
+                </div>
                 <div>
                     <FormLabel htmlFor="name">{t.fullName}</FormLabel>
                     <Input
