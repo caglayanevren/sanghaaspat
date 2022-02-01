@@ -23,6 +23,6 @@ export default {
     },
     reviews: {
         title: 'Yorumlar',
-        text: "Sangha'yı sevenler şunları söylediler",
+        text: "Sangha'yı sevenler şunları söylediler:",
     },
 };

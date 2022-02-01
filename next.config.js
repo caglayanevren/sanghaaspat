@@ -77,7 +77,7 @@ module.exports = {
             },
             turkish: {
                 title: 'Sangha Hakkında',
-                desc: 'Sangha, Sanskritçe\'de "toplanmak" anlamına gelir.',
+                desc: 'Sangha, Sanskritçe\'de "toplanmak" anlamına gelir. Daha yüksek bir amaç için bir araya gelen insan topluluğu.',
                 path: '/sangha-hakkinda',
                 notionPageId: '2a209e6b6d5d4400954c5e8512ba8b56',
                 firstCVId: 'bc132381-cd85-43fb-988d-4b24ba698807',
@@ -129,13 +129,13 @@ module.exports = {
         reviews: {
             english: {
                 title: 'Reviews',
-                desc: 'Sangha lovers said',
+                desc: 'Sangha lovers said:',
                 path: '/reviews',
                 notionPageId: '',
             },
             turkish: {
                 title: 'Yorumlar',
-                desc: "Sangha'yı sevenler şunları söylediler",
+                desc: "Sangha'yı sevenler şunları söylediler:",
                 path: '/yorumlar',
                 notionPageId: '',
             },
