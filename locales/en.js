@@ -23,6 +23,6 @@ export default {
     },
     reviews: {
         title: 'Reviews',
-        text: 'Sangha lovers said',
+        text: 'Sangha lovers said:',
     },
 };
