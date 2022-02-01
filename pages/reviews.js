@@ -137,7 +137,7 @@ export default function Reviews(props) {
 
     return (
         <Layout>
-            <CustomHead pageName={process.env.reviews} locale={props.locale} />
+            <CustomHead pageName={process.env.reviews} locale={locale} />
             <Band />
             <Flex
                 w={'full'}
