@@ -34,7 +34,7 @@ export default function Events(props) {
 
     return (
         <Layout>
-            <CustomHead pageName={process.env.events} locale={props.locale} />
+            <CustomHead pageName={process.env.events} locale={locale} />
             <Band />
             <Flex
                 w={'full'}

@@ -20,7 +20,7 @@ export default function Contact(props) {
 
     return (
         <Layout>
-            <CustomHead pageName={process.env.contact} locale={props.locale} />
+            <CustomHead pageName={process.env.contact} locale={locale} />
             <Band />
             <Flex w={'full'} paddingBottom={12} id="contact">
                 <Container maxW="container.xl">

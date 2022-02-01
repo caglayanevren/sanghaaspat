@@ -55,13 +55,13 @@ module.exports = {
         home: {
             english: {
                 title: 'Home',
-                desc: 'Home description',
+                desc: 'healing and meditation center',
                 path: '/',
                 notionPageId: '366afccc9ec74e3cae9f89af70b33459',
             },
             turkish: {
                 title: 'Anasayfa',
-                desc: 'Anasayfa açıklama',
+                desc: 'şifa ve meditasyon merkezi',
                 path: '/tr/',
                 notionPageId: 'b3a0c0fede8d457499a7da71a0e010db',
             },
@@ -69,7 +69,7 @@ module.exports = {
         aboutSangha: {
             english: {
                 title: 'About Sangha',
-                desc: 'About Sangha description',
+                desc: 'Sangha in Sanskrit means "to gather". A community of people, gathering for a higher purpose.',
                 path: '/about-sangha',
                 notionPageId: '77c9eaae32e24958aaf3650265dac47a',
                 firstCVId: '91e924e8-28e2-4a77-871f-2fb46723d2d4',
@@ -77,7 +77,7 @@ module.exports = {
             },
             turkish: {
                 title: 'Sangha Hakkında',
-                desc: 'Sangha Hakkında açıklama',
+                desc: 'Sangha, Sanskritçe\'de "toplanmak" anlamına gelir.',
                 path: '/sangha-hakkinda',
                 notionPageId: '2a209e6b6d5d4400954c5e8512ba8b56',
                 firstCVId: 'bc132381-cd85-43fb-988d-4b24ba698807',
@@ -87,13 +87,13 @@ module.exports = {
         qigongClasses: {
             english: {
                 title: 'Qi Gong Classes',
-                desc: 'Qi Gong Classes description',
+                desc: 'Classes, programs and more...',
                 path: '/qigong-classes',
                 notionPageId: 'b61625199c4b4663bea5760f7ef4bf95',
             },
             turkish: {
                 title: 'Qi Gong Dersleri',
-                desc: 'Qi Gong Dersleri açıklama',
+                desc: 'Sınıflar, ders saatleri ve dahası...',
                 path: '/qigong-dersleri',
                 notionPageId: 'f04458ef38c541efb0082eb3c44e7c62',
             },
@@ -101,13 +101,13 @@ module.exports = {
         qimassage: {
             english: {
                 title: 'Qi Massage',
-                desc: 'Qi Massage description',
+                desc: 'Qi massage is a healing system based on the philosophy of Chinese Medicine and Qi Gong practice.',
                 path: '/qimassage',
                 notionPageId: '955cd0b1b6ba45178a3a8e915b047e71',
             },
             turkish: {
                 title: 'Qi Masaj',
-                desc: 'Qi Masaj açıklama',
+                desc: 'Qi Masaj, temelini Geleneksel Çin Tıbbı ve Qi Gong pratiğinden alan bir iyileşme sistemidir.',
                 path: '/qimasaj',
                 notionPageId: '85fdbf63ddc844c3a4df86f05c7ce312',
             },
@@ -115,13 +115,13 @@ module.exports = {
         events: {
             english: {
                 title: 'Events',
-                desc: 'Events description',
+                desc: 'Our other events coming soon on this page! Stay tuned',
                 path: '/events',
                 notionPageId: '',
             },
             turkish: {
                 title: 'Etkinlikler',
-                desc: 'Etkinlikler açıklama',
+                desc: 'Çok yakında diğer etkinliklerimiz bu sayfada! Takipte kalın',
                 path: '/etkinlikler',
                 notionPageId: '',
             },
@@ -129,13 +129,13 @@ module.exports = {
         reviews: {
             english: {
                 title: 'Reviews',
-                desc: 'Reviews description',
+                desc: 'Sangha lovers said',
                 path: '/reviews',
                 notionPageId: '',
             },
             turkish: {
                 title: 'Yorumlar',
-                desc: 'Yorumlar açıklama',
+                desc: "Sangha'yı sevenler şunları söylediler",
                 path: '/yorumlar',
                 notionPageId: '',
             },
@@ -143,13 +143,13 @@ module.exports = {
         contact: {
             english: {
                 title: 'Contact',
-                desc: 'Contact description',
+                desc: 'Ask your questions about Sangha...',
                 path: '/contact',
                 notionPageId: '',
             },
             turkish: {
                 title: 'İletişim',
-                desc: 'İletişim açıklama',
+                desc: 'Sangha ile ilgili merak ettiklerinizi sorun...',
                 path: '/iletisim',
                 notionPageId: '',
             },
