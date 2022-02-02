@@ -6,6 +6,7 @@ import {
     FormControl,
     FormLabel,
     chakra,
+    Checkbox,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -20,7 +21,8 @@ export default function ContactForm(params) {
     // Input states
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [newsapprove, setNewsapprove] = useState(true);
+    const [phone, setPhone] = useState(' ');
     const [message, setMessage] = useState('');
     const [pot, setPot] = useState('');
     const [disabled, setDisabled] = useState(false);
@@ -32,7 +34,8 @@ export default function ContactForm(params) {
     const clearState = () => {
         setName('');
         setEmail('');
-        setPhone('');
+        setNewsapprove(true);
+        setPhone(' ');
         setPot('');
         setMessage('');
         const timeout = setTimeout(() => {
@@ -49,17 +52,17 @@ export default function ContactForm(params) {
         }
         const res = await fetch('/api/submit-form', {
             method: 'POST',
-            body: JSON.stringify({ name, phone, email, message }), //, purpose
+            body: JSON.stringify({ name, phone, email, newsapprove, message }), //, purpose
         });
         // Success if status code is 201
         if (res.status === 201) {
-            toast(`${t.toastThanks}`, { type: 'success' });
+            toast(`${t.contact.toastThanks}`, { type: 'success' });
             setDisabled(true);
             setTimeout(() => {
                 clearState();
             }, 1000);
         } else {
-            toast(`${t.toastError}`, { type: 'error' });
+            toast(`${t.contact.toastError}`, { type: 'error' });
         }
     };
 
@@ -79,51 +82,59 @@ export default function ContactForm(params) {
                 />
                 <div>
                     <chakra.p mb={4} fontWeight={'semibold'}>
-                        {t.text}
+                        {t.contact.text}
                     </chakra.p>
                 </div>
                 <div>
-                    <FormLabel htmlFor="name">{t.fullName}</FormLabel>
+                    <FormLabel htmlFor="name">{t.contact.fullName}</FormLabel>
                     <Input
                         type="text"
                         id="name"
                         name="name"
-                        placeholder={t.fullNamePlaceholder}
+                        placeholder={t.contact.fullNamePlaceholder}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
                 </div>
                 <FormControl id="phone">
-                    <FormLabel htmlFor="phone">{t.phone}</FormLabel>
+                    <FormLabel htmlFor="phone">{t.contact.phone}</FormLabel>
                     <Input
                         as={InputMask}
                         mask="999 999 99 99"
                         maskChar={null}
                         type="phone"
                         name="phone"
-                        placeholder={t.phonePlaceholder}
+                        placeholder={t.contact.phonePlaceholder}
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                     />
                 </FormControl>
-                <div>
-                    <FormLabel htmlFor="email">{t.email}</FormLabel>
+                <div className={styles.checkBox}>
+                    <FormLabel htmlFor="email">{t.contact.email}</FormLabel>
                     <Input
                         type="email"
                         name="email"
-                        placeholder={t.emailPlaceholder}
+                        placeholder={t.contact.emailPlaceholder}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
+                    <Checkbox
+                        size="md"
+                        colorScheme="white"
+                        onChange={(e) => setNewsapprove(e.target.checked)}
+                        defaultIsChecked
+                    >
+                        {t.contact.newsapproveCheckText}
+                    </Checkbox>
                 </div>
                 <div>
-                    <FormLabel htmlFor="message">{t.message}</FormLabel>
+                    <FormLabel htmlFor="message">{t.contact.message}</FormLabel>
                     <Textarea
                         name="message"
                         id="message"
                         rows="5"
-                        placeholder={t.messagePlaceholder}
+                        placeholder={t.contact.messagePlaceholder}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         required
@@ -135,9 +146,9 @@ export default function ContactForm(params) {
                         //className={styles.btn}
                         type="submit"
                     >
-                        {t.submit}
+                        {t.contact.submit}
                     </Button>
-                    {/* <Text>{t.disabled}</Text> */}
+                    {/* <Text>{t.contact.disabled}</Text> */}
                 </Flex>
             </form>
         </>
