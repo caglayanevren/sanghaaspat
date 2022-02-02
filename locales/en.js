@@ -13,7 +13,7 @@ export default {
         email: 'E-Mail Address',
         emailPlaceholder: 'johndoe@example.io',
         newsapproveCheckText:
-            'I approve the sending of the newsletter to my e-mail address',
+            'I approve the sending of the Sangha Newsletter to my e-mail address',
         message: 'Message',
         messagePlaceholder: 'Hi there!',
         submit: 'Submit',
