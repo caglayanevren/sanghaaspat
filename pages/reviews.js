@@ -34,29 +34,41 @@ import tr from '../locales/tr';
 const testimonials = [
     {
         name: 'Evren Ç.',
-        role: 'Web Developer',
-        content:
+        roleTR: 'Web Developer',
+        roleEN: 'Web Developer',
+        contentTR:
             'Sangha, son 1 yıldır benim için huzur bulduğum bir kaçış noktası oldu. Devam ettiğim Qi Gong dersleriyle kendime dair bir çok yeni şey keşfetmenin yanında, çok güzel insanlarla da tanıştım. Sağlığınız ile ilgili yeni bakış açıları edinebileceğiniz bu sıcacık ortamı herkese tavsiye ederim.',
+        contentEN:
+            'Sangha has been an escape point for me for the last 1 year, where I find peace. In addition to discovering many new things about myself with the Qi Gong lessons I continued, I also met very nice people. I would recommend this warm environment to everyone, where you can gain new perspectives on your health.',
         avatar: '/images/reviews/evren.jpg',
     },
     {
         name: 'User',
-        role: 'Role',
-        content:
+        roleTR: 'Role',
+        roleEN: 'Role',
+        contentTR:
+            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
+        contentEN:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
         avatar: '',
     },
     {
         name: 'User',
-        role: 'Role',
-        content:
+        roleTR: 'Role',
+        roleEN: 'Role',
+        contentTR:
+            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
+        contentEN:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
         avatar: '',
     },
     {
         name: 'User',
-        role: 'Role',
-        content:
+        roleTR: 'Role',
+        roleEN: 'Role',
+        contentTR:
+            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
+        contentEN:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
         avatar: '',
     },
@@ -70,7 +82,16 @@ const backgrounds = [
 ];
 
 function TestmonialCard(props) {
-    const { name, role, content, avatar, index } = props;
+    const {
+        name,
+        roleTR,
+        roleEN,
+        contentTR,
+        contentEN,
+        avatar,
+        locale,
+        index,
+    } = props;
     return (
         <Flex
             boxShadow={'lg'}
@@ -113,10 +134,15 @@ function TestmonialCard(props) {
                 textAlign={'left'}
                 justifyContent={'space-between'}
             >
-                <chakra.p pb={4}>{content}</chakra.p>
+                <chakra.p pb={4}>
+                    {locale == 'en' ? contentEN : contentTR}
+                </chakra.p>
                 <chakra.p fontWeight={'bold'}>
                     {name}
-                    <chakra.span fontWeight={'normal'}> - {role}</chakra.span>
+                    <chakra.span fontWeight={'normal'}>
+                        {' '}
+                        - {locale == 'en' ? roleEN : roleTR}
+                    </chakra.span>
                 </chakra.p>
             </Flex>
             <Avatar
@@ -177,6 +203,7 @@ export default function Reviews(props) {
                                     key={index}
                                     {...cardInfo}
                                     index={index}
+                                    locale={locale}
                                 />
                             ))}
                         </SimpleGrid>
