@@ -12,7 +12,8 @@ export default {
         phonePlaceholder: '555 555 55 55',
         email: 'E-posta Adresiniz:',
         emailPlaceholder: 'ahmetyilmaz@ornek.io',
-        newsapproveCheckText: 'Mail adresime bülten gönderilmesini onaylıyorum',
+        newsapproveCheckText:
+            'Mail adresime Sangha Bülten gönderilmesini onaylıyorum',
         message: 'Mesajınız:',
         messagePlaceholder: 'Merhaba!',
         submit: 'Gönder',
