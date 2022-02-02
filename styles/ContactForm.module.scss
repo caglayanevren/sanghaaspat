@@ -15,7 +15,7 @@
 }
 .form label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
     color: white;
 }
@@ -56,4 +56,13 @@
 }
 .pot {
     display: none;
+}
+.checkBox {
+    label:last-child {
+        display: flex;
+        margin-bottom: 1.5em;
+    }
+    input[type='email'] {
+        margin-bottom: 0.25em;
+    }
 }

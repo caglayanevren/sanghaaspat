@@ -24,12 +24,12 @@ export default function Contact(props) {
             <Band />
             <Flex w={'full'} paddingBottom={12} id="contact">
                 <Container maxW="container.xl">
-                    <h1 className={styles.title}>{t.contactUs}</h1>
+                    <h1 className={styles.title}>{t.contact.contactUs}</h1>
                     <chakra.p>
-                        <InfoIcon /> {t.address}
+                        <InfoIcon /> {t.contact.address}
                     </chakra.p>
                     <chakra.p>
-                        <EmailIcon /> {/* {t.email} */}
+                        <EmailIcon /> {/* {t.contact.email} */}
                     </chakra.p>
                     <Box display={{ md: 'flex' }}>
                         <Box w={['100%', '100%', '49%', '49%']}>
