@@ -108,6 +108,7 @@ export default function ContactForm(params) {
                         placeholder={t.contact.phonePlaceholder}
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
+                        required
                     />
                 </FormControl>
                 <div className={styles.checkBox}>
@@ -118,6 +119,7 @@ export default function ContactForm(params) {
                         placeholder={t.contact.emailPlaceholder}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
                     <Checkbox
                         size="md"
