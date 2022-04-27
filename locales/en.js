@@ -10,7 +10,7 @@ export default {
         fullNamePlaceholder: 'John Doe',
         phone: 'Phone Number',
         phonePlaceholder: '555 555 55 55',
-        email: 'E-Mail Address',
+        email: 'sanghaaspat@gmail.com',
         emailPlaceholder: 'johndoe@example.io',
         newsapproveCheckText:
             'I approve the sending of the Sangha Newsletter to my e-mail address',
