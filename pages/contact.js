@@ -29,7 +29,7 @@ export default function Contact(props) {
                         <InfoIcon /> {t.contact.address}
                     </chakra.p>
                     <chakra.p>
-                        <EmailIcon /> {/* {t.contact.email} */}
+                        <EmailIcon /> {t.contact.email}
                     </chakra.p>
                     <Box display={{ md: 'flex' }}>
                         <Box w={['100%', '100%', '49%', '49%']}>

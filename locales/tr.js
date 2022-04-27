@@ -10,7 +10,7 @@ export default {
         fullNamePlaceholder: 'Ahmet Yılmaz',
         phone: 'Telefon Numaranız:',
         phonePlaceholder: '555 555 55 55',
-        email: 'E-posta Adresiniz:',
+        email: 'sanghaaspat@gmail.com',
         emailPlaceholder: 'ahmetyilmaz@ornek.io',
         newsapproveCheckText:
             'Mail adresime Sangha Bülten gönderilmesini onaylıyorum',

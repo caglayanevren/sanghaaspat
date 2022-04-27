@@ -33,7 +33,7 @@ import tr from '../locales/tr';
 
 const testimonials = [
     {
-        name: 'Evren Ç.',
+        name: 'Evren Çağlayan',
         roleTR: 'Web Developer',
         roleEN: 'Web Developer',
         contentTR:
@@ -43,16 +43,26 @@ const testimonials = [
         avatar: '/images/reviews/evren.jpg',
     },
     {
-        name: 'User',
-        roleTR: 'Role',
-        roleEN: 'Role',
+        name: 'Görkem Orbay',
+        roleTR: 'Diş Hekimi',
+        roleEN: 'Dentist',
         contentTR:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
+            'Zeynep’le 2015 de tanıştım. O yeni bir yol seçmişti kendine. Merakla, hevesle anlatıyordu, öğretiyordu. O gün bugündür hayatımda Qi gong. Derken Sanghamıza kavuştuk. Burası yuva oldu bana, destek oldu, güç verdi. Sangha benim için aile demek, huzur demek, birliktelik demek. Bu öğreti benim hayatla olan bağımı, hayata karşı duruşumu değiştirdi. İyi ki yollarımız kesilmiş. Minnetle 🙏',
         contentEN:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: '',
+            'I met Zeynep in 2015. She had chosen a new path for herself. Curiously, enthusiastically he was telling and teaching. That day is today Qi gong in my life. Then we got our Sangha. This place became my home, it supported me, it gave me strength. Sangha means family, peace, togetherness for me. This teaching has changed my connection with life, my attitude towards life. Glad our paths were cut off. gratefully',
+        avatar: '/images/reviews/gorkem.jpg',
     },
     {
+        name: 'Serap Özbay',
+        roleTR: 'Yapımcı',
+        roleEN: 'Producer',
+        contentTR:
+            'Sevgili hocam Zeynep’le ve Qi Gong ile tanışmasaydım şimdi ne durumda olurdum tahmin edemiyorum! 2 yıl önce konulan Parkinson teşhisim sonrasında yapabileceğim en iyi sporlardan birinin Qi Gong olduğunu okudum birçok yabancı üniversite makalelerinde ve ben 1-0 önde başlamıştım bu mücadeleye. Sanırım 4 yıldan fazla oldu ilk tanışmamız. İlk başladığımızda çok yavaş gelen hareketler sıkıcı gibi olsa da sonunda çok iyi hissettiğim için içgüdülerim devam dedi. Zamanla, derinleşmeye başladıkça ne kadar önemli ve kıymetli bir şey yaptığımızı anladım. Özellikle de belli bir yaştan sonra başımıza gelebilecek olumsuzlukları önlemek için. Omuz, sırt ve diz ağrılarına veda ediyorsunuz zaten. Yıllarca gidilen fizyoterapilerin yerine bu kadar basit hareketlerle çözüm bulduğunuza inanamıyorsunuz. Parkinson olumsuz etkilerine yardımını saymıyorum bile…Bu arada hocamla beraber  Tayland’a gidip klinikte 2 haftalık dolu dolu çalışma şansım da oldu. Giderken yürümekte zorlanıyordum, dönüşteki farkı en çok beni gözlemleyen arkadaşlarım farketti ve inanamadılar! O zaman teşhisim henüz konulmamıştı. Sanırım Qi Qong sayesinde extra bir 2 yıl kazanmıştım. Merkezinde olmayı öğrenmek ve yıllar içinde edindiğimiz yanlış hareket alışkanlıklarımızı düzeltmek ne kadar kıymetli bir şey anlatmak zor. Ne kadar gecikmeden başlarsanız o kadar hayat kolaylaşacak ve kalitesi artacak. Hele ki Sangha Aspat gibi bir mekanda bu şansınız varsa dersleri sabısızlıkla bekliyorsunuz. Teşekkürler Zeynep’cim, sevgili hocam. İyi ki bu işe gönül verdin ve biz de arkandan geliyoruz.',
+        contentEN:
+            'I can’t imagine what situation I would be in now if I hadn’t met my dear teacher Zeynep and Qi Gong! After my Parkinson’s diagnosis 2 years ago, I read that one of the best sports I can do is Qi Gong in many foreign university articles and I started this struggle 1-0 ahead. I think it’s been more than 4 years since we first met. Even though the movements that were very slow when we first started, it seemed boring at the end, because I felt very good at the end, my instincts said to continue. Over time, as I began to deepen, I realized how important and valuable we were doing. Especially to prevent the negativities that may happen to us after a certain age. You are already saying goodbye to shoulder, back and knee pain. You cannot believe that you have found a solution with such simple movements instead of physiotherapy for years. Not to mention his help with the negative effects of Parkinson’s… By the way, I had the chance to go to Thailand with my teacher and work in the clinic for 2 weeks. I was having trouble walking on the way, my friends who observed me the most noticed the difference on the way back and couldn’t believe it! At that time I had not yet been diagnosed. I think I gained an extra 2 years thanks to Qi Qong. It is difficult to describe how valuable it is to learn to be at the center and correct the wrong habits of movement we have acquired over the years. The sooner you start, the more life will be easier and the quality will increase. Especially if you have this chance in a place like Sangha Aspat, you look forward to the lessons. Thank you Zeynep, my dear teacher. I’m glad you set your heart on this and we’re behind you.',
+        avatar: '/images/reviews/serap.jpg',
+    },
+    /* {
         name: 'User',
         roleTR: 'Role',
         roleEN: 'Role',
@@ -61,17 +71,7 @@ const testimonials = [
         contentEN:
             'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
         avatar: '',
-    },
-    {
-        name: 'User',
-        roleTR: 'Role',
-        roleEN: 'Role',
-        contentTR:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        contentEN:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: '',
-    },
+    }, */
 ];
 
 const backgrounds = [
