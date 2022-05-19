@@ -11,6 +11,7 @@ export default {
         phone: 'Telefon Numaranız:',
         phonePlaceholder: '555 555 55 55',
         email: 'sanghaaspat@gmail.com',
+        emailText: 'E-Posta',
         emailPlaceholder: 'ahmetyilmaz@ornek.io',
         newsapproveCheckText:
             'Mail adresime Sangha Bülten gönderilmesini onaylıyorum',
