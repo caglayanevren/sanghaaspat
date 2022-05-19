@@ -112,7 +112,7 @@ export default function ContactForm(params) {
                     />
                 </FormControl>
                 <div className={styles.checkBox}>
-                    <FormLabel htmlFor="email">{t.contact.email}</FormLabel>
+                    <FormLabel htmlFor="email">{t.contact.emailText}</FormLabel>
                     <Input
                         type="email"
                         name="email"
