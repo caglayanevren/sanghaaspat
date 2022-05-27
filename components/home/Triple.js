@@ -103,7 +103,16 @@ export default function Triple({
                                 : `/tr${process.env.qigongClasses.turkish.path}`
                         }
                     />
-                    <Sek title={tqhtitle} text={tqhtext} imagesrc={tqhImage} />
+                    <Sek
+                        title={tqhtitle}
+                        text={tqhtext}
+                        imagesrc={tqhImage}
+                        link={
+                            locale === 'en'
+                                ? process.env.aboutSangha.english.path
+                                : `/tr${process.env.aboutSangha.turkish.path}`
+                        }
+                    />
                 </Stack>
             </Container>
         </Flex>
