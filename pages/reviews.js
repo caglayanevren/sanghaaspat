@@ -33,16 +33,6 @@ import tr from '../locales/tr';
 
 const testimonials = [
     {
-        name: 'Evren Çağlayan',
-        roleTR: 'Web Developer',
-        roleEN: 'Web Developer',
-        contentTR:
-            'Sangha, son 1 yıldır benim için huzur bulduğum bir kaçış noktası oldu. Devam ettiğim Qi Gong dersleriyle kendime dair bir çok yeni şey keşfetmenin yanında, çok güzel insanlarla da tanıştım. Sağlığınız ile ilgili yeni bakış açıları edinebileceğiniz bu sıcacık ortamı herkese tavsiye ederim.',
-        contentEN:
-            'Sangha has been an escape point for me for the last 1 year, where I find peace. In addition to discovering many new things about myself with the Qi Gong lessons I continued, I also met very nice people. I would recommend this warm environment to everyone, where you can gain new perspectives on your health.',
-        avatar: '/images/reviews/evren.jpg',
-    },
-    {
         name: 'Görkem Orbay',
         roleTR: 'Diş Hekimi',
         roleEN: 'Dentist',
@@ -51,6 +41,16 @@ const testimonials = [
         contentEN:
             'I met Zeynep in 2015. She had chosen a new path for herself. Curiously, enthusiastically he was telling and teaching. That day is today Qi gong in my life. Then we got our Sangha. This place became my home, it supported me, it gave me strength. Sangha means family, peace, togetherness for me. This teaching has changed my connection with life, my attitude towards life. Glad our paths were cut off. gratefully',
         avatar: '/images/reviews/gorkem.jpg',
+    },
+    {
+        name: 'Evren Çağlayan',
+        roleTR: 'Web Developer',
+        roleEN: 'Web Developer',
+        contentTR:
+            'Sangha, son 1 yıldır benim için huzur bulduğum bir kaçış noktası oldu. Devam ettiğim Qi Gong dersleriyle kendime dair bir çok yeni şey keşfetmenin yanında, çok güzel insanlarla da tanıştım. Sağlığınız ile ilgili yeni bakış açıları edinebileceğiniz bu sıcacık ortamı herkese tavsiye ederim.',
+        contentEN:
+            'Sangha has been an escape point for me for the last 1 year, where I find peace. In addition to discovering many new things about myself with the Qi Gong lessons I continued, I also met very nice people. I would recommend this warm environment to everyone, where you can gain new perspectives on your health.',
+        avatar: '/images/reviews/evren.jpg',
     },
     {
         name: 'Serap Özbay',
