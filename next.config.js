@@ -1,5 +1,5 @@
 module.exports = {
-    swcMinify: true,
+    swcMinify: false,
     reactStrictMode: false,
     i18n: {
         locales: ['en', 'tr'],
