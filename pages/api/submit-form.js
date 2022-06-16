@@ -6,18 +6,20 @@ const notion = new Client({
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
-        return res
-            .status(405)
-            .json({ message: `${req.method} requests are not allowed` });
+        return res.status(405).json({ message: `${req.method} requests are not allowed` });
     }
     try {
-        const { name, phone, email, newsapprove, message } = JSON.parse(
-            req.body
-        ); //, purpose
+        const { name, phone, email, newsapprove, message } = JSON.parse(req.body); //, purpose
+        //const response = await notion.users.list();
+        //console.log(response);
+
+        //const pageId = '315cf727703d473888a89132a28b06e9';
+        //const response = await notion.pages.retrieve({ page_id: pageId });
+        //console.log(response.properties.Notify.people);
+
         await notion.pages.create({
             parent: {
-                database_id:
-                    process.env.SANGHAASPAT_CONTACT_SUBMISSIONS_DATABASE_ID,
+                database_id: process.env.SANGHAASPAT_CONTACT_SUBMISSIONS_DATABASE_ID,
             },
             properties: {
                 Name: {
@@ -44,6 +46,19 @@ export default async function handler(req, res) {
                             text: {
                                 content: message,
                             },
+                        },
+                    ],
+                },
+                Notify: {
+                    people: [
+                        {
+                            object: 'user',
+                            id: 'a1234aa4-7733-43f3-b7ec-73d5bc86b94e',
+                            //name: 'Zeynep',
+                            //type: 'person',
+                            //person: {
+                            //    email: 'zeyneporalg@hotmail.com',
+                            //},
                         },
                     ],
                 },
