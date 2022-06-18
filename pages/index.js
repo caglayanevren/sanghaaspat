@@ -10,8 +10,7 @@ export async function getStaticProps({ locale }) {
     const pageIdEn = process.env.home.english.notionPageId;
     const pageIdTr = process.env.home.turkish.notionPageId;
 
-    const pageId =
-        locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
+    const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
     const response = await getBlocks(pageId);
 
@@ -30,28 +29,14 @@ export default function Home(props) {
         <Layout>
             {/* {console.log('ALL: ', props.results)} */}
             <CustomHead pageName={process.env.home} locale={props.locale} />
-            <Hero
-                motto={props.results.results[0].paragraph.text[0].text.content}
-            />
+            <Hero motto={props.results.results[0].paragraph.rich_text[0].text.content} />
             <Triple
-                sanghatitle={
-                    props.results.results[1].heading_2.text[0].text.content
-                }
-                qigongtitle={
-                    props.results.results[3].heading_2.text[0].text.content
-                }
-                tqhtitle={
-                    props.results.results[5].heading_2.text[0].text.content
-                }
-                sanghatext={
-                    props.results.results[2].paragraph.text[0].text.content
-                }
-                qigongtext={
-                    props.results.results[4].paragraph.text[0].text.content
-                }
-                tqhtext={
-                    props.results.results[6].paragraph.text[0].text.content
-                }
+                sanghatitle={props.results.results[1].heading_2.rich_text[0].text.content}
+                qigongtitle={props.results.results[3].heading_2.rich_text[0].text.content}
+                tqhtitle={props.results.results[5].heading_2.rich_text[0].text.content}
+                sanghatext={props.results.results[2].paragraph.rich_text[0].text.content}
+                qigongtext={props.results.results[4].paragraph.rich_text[0].text.content}
+                tqhtext={props.results.results[6].paragraph.rich_text[0].text.content}
             />
         </Layout>
     );

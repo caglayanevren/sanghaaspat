@@ -50,8 +50,7 @@ module.exports = {
     },
     env: {
         NEXT_PUBLIC_GOOGLE_ANALYTICS: 'G-D4C9JXL36Z',
-        NEXT_PUBLIC_GOOGLEMAP_API_KEY:
-            'AIzaSyBV6p2zItmGXOYH_4JU85dv6kPj9pzQQ_g',
+        NEXT_PUBLIC_GOOGLEMAP_API_KEY: 'AIzaSyBV6p2zItmGXOYH_4JU85dv6kPj9pzQQ_g',
         siteTitle: 'Sangha Aspat',
         home: {
             english: {
