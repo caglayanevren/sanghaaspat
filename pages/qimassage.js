@@ -10,8 +10,7 @@ export async function getStaticProps({ locale }) {
     const pageIdEn = process.env.qimassage.english.notionPageId;
     const pageIdTr = process.env.qimassage.turkish.notionPageId;
 
-    const pageId =
-        locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
+    const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
     const pageresponse = await getPage(pageId);
     const blockresponse = await getBlocks(pageId);
@@ -20,9 +19,7 @@ export async function getStaticProps({ locale }) {
     const sectionContentLength = blockresponse.results.length;
 
     for (let i = 0; i < sectionContentLength; i++) {
-        sectionContents.push(
-            blockresponse.results[i].paragraph.text[0].text.content
-        );
+        sectionContents.push(blockresponse.results[i].paragraph.rich_text[0].text.content);
     }
 
     return {
@@ -39,15 +36,9 @@ export async function getStaticProps({ locale }) {
 export default function QiMassage(props) {
     return (
         <Layout>
-            <CustomHead
-                pageName={process.env.qimassage}
-                locale={props.locale}
-            />
+            <CustomHead pageName={process.env.qimassage} locale={props.locale} />
             <Band />
-            <FirstSection
-                title={props.results.properties.Title.title[0].text.content}
-                contents={props.contents}
-            />
+            <FirstSection title={props.results.properties.Title.title[0].text.content} contents={props.contents} />
         </Layout>
     );
 }

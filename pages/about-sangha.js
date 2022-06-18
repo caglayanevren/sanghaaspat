@@ -17,20 +17,9 @@ export async function getStaticProps({ locale }) {
     const secondCVIdEn = process.env.aboutSangha.english.secondCVId;
     const secondCVIdTr = process.env.aboutSangha.turkish.secondCVId;
 
-    const pageId =
-        locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
-    const firstId =
-        locale === 'en'
-            ? firstCVIdEn
-            : locale === 'tr'
-            ? firstCVIdTr
-            : 'lang error';
-    const secondId =
-        locale === 'en'
-            ? secondCVIdEn
-            : locale === 'tr'
-            ? secondCVIdTr
-            : 'lang error';
+    const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
+    const firstId = locale === 'en' ? firstCVIdEn : locale === 'tr' ? firstCVIdTr : 'lang error';
+    const secondId = locale === 'en' ? secondCVIdEn : locale === 'tr' ? secondCVIdTr : 'lang error';
 
     const pageresponse = await getPage(pageId);
     const blockresponse = await getBlocks(pageId);
@@ -47,19 +36,13 @@ export async function getStaticProps({ locale }) {
     const secondCVContentLength = secondblockresponse.results.length;
 
     for (let i = 0; i < sectionContentLength; i++) {
-        sectionContents.push(
-            blockresponse.results[i].paragraph.text[0].text.content
-        );
+        sectionContents.push(blockresponse.results[i].paragraph.rich_text[0].text.content);
     }
     for (let i = 0; i < firstCVContentLength; i++) {
-        firstCVContents.push(
-            firstblockresponse.results[i].paragraph.text[0].text.content
-        );
+        firstCVContents.push(firstblockresponse.results[i].paragraph.rich_text[0].text.content);
     }
     for (let i = 0; i < secondCVContentLength; i++) {
-        secondCVContents.push(
-            secondblockresponse.results[i].paragraph.text[0].text.content
-        );
+        secondCVContents.push(secondblockresponse.results[i].paragraph.rich_text[0].text.content);
     }
 
     return {
@@ -84,29 +67,11 @@ export default function About(props) {
         <Layout>
             {/* {console.log('ALLpageresults: ', props.firstcvresults)} */}
             {/* {console.log('ALLcontents: ', props.firstcvcontents)} */}
-            <CustomHead
-                pageName={process.env.aboutSangha}
-                locale={props.locale}
-            />
+            <CustomHead pageName={process.env.aboutSangha} locale={props.locale} />
             <Band />
-            <FirstSection
-                title={props.results.properties.Title.title[0].text.content}
-                contents={props.contents}
-            />
-            <CVLayout
-                title={props.firstcvresults.properties.Title.title[0].text.content}
-                degree={props.firstCVdegree}
-                contents={props.firstcvcontents}
-                name="zeynep"
-                CVImage={zeynepCVImage}
-            />
-            <CVLayout
-                title={props.secondcvresults.properties.Title.title[0].text.content}
-                degree={props.secondCVdegree}
-                contents={props.secondcvcontents}
-                name="hazal"
-                CVImage={hazalCVImage}
-            />
+            <FirstSection title={props.results.properties.Title.title[0].text.content} contents={props.contents} />
+            <CVLayout title={props.firstcvresults.properties.Title.title[0].text.content} degree={props.firstCVdegree} contents={props.firstcvcontents} name="zeynep" CVImage={zeynepCVImage} />
+            <CVLayout title={props.secondcvresults.properties.Title.title[0].text.content} degree={props.secondCVdegree} contents={props.secondcvcontents} name="hazal" CVImage={hazalCVImage} />
         </Layout>
     );
 }
