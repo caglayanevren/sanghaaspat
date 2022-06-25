@@ -6,6 +6,9 @@ module.exports = {
         defaultLocale: 'en',
         localeDetection: false,
     },
+    images: {
+        domains: ['lh3.googleusercontent.com'],
+    },
     trailingSlash: true,
     webpack(config) {
         config.module.rules.push({
@@ -97,6 +100,7 @@ module.exports = {
                 path: '/qigong-dersleri',
                 notionPageId: 'f04458ef38c541efb0082eb3c44e7c62',
             },
+            galleryId: 'cf9c6e8c460f4e10bc35128e50574c98',
         },
         qimassage: {
             english: {
@@ -111,6 +115,7 @@ module.exports = {
                 path: '/qimasaj',
                 notionPageId: '85fdbf63ddc844c3a4df86f05c7ce312',
             },
+            galleryId: '6c93f7143b45497986630db0c2b36540',
         },
         events: {
             english: {
