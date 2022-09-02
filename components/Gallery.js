@@ -10,7 +10,7 @@ export default function Gallery({ images }) {
     const [viewerVisible, setviewerVisible] = useState(false);
     return (
         <Container maxW="container.xl">
-            <SimpleGrid columns={{ base: '1', sm: '2', md: '4', lg: '6', xl: '8' }} spacing={10}>
+            <SimpleGrid columns={{ base: '1', sm: '2', md: '4', lg: '6', xl: '6' }} spacing={10}>
                 <>
                     {images.map((item, index) => {
                         return (
