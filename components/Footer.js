@@ -1,19 +1,9 @@
-import {
-    Link,
-    Flex,
-    VStack,
-    Box,
-    Heading,
-    Text,
-    Container,
-    Button,
-    Center,
-} from '@chakra-ui/react';
+import { Link, Flex, VStack, Box, Heading, Text, Container, Button, Center } from '@chakra-ui/react';
 //import {  } from '../../styles/Footer.module.scss';
 
 export default function Footer() {
     return (
-        <Flex id="footer" w={'full'} paddingY={12} bgColor="gray.900">
+        <Flex id="footer" w={'full'} paddingY={12} bgColor="gray.900" marginTop={12}>
             <Container maxW="container.xl">
                 <Center>2022 &copy;</Center>
             </Container>
