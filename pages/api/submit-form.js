@@ -60,6 +60,15 @@ export default async function handler(req, res) {
                             //    email: 'zeyneporalg@hotmail.com',
                             //},
                         },
+                        {
+                            object: 'user',
+                            id: 'd2aaa4cc-3fba-49d4-a7b6-bba2ddf081ed',
+                            //name: 'Duygu',
+                            //type: 'person',
+                            //person: {
+                            //    email: 'duygusagit@gmail.com',
+                            //},
+                        },
                     ],
                 },
             },
