@@ -89,7 +89,7 @@ export default function ContactForm(params) {
                 <div className={styles.checkBox}>
                     <FormLabel htmlFor="email">{t.contact.emailText}</FormLabel>
                     <Input type="email" name="email" placeholder={t.contact.emailPlaceholder} value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <Checkbox size="md" colorScheme="white" onChange={(e) => setNewsapprove(e.target.checked)} defaultIsChecked>
+                    <Checkbox size="md" colorScheme="white" onChange={(e) => setNewsapprove(e.target.checked)} defaultChecked>
                         {t.contact.newsapproveCheckText}
                     </Checkbox>
                 </div>
