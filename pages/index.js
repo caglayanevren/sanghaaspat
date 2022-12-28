@@ -2,6 +2,7 @@ import Layout from '../components/layout-home';
 import CustomHead from '../components/CustomHead';
 import Hero from '../components/home/Hero';
 import Triple from '../components/home/Triple';
+import Subscribe from '../components/home/Subscribe';
 const { Client } = require('@notionhq/client');
 import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
 
@@ -38,6 +39,7 @@ export default function Home(props) {
                 qigongtext={props.results.results[4].paragraph.rich_text[0].text.content}
                 tqhtext={props.results.results[6].paragraph.rich_text[0].text.content}
             />
+            <Subscribe />
         </Layout>
     );
 }

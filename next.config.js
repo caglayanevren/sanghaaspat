@@ -54,6 +54,10 @@ module.exports = {
     env: {
         NEXT_PUBLIC_GOOGLE_ANALYTICS: 'G-D4C9JXL36Z',
         NEXT_PUBLIC_GOOGLEMAP_API_KEY: 'AIzaSyBV6p2zItmGXOYH_4JU85dv6kPj9pzQQ_g',
+        //NEXT_PUBLIC_MAILCHIMP_URL: 'https://sanghaaspat.us12.list-manage.com/subscribe/post?u=e92bb1d5dd4d92d7e34dfc38a&amp;id=3972369859&amp;f_id=004abee0f0',
+        NEXT_PUBLIC_MAILCHIMP_URL: 'https://us12.api.mailchimp.com/3.0/lists/3972369859/members',
+        MAILCHIMP_API_KEY: 'a531e494f236e0cd46ba491fec140d3e-us12',
+        MAILCHIMP_LIST_ID: '3972369859',
         siteTitle: 'Sangha Aspat',
         home: {
             english: {

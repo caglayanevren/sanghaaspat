@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
     contact: {
         toastThanks: 'Teşekkürler, mesajınız iletilmiştir!',
@@ -28,5 +29,14 @@ export default {
     reviews: {
         title: 'Yorumlar',
         text: "Sangha'yı sevenler şunları söylediler:",
+    },
+    newsletterSubscribe: {
+        title: 'Sangha bültene üye ol',
+        yourEmail: 'E-posta adresiniz',
+        submit: 'Gönder',
+        firstName: 'Adınız',
+        lastName: 'Soyadınız',
+        fillAllInfos: 'lütfen tüm bilgileri eksiksiz doldurunuz',
+        sending: 'Gönderiliyor...',
     },
 };
