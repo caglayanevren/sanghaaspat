@@ -34,7 +34,7 @@ export default function Triple({ sanghatitle, qigongtitle, tqhtitle, sanghatext,
     return (
         <Flex w={'full'} pb={0} pt={6} id="sangha">
             <Container maxW="container.xl">
-                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingY={16} spacing={12}>
+                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingY={10} spacing={12}>
                     <Sek title={sanghatitle} text={sanghatext} imagesrc={sanghaImage} link={locale === 'en' ? process.env.aboutSangha.english.path : `/tr${process.env.aboutSangha.turkish.path}`} />
                     <Sek title={qigongtitle} text={qigongtext} imagesrc={qigongImage} link={locale === 'en' ? process.env.qigongClasses.english.path : `/tr${process.env.qigongClasses.turkish.path}`} />
                     <Sek title={tqhtitle} text={tqhtext} imagesrc={tqhImage} link={locale === 'en' ? process.env.aboutSangha.english.path : `/tr${process.env.aboutSangha.turkish.path}`} />

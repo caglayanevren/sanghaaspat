@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
     contact: {
         toastThanks: 'Thank you for contacting us!',
@@ -28,5 +29,14 @@ export default {
     reviews: {
         title: 'Reviews',
         text: 'Sangha lovers said:',
+    },
+    newsletterSubscribe: {
+        title: 'Subscribe To Sangha Newsletter',
+        yourEmail: 'Your Email',
+        submit: 'Submit',
+        firstName: 'Firstname',
+        lastName: 'Lastname',
+        fillAllInfos: 'please fill in all the information completely',
+        sending: 'Sending...',
     },
 };
