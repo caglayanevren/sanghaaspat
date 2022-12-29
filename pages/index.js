@@ -14,7 +14,6 @@ export async function getStaticProps({ locale }) {
     const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
     const response = await getBlocks(pageId);
-
     return {
         props: {
             results: response,

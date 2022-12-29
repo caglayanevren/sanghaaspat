@@ -1,7 +1,6 @@
 import { useState } from 'react';
+import { decode } from 'html-entities';
 import { useRouter } from 'next/router';
-import { sanitize } from '../../lib/sanitize';
-import Loading from '../../lib/loading';
 import { Link, Flex, VStack, Stack, Box, Heading, Text, Container, Icon, Input, Button } from '@chakra-ui/react';
 import en from '../../locales/en';
 import tr from '../../locales/tr';
@@ -9,9 +8,9 @@ import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 const NewsletterForm = ({ status, message, onValidated }) => {
     const [error, setError] = useState(null);
-    const [email, setEmail] = useState(null);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
+    const [email, setEmail] = useState(null);
 
     const router = useRouter();
     const { locale } = router;
@@ -64,25 +63,10 @@ const NewsletterForm = ({ status, message, onValidated }) => {
         }
         const result = message?.split('-') ?? null;
         if ('0' !== result?.[0]?.trim()) {
-            return sanitize(message);
+            return decode(message);
         }
         const formattedMessage = result?.[1]?.trim() ?? null;
-        return formattedMessage ? sanitize(formattedMessage) : null;
-    };
-
-    /**
-     * Extract message from string.
-     *
-     * @param {String} message
-     * @return {null|*}
-     */
-    const breakMessageToLines = (message) => {
-        if (!message) {
-            return null;
-        }
-        let result = message?.replaceAll('. ', '.<br>');
-
-        return result;
+        return formattedMessage ? decode(formattedMessage) : null;
     };
 
     return (
@@ -120,9 +104,9 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                     />
                 </Stack>
                 <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingY={0} spacing={12}>
-                    {'sending' === status ? <Loading showSpinner message={t.newsletterSubscribe.sending} contentColorClass="text-white" hasVisibilityToggle={false} /> : null}
+                    {'sending' === status ? <Text color="blue.600">{t.newsletterSubscribe.sending}</Text> : null}
                     {'error' === status || error ? <Text color="red.600" dangerouslySetInnerHTML={{ __html: error || getMessage(message) }} /> : null}
-                    {'success' === status && 'error' !== status && !error && <Text color="green.600" dangerouslySetInnerHTML={{ __html: breakMessageToLines(sanitize(message)) }} />}
+                    {'success' === status && 'error' !== status && !error && <Text color="green.600" dangerouslySetInnerHTML={{ __html: decode(message) }} />}
                 </Stack>
                 <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingBottom={16} spacing={12}>
                     <Button onClick={handleFormSubmit} rightIcon={<HiOutlineArrowNarrowRight />}>
