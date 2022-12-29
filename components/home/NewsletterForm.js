@@ -94,7 +94,14 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                         onChange={(event) => setLastName(event?.target?.value ?? '')}
                         onKeyUp={(event) => handleInputKeyEvent(event)}
                     />
-                    <Input type="email" placeholder="your e-mail" _placeholder={{ opacity: 1, color: 'gray.300' }} size="lg" onChange={(event) => setEmail(event?.target?.value ?? '')} onKeyUp={(event) => handleInputKeyEvent(event)} />
+                    <Input
+                        type="email"
+                        placeholder={t.newsletterSubscribe.yourEmail}
+                        _placeholder={{ opacity: 1, color: 'gray.300' }}
+                        size="lg"
+                        onChange={(event) => setEmail(event?.target?.value ?? '')}
+                        onKeyUp={(event) => handleInputKeyEvent(event)}
+                    />
                 </Stack>
                 <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingY={0} spacing={12}>
                     {'sending' === status ? <Text color="blue.600">{t.newsletterSubscribe.sending}</Text> : null}
