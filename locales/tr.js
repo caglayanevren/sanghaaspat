@@ -38,5 +38,9 @@ export default {
         lastName: 'Soyadınız',
         fillAllInfos: 'lütfen tüm bilgileri eksiksiz doldurunuz',
         sending: 'Gönderiliyor...',
+        error: 'Tüm alanları eksiksiz ve doğru doldurduğunuzdan emin olun...',
+        success: 'Neredeyse bitti... E-posta adresinizi doğrulamamız gerekiyor. Abonelik işlemini tamamlamak için lütfen size az önce gönderdiğimiz e-postadaki bağlantıya tıklayın. Ve lütfen istenmeyen posta (Spam) klasörünüzü de kontrol edin',
+        pop: 'Dikkat!',
+        popbody: "Size gönderilecek onay mailinin ve Sangha Bülten'in spam klasörünüze düşmemesi için, sanghaaspat@gmail.com mail adresimizi adres defterinize ekleyebilirsiniz.",
     },
 };

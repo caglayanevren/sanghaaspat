@@ -38,5 +38,9 @@ export default {
         lastName: 'Lastname',
         fillAllInfos: 'please fill in all the information completely',
         sending: 'Sending...',
+        error: 'Make sure you fill out all fields completely and correctly....',
+        success: 'Almost finished... We need to confirm your email address. To complete the subscription process, please click the link in the email we just sent you. And please also check your spam folder',
+        pop: 'Caution!',
+        popbody: 'You can add our e-mail address sanghaaspat@gmail.com to your address book so that the confirmation e-mail and Sangha Newsletter do not fall into your spam folder.',
     },
 };

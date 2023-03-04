@@ -1,9 +1,32 @@
 import { useState } from 'react';
 import { decode } from 'html-entities';
 import { useRouter } from 'next/router';
-import { Link, Flex, VStack, Stack, Box, Heading, Text, Container, Icon, Input, Button } from '@chakra-ui/react';
+import {
+    Link,
+    Flex,
+    VStack,
+    Stack,
+    Box,
+    Heading,
+    Text,
+    Container,
+    Icon,
+    Input,
+    Button,
+    Tooltip,
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverHeader,
+    PopoverBody,
+    PopoverFooter,
+    PopoverArrow,
+    PopoverCloseButton,
+    PopoverAnchor,
+} from '@chakra-ui/react';
 import en from '../../locales/en';
 import tr from '../../locales/tr';
+import { WarningIcon } from '@chakra-ui/icons';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 const NewsletterForm = ({ status, message, onValidated }) => {
@@ -77,7 +100,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                         {t.newsletterSubscribe.title}
                     </Heading>
                 </Stack>
-                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingBottom={4} spacing={12}>
+                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingBottom={0} spacing={12}>
                     <Input
                         type="text"
                         placeholder={t.newsletterSubscribe.firstName}
@@ -103,15 +126,26 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                         onKeyUp={(event) => handleInputKeyEvent(event)}
                     />
                 </Stack>
-                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingY={0} spacing={12}>
+                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingY={4} spacing={12}>
                     {'sending' === status ? <Text color="blue.600">{t.newsletterSubscribe.sending}</Text> : null}
-                    {'error' === status || error ? <Text color="red.600" dangerouslySetInnerHTML={{ __html: error || getMessage(message) }} /> : null}
-                    {'success' === status && 'error' !== status && !error && <Text color="green.600" dangerouslySetInnerHTML={{ __html: decode(message) }} />}
+                    {'error' === status || error ? <Text color="red.600">{t.newsletterSubscribe.error}</Text> : null}
+                    {'success' === status && 'error' !== status && !error && <Text color="green.600">{t.newsletterSubscribe.success}</Text>}
                 </Stack>
-                <Stack direction={{ base: 'column', md: 'row' }} w={'full'} paddingBottom={16} spacing={12}>
-                    <Button onClick={handleFormSubmit} rightIcon={<HiOutlineArrowNarrowRight />}>
+                <Stack direction={{ base: 'row', md: 'row' }} align={'center'} w={'full'} paddingBottom={16} spacing={12}>
+                    <Button mt={0} onClick={handleFormSubmit} rightIcon={<HiOutlineArrowNarrowRight />}>
                         {t.newsletterSubscribe.submit}
                     </Button>
+                    <Popover placement="bottom-start">
+                        <PopoverTrigger>
+                            <WarningIcon w={8} h={8} />
+                        </PopoverTrigger>
+                        <PopoverContent bg="gray.800" color="gray.100" border={0}>
+                            <PopoverArrow bg="gray.800" boxShadow={'1px 1px 1px 0 gray.800'} />
+                            <PopoverCloseButton p={4} />
+                            <PopoverHeader fontWeight={'bold'}>{t.newsletterSubscribe.pop}</PopoverHeader>
+                            <PopoverBody>{t.newsletterSubscribe.popbody}</PopoverBody>
+                        </PopoverContent>
+                    </Popover>
                 </Stack>
             </Container>
         </Flex>
