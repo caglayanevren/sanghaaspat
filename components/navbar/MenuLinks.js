@@ -11,7 +11,7 @@ export default function MenuLinks({ isOpen }) {
     const { locale, locales, defaultLocale } = router;
     return (
         <Box display={{ base: isOpen ? 'block' : 'none', md: 'block' }} flexBasis={{ base: '100%', md: 'auto' }}>
-            <Stack spacing={[8, 8, 7, 10]} align="center" justify={['center', 'space-between', 'flex-end', 'flex-end']} direction={['column', 'column', 'row', 'row']} pt={[4, 4, 0, 0]}>
+            <Stack spacing={[8, 8, 5, 10]} align="center" justify={['center', 'space-between', 'flex-end', 'flex-end']} direction={['column', 'column', 'row', 'row']} pt={[4, 4, 0, 0]}>
                 <Link href={locale === 'en' ? '/' : locale === 'tr' ? '/tr/' : 'lang error'} aria-label={locale === 'en' ? process.env.home.english.title : locale === 'tr' ? process.env.home.turkish.title : 'lang error'}>
                     <SunIcon />
                 </Link>
@@ -53,6 +53,7 @@ export default function MenuLinks({ isOpen }) {
                 />
                 <MenuItem to="/qimassage" toTr="/qimasaj" textEn="Qi&nbsp;Massage" textTr="Qi&nbsp;Masaj" />
                 <MenuItem to="/events" toTr="/etkinlikler" textEn="Events" textTr="Etkinlikler" />
+                <MenuItem to="/retreats" toTr="/inziva" textEn="Retreats" textTr="İnziva" />
                 <MenuItem to="/reviews" toTr="/yorumlar" textEn="Reviews" textTr="Yorumlar" />
                 <MenuItem to="/contact" toTr="/iletisim" textEn="Contact" textTr="İletişim" />
                 {/* <ChangeColorMode /> */}

@@ -18,6 +18,7 @@ export default function LocaleSwitcher() {
             '/qimassage': '/qimasaj',
             '/events': '/etkinlikler',
             '/reviews': '/yorumlar',
+            '/retreats': '/inziva',
             '/contact': '/iletisim',
         },
         en: {
@@ -27,11 +28,12 @@ export default function LocaleSwitcher() {
             '/qimassage': '/qimassage',
             '/events': '/events',
             '/reviews': '/reviews',
+            '/retreats': '/retreats',
             '/contact': '/contact',
         },
-    }
-    const translatedPath = pathTranslations[otherLocales]?.[pathname] 
-    const as = translatedPath && activeLocale === 'en' ? `/${otherLocales}${translatedPath}` : translatedPath && activeLocale === 'tr' ? `${translatedPath}` : undefined
+    };
+    const translatedPath = pathTranslations[otherLocales]?.[pathname];
+    const as = translatedPath && activeLocale === 'en' ? `/${otherLocales}${translatedPath}` : translatedPath && activeLocale === 'tr' ? `${translatedPath}` : undefined;
     //{console.log('tran: ', translatedPath);}
 
     return (
@@ -40,11 +42,7 @@ export default function LocaleSwitcher() {
                 {otherLocales.map((locale) => {
                     return (
                         <li key={locale} style={{ listStyle: 'none' }}>
-                            <Link
-                                href={translatedPath}
-                                as={as}
-                                locale={locale}
-                            >
+                            <Link href={translatedPath} as={as} locale={locale}>
                                 <a
                                     style={{
                                         textTransform: 'uppercase',
