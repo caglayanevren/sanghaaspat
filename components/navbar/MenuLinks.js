@@ -12,9 +12,11 @@ export default function MenuLinks({ isOpen }) {
     return (
         <Box display={{ base: isOpen ? 'block' : 'none', md: 'block' }} flexBasis={{ base: '100%', md: 'auto' }}>
             <Stack spacing={[8, 8, 7, 10]} align="center" justify={['center', 'space-between', 'flex-end', 'flex-end']} direction={['column', 'column', 'row', 'row']} pt={[4, 4, 0, 0]}>
-                <Link href={locale === 'en' ? '/' : locale === 'tr' ? '/tr/' : 'lang error'} aria-label={locale === 'en' ? process.env.home.english.title : locale === 'tr' ? process.env.home.turkish.title : 'lang error'}>
-                    <SunIcon />
-                </Link>
+                {
+                    <Link href={locale === 'en' ? '/' : locale === 'tr' ? '/tr/' : 'lang error'} aria-label={locale === 'en' ? process.env.home.english.title : locale === 'tr' ? process.env.home.turkish.title : 'lang error'}>
+                        <SunIcon />
+                    </Link>
+                }
                 <MenuItem
                     to="/about-sangha"
                     toTr="/sangha-hakkinda"

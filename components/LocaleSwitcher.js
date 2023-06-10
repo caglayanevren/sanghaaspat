@@ -10,13 +10,15 @@ export default function LocaleSwitcher() {
     //{console.log('p: ', pathname);}
     //{console.log('q: ', query);}
     //{console.log('as: ', asPath);}
-    const pathTranslations = {
+    const pathTranslations = process.env.pathTranslations;
+    /* const pathTranslations = {
         tr: {
             '/': '/',
             '/about-sangha': '/sangha-hakkinda',
             '/qigong-classes': '/qigong-dersleri',
             '/qimassage': '/qimasaj',
             '/events': '/etkinlikler',
+            '/events/workshops': '/etkinlikler/workshoplar',
             '/reviews': '/yorumlar',
             '/contact': '/iletisim',
         },
@@ -26,12 +28,13 @@ export default function LocaleSwitcher() {
             '/qigong-classes': '/qigong-classes',
             '/qimassage': '/qimassage',
             '/events': '/events',
+            '/events/workshops': '/events/workshops',
             '/reviews': '/reviews',
             '/contact': '/contact',
         },
-    }
-    const translatedPath = pathTranslations[otherLocales]?.[pathname] 
-    const as = translatedPath && activeLocale === 'en' ? `/${otherLocales}${translatedPath}` : translatedPath && activeLocale === 'tr' ? `${translatedPath}` : undefined
+    }; */
+    const translatedPath = pathTranslations[otherLocales]?.[pathname];
+    const as = translatedPath && activeLocale === 'en' ? `/${otherLocales}${translatedPath}` : translatedPath && activeLocale === 'tr' ? `${translatedPath}` : undefined;
     //{console.log('tran: ', translatedPath);}
 
     return (
@@ -40,11 +43,7 @@ export default function LocaleSwitcher() {
                 {otherLocales.map((locale) => {
                     return (
                         <li key={locale} style={{ listStyle: 'none' }}>
-                            <Link
-                                href={translatedPath}
-                                as={as}
-                                locale={locale}
-                            >
+                            <Link href={translatedPath} as={as} locale={locale}>
                                 <a
                                     style={{
                                         textTransform: 'uppercase',
