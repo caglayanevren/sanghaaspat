@@ -25,6 +25,7 @@ export default {
     events: {
         title: 'Events',
         text: 'Our other events coming soon on this page! Stay tuned',
+        workshops: 'Workshops',
     },
     reviews: {
         title: 'Reviews',
