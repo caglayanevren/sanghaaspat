@@ -38,6 +38,8 @@ export async function getStaticProps({ locale }) {
 export default function About(props) {
     return (
         <Layout>
+            {console.log('Results: ', props.results)}
+            {console.log('Contents: ', props.contents)}
             <CustomHead pageName={process.env.retreats} locale={props.locale} />
             <Band />
             <FirstSection title={props.results.properties.Title.title[0].text.content} contents={props.contents} />
