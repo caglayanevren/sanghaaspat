@@ -40,6 +40,11 @@ module.exports = {
                 locale: false,
             },
             {
+                source: '/tr/inziva',
+                destination: '/tr/retreats',
+                locale: false,
+            },
+            {
                 source: '/tr/yorumlar',
                 destination: '/tr/reviews',
                 locale: false,
@@ -130,6 +135,20 @@ module.exports = {
                 desc: 'Çok yakında diğer etkinliklerimiz bu sayfada! Takipte kalın',
                 path: '/etkinlikler',
                 notionPageId: '',
+            },
+        },
+        retreats: {
+            english: {
+                title: 'Retreats',
+                desc: '',
+                path: '/retreats',
+                notionPageId: '28d4779d1c6641ad904be4be19fe51d8',
+            },
+            turkish: {
+                title: 'İnziva',
+                desc: '',
+                path: '/inziva',
+                notionPageId: 'a3924a9f24a9454c8f38348b8cc270a3',
             },
         },
         reviews: {
