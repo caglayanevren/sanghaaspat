@@ -1,12 +1,13 @@
 const { Client } = require('@notionhq/client');
 import { databaseId, getDatabase, getPage, getBlocks } from '../../lib/notion';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
+import Image from 'next/image';
 import Layout from '../../components/layout';
 import Band from '../../components/Band';
 import CustomHead from '../../components/CustomHead';
-import Image from 'next/image';
-import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Icon } from '@chakra-ui/react';
-import { imagecontainer, firstSectionContainer } from '../../styles/Events.module.scss';
+import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Icon, AspectRatio } from '@chakra-ui/react';
+import { imagecontainer, firstSectionContainer, videoIframe } from '../../styles/Events.module.scss';
 import firstImage from '../../public/images/events/events.jpg';
 import workshopsImage from '../../public/images/events/events.jpg';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
@@ -43,7 +44,9 @@ export default function ForKids(props) {
 
     return (
         <Layout>
-            {/* {console.log('ALLworkshopsResults: ', props.workshopsResults)} */}
+            {console.log('ALLkidsResults: ', props.kidsResults)}
+            {console.log('ALLkidsContents: ', props.kidsContents)}
+            <Script type="text/javascript" id="hs-script-loader" strategy="lazyOnload" async defer src="//player.vimeo.com/api/player.js" />
             <CustomHead pageName={process.env.events} locale={locale} />
             <Band />
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="events">
@@ -57,18 +60,23 @@ export default function ForKids(props) {
                         </Heading>
                     </Box>
                     <Container maxW="container.xl">
-                        <SimpleGrid columns={{ base: '1', md: '3' }} spacing={10}>
+                        <SimpleGrid columns={{ base: '1', lg: '2' }} spacing={10}>
                             <Box>
-                                <SkeletonCircle borderRadius={0} startColor="gray.500" endColor="gray.400" size="10" />
-                                <SkeletonText startColor="gray.500" endColor="gray.400" mt="4" noOfLines={6} spacing="4" />
+                                <AspectRatio ratio={16 / 9}>
+                                    <iframe
+                                        src="https://player.vimeo.com/video/836846233?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                        allow="autoplay; fullscreen; picture-in-picture"
+                                        className={videoIframe}
+                                        title="Qi Gong for Kids"
+                                    ></iframe>
+                                </AspectRatio>
                             </Box>
                             <Box>
-                                <SkeletonCircle borderRadius={0} startColor="gray.500" endColor="gray.400" size="10" />
-                                <SkeletonText startColor="gray.500" endColor="gray.400" mt="4" noOfLines={6} spacing="4" />
-                            </Box>
-                            <Box>
-                                <SkeletonCircle borderRadius={0} startColor="gray.500" endColor="gray.400" size="10" />
-                                <SkeletonText startColor="gray.500" endColor="gray.400" mt="4" noOfLines={6} spacing="4" />
+                                {props.kidsContents.map((content, i) => (
+                                    <Text key={i} marginBottom={2}>
+                                        {content}
+                                    </Text>
+                                ))}
                             </Box>
                         </SimpleGrid>
                     </Container>
