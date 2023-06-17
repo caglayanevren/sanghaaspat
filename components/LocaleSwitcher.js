@@ -10,13 +10,15 @@ export default function LocaleSwitcher() {
     //{console.log('p: ', pathname);}
     //{console.log('q: ', query);}
     //{console.log('as: ', asPath);}
-    const pathTranslations = {
+    const pathTranslations = process.env.pathTranslations;
+    /* const pathTranslations = {
         tr: {
             '/': '/',
             '/about-sangha': '/sangha-hakkinda',
             '/qigong-classes': '/qigong-dersleri',
             '/qimassage': '/qimasaj',
             '/events': '/etkinlikler',
+            '/events/workshops': '/etkinlikler/workshoplar',
             '/reviews': '/yorumlar',
             '/retreats': '/inziva',
             '/contact': '/iletisim',
@@ -27,11 +29,12 @@ export default function LocaleSwitcher() {
             '/qigong-classes': '/qigong-classes',
             '/qimassage': '/qimassage',
             '/events': '/events',
+            '/events/workshops': '/events/workshops',
             '/reviews': '/reviews',
             '/retreats': '/retreats',
             '/contact': '/contact',
         },
-    };
+    }; */
     const translatedPath = pathTranslations[otherLocales]?.[pathname];
     const as = translatedPath && activeLocale === 'en' ? `/${otherLocales}${translatedPath}` : translatedPath && activeLocale === 'tr' ? `${translatedPath}` : undefined;
     //{console.log('tran: ', translatedPath);}

@@ -44,6 +44,7 @@ export default {
     events: {
         title: 'Etkinlikler',
         text: 'Çok yakında diğer etkinliklerimiz bu sayfada! Takipte kalın',
+        workshops: 'Workshoplar',
     },
     reviews: {
         title: 'Yorumlar',

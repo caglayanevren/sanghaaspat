@@ -1,25 +1,11 @@
 import NavBar from './navbar/Navbar';
-import {
-    Link,
-    Flex,
-    VStack,
-    Box,
-    Heading,
-    Text,
-    Container,
-    Button,
-    Wrap,
-} from '@chakra-ui/react';
+import { Link, Flex, VStack, Box, Heading, Text, Container, Button, Wrap } from '@chakra-ui/react';
 import Footer from './Footer';
 
 export default function Layout({ children }) {
     return (
         <>
-            <NavBar
-                position={{ base: 'absolute', md: 'relative' }}
-                zIndex={3}
-                pb={1}
-            />
+            <NavBar position={{ base: 'absolute', md: 'relative' }} zIndex={3} pb={1} />
             <Box
                 id="main"
                 minHeight={{
