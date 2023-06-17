@@ -9,8 +9,8 @@ import CustomHead from '../../components/CustomHead';
 import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Icon, AspectRatio } from '@chakra-ui/react';
 import { imagecontainer, firstSectionContainer, videoIframe } from '../../styles/Events.module.scss';
 import firstImage from '../../public/images/events/events.jpg';
-import workshopsImage from '../../public/images/events/events.jpg';
-import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
+//import workshopsImage from '../../public/images/events/events.jpg';
+import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 import en from '../../locales/en';
 import tr from '../../locales/tr';
 
@@ -54,11 +54,20 @@ export default function ForKids(props) {
                     <Container maxW="container.xl" className={imagecontainer}>
                         <Image className={'image'} src={firstImage} alt={t.events.title} layout="responsive" width={1280} height={461} priority={true} />
                     </Container>
-                    <Box textAlign="center">
+                    <Flex w={'full'} maxW="container.xl" paddingInline={'1rem'}>
+                        <Box textAlign="center" display={'flex'} alignItems={'center'} justifyContent={'center'}>
+                            <Link href={locale === 'en' ? '/events/workshops' : '/tr/etkinlikler/workshoplar'} title={locale === 'en' ? 'Workshops' : 'Workshoplar'} display={'inline-flex'}>
+                                <Icon marginBottom={0} boxSize={'1.5rem'} as={HiOutlineArrowNarrowLeft} />
+                            </Link>
+                        </Box>
+                        <Spacer />
                         <Heading as="h2" size="2xl" fontWeight="300">
                             {props.kidsResults.properties.title.title[0].text.content}
                         </Heading>
-                    </Box>
+                        <Spacer />
+                        <Box textAlign="center">&nbsp;</Box>
+                    </Flex>
+
                     <Container maxW="container.xl">
                         <SimpleGrid columns={{ base: '1', lg: '2' }} spacing={10}>
                             <Box>

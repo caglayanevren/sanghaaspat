@@ -67,14 +67,18 @@ export default function Workshops(props) {
                     <Container maxW="container.xl" className={imagecontainer}>
                         <Image className={'image'} src={firstImage} alt={t.events.title} layout="responsive" width={1280} height={461} priority={true} />
                     </Container>
-                    <Flex w={'full'} maxW="container.xl">
+                    <Flex w={'full'} maxW="container.xl" paddingInline={'1rem'}>
                         <Box textAlign="center">&nbsp;</Box>
                         <Spacer />
                         <Heading as="h2" size="2xl" fontWeight="300">
                             {t.events.workshops}
                         </Heading>
                         <Spacer />
-                        <Box textAlign="center">&nbsp;</Box>
+                        <Box textAlign="center" display={'flex'} alignItems={'center'} justifyContent={'center'}>
+                            <Link href={locale === 'en' ? '/events/for-kids' : `/tr/etkinlikler/cocuklar-icin`} title={locale === 'en' ? 'Qi Gong for Kids' : 'Çocuklar için Qi Gong'} display={'inline-flex'}>
+                                <Icon marginBottom={0} boxSize={'1.5rem'} as={HiOutlineArrowNarrowRight} />
+                            </Link>
+                        </Box>
                     </Flex>
                     <Container maxW="container.xl">
                         <SimpleGrid columns={{ base: '1', lg: '2' }} spacing={10}>

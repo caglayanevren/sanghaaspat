@@ -57,6 +57,11 @@ module.exports = {
                 locale: false,
             },
             {
+                source: '/tr/inziva',
+                destination: '/tr/retreats',
+                locale: false,
+            },
+            {
                 source: '/tr/yorumlar',
                 destination: '/tr/reviews',
                 locale: false,
@@ -237,6 +242,7 @@ module.exports = {
                 '/events/workshops': '/etkinlikler/workshoplar',
                 '/events/balance': '/etkinlikler/denge',
                 '/events/for-kids': '/etkinlikler/cocuklar-icin',
+                '/retreats': '/inziva',
                 '/reviews': '/yorumlar',
                 '/contact': '/iletisim',
             },
@@ -249,6 +255,7 @@ module.exports = {
                 '/events/workshops': '/events/workshops',
                 '/events/balance': '/events/balance',
                 '/events/for-kids': '/events/for-kids',
+                '/retreats': '/retreats',
                 '/reviews': '/reviews',
                 '/contact': '/contact',
             },
