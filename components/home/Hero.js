@@ -8,7 +8,7 @@ export default function Hero({ motto }) {
     return (
         <Flex w={'full'} h={{ base: '100vh', md: 'calc(100vh - 88px)' }}>
             <VStack w={'full'} position="relative">
-                <Image src="/images/home/hero_v4.jpg" alt="Sangha Aspat" layout="fill" objectFit="cover" objectPosition="center" priority={true} as="image" />
+                <Image src="/images/home/hero_v5.jpg" alt="Sangha Aspat" layout="fill" objectFit="cover" objectPosition="center" priority={true} as="image" />
                 <VStack
                     w={'full'}
                     //bgGradient={'linear(to-r, blackAlpha.600, blackAlpha.600)'}
