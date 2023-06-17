@@ -5,10 +5,10 @@ import Layout from '../../components/layout';
 import Band from '../../components/Band';
 import CustomHead from '../../components/CustomHead';
 import Image from 'next/image';
-import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Icon, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Link, Flex, VStack, HStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Icon, UnorderedList, ListItem } from '@chakra-ui/react';
 import { imagecontainer, firstSectionContainer, workshopImageStyle } from '../../styles/Events.module.scss';
 import firstImage from '../../public/images/events/events.jpg';
-import balanceImage from '../../public/images/events/IMG_1382.jpg';
+import balanceImage from '../../public/images/events/IMG_7711.jpg';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import en from '../../locales/en';
 import tr from '../../locales/tr';
@@ -57,9 +57,9 @@ export default function Workshops(props) {
 
     return (
         <Layout>
-            {console.log('ALLbalanceResults: ', props.balanceResults)}
-            {console.log('ALLbalanceBlockResponse: ', props.balanceBlockResponse)}
-            {console.log('ALLbalanceContents: ', props.balanceContents)}
+            {/* {console.log('ALLbalanceResults: ', props.balanceResults)} */}
+            {/* {console.log('ALLbalanceBlockResponse: ', props.balanceBlockResponse)} */}
+            {/* {console.log('ALLbalanceContents: ', props.balanceContents)} */}
             <CustomHead pageName={process.env.events} locale={locale} />
             <Band />
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="events">
@@ -67,12 +67,15 @@ export default function Workshops(props) {
                     <Container maxW="container.xl" className={imagecontainer}>
                         <Image className={'image'} src={firstImage} alt={t.events.title} layout="responsive" width={1280} height={461} priority={true} />
                     </Container>
-                    <Box textAlign="center">
+                    <Flex w={'full'} maxW="container.xl">
+                        <Box textAlign="center">&nbsp;</Box>
+                        <Spacer />
                         <Heading as="h2" size="2xl" fontWeight="300">
-                            {/* {props.balanceResults.properties.title.title[0].text.content} */}
                             {t.events.workshops}
                         </Heading>
-                    </Box>
+                        <Spacer />
+                        <Box textAlign="center">&nbsp;</Box>
+                    </Flex>
                     <Container maxW="container.xl">
                         <SimpleGrid columns={{ base: '1', lg: '2' }} spacing={10}>
                             <VStack h="100%" spacing={2} direction="column" alignItems="flex-start" justifyContent="space-between">
@@ -119,8 +122,6 @@ export default function Workshops(props) {
                             </VStack>
                             <Box>
                                 <Image className={workshopImageStyle} src={balanceImage} alt={props.balanceResults.properties.title.title[0].text.content} />
-                                {/* <SkeletonCircle borderRadius={0} startColor="gray.500" endColor="gray.400" size="10" /> */}
-                                {/* <SkeletonText startColor="gray.500" endColor="gray.400" mt="4" noOfLines={6} spacing="4" /> */}
                             </Box>
                         </SimpleGrid>
                     </Container>

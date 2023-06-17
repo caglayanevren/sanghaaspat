@@ -44,8 +44,8 @@ export default function ForKids(props) {
 
     return (
         <Layout>
-            {console.log('ALLkidsResults: ', props.kidsResults)}
-            {console.log('ALLkidsContents: ', props.kidsContents)}
+            {/* {console.log('ALLkidsResults: ', props.kidsResults)} */}
+            {/* {console.log('ALLkidsContents: ', props.kidsContents)} */}
             <Script type="text/javascript" id="hs-script-loader" strategy="lazyOnload" async defer src="//player.vimeo.com/api/player.js" />
             <CustomHead pageName={process.env.events} locale={locale} />
             <Band />

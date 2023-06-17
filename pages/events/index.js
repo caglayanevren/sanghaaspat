@@ -57,7 +57,7 @@ export default function Events(props) {
 
     return (
         <Layout>
-            {console.log('ALLworkshopsResults: ', props.workshopsContents)}
+            {/* {console.log('ALLworkshopsResults: ', props.workshopsContents)} */}
             <CustomHead pageName={process.env.events} locale={locale} />
             <Band />
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="events">
