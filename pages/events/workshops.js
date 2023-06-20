@@ -65,12 +65,12 @@ export default function Workshops(props) {
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="events">
                 <VStack w={'full'} spacing={12}>
                     <Container maxW="container.xl" className={imagecontainer}>
-                        <Image className={'image'} src={firstImage} alt={t.events.title} layout="responsive" width={1280} height={461} priority={true} />
+                        <Image className={'image'} src={firstImage} alt={t.events.title} width={1280} height={461} priority={true} />
                     </Container>
                     <Flex w={'full'} maxW="container.xl" paddingInline={'1rem'}>
                         <Box textAlign="center">&nbsp;</Box>
                         <Spacer />
-                        <Heading as="h2" size="2xl" fontWeight="300">
+                        <Heading as="h2" fontWeight="400">
                             {t.events.workshops}
                         </Heading>
                         <Spacer />

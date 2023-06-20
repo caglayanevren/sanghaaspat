@@ -8,7 +8,7 @@ export default function FirstSection({ title, contents }) {
         <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="retreats">
             <VStack w={'full'} spacing={12}>
                 <Container maxW="container.xl" className={imagecontainer}>
-                    <Image className={'image'} src={firstImage} alt={title} layout="responsive" width={1919} height={692} priority={true} />
+                    <Image className={'image'} src={firstImage} alt={title} width={1919} height={692} priority={true} />
                 </Container>
                 <Heading as="h2" fontWeight="400">
                     {title}
@@ -36,10 +36,7 @@ export default function FirstSection({ title, contents }) {
                             </Box>
                         </GridItem>
                         <GridItem w="100%" colSpan={{ base: 1, md: 1 }}>
-                            <Image className={'image'} src={secondImage} alt={title} layout="responsive" width={1000} height={740} priority={false} />
-                            {/* <Box h="100%" bg="gray" w="100%" p={4} color="white">
-                                Image
-                            </Box> */}
+                            <Image className={'image'} src={secondImage} alt={title} width={1000} height={740} priority={false} />
                         </GridItem>
                     </Grid>
                 </Container>

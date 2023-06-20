@@ -52,7 +52,7 @@ export default function ForKids(props) {
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="events">
                 <VStack w={'full'} spacing={12}>
                     <Container maxW="container.xl" className={imagecontainer}>
-                        <Image className={'image'} src={firstImage} alt={t.events.title} layout="responsive" width={1280} height={461} priority={true} />
+                        <Image className={'image'} src={firstImage} alt={t.events.title} width={1280} height={461} priority={true} />
                     </Container>
                     <Flex w={'full'} maxW="container.xl" paddingInline={'1rem'}>
                         <Box textAlign="center" display={'flex'} alignItems={'center'} justifyContent={'center'}>
@@ -61,7 +61,7 @@ export default function ForKids(props) {
                             </Link>
                         </Box>
                         <Spacer />
-                        <Heading as="h2" size="2xl" fontWeight="300">
+                        <Heading as="h2" fontWeight="400">
                             {props.kidsResults.properties.title.title[0].text.content}
                         </Heading>
                         <Spacer />

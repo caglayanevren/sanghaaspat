@@ -61,7 +61,7 @@ export default function QiGongClasses(props) {
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="qigongclasses">
                 <VStack w={'full'} spacing={12}>
                     <Container maxW="container.xl" className={imagecontainer}>
-                        <Image className={'image'} src={firstImage} alt={props.pageresponse.properties.Title.title[0].plain_text} layout="responsive" width={1280} height={461} priority={true} />
+                        <Image className={'image'} src={firstImage} alt={props.pageresponse.properties.Title.title[0].plain_text} width={1280} height={461} priority={true} />
                     </Container>
                     <Heading as="h2" fontWeight="400">
                         {props.pageresponse.properties.Title.title[0].plain_text}
@@ -69,7 +69,7 @@ export default function QiGongClasses(props) {
                     <Container maxW="container.xl">
                         <SimpleGrid columns={{ base: '1', md: '3' }} spacing={10}>
                             <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="semibold">
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[0].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
@@ -83,7 +83,7 @@ export default function QiGongClasses(props) {
                                 </Text>
                             </Box>
                             <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="semibold">
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[4].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
@@ -97,7 +97,7 @@ export default function QiGongClasses(props) {
                                 </Text>
                             </Box>
                             <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="semibold">
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[8].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
@@ -118,7 +118,7 @@ export default function QiGongClasses(props) {
                     <Container maxW="container.xl">
                         <SimpleGrid columns={{ base: '1', md: '3' }} spacing={10}>
                             <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="semibold">
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[13].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
@@ -132,7 +132,7 @@ export default function QiGongClasses(props) {
                                 </Text>
                             </Box>
                             <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="semibold">
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[17].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
@@ -143,7 +143,7 @@ export default function QiGongClasses(props) {
                                 </Text>
                             </Box>
                             <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="semibold">
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[20].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">

@@ -4,29 +4,8 @@ import Layout from '../components/layout';
 import Band from '../components/Band';
 import CustomHead from '../components/CustomHead';
 import Image from 'next/image';
-import {
-    Link,
-    Flex,
-    VStack,
-    Box,
-    Spacer,
-    Heading,
-    Text,
-    Container,
-    Button,
-    SimpleGrid,
-    Skeleton,
-    SkeletonCircle,
-    SkeletonText,
-    Avatar,
-    chakra,
-    Icon,
-    useColorModeValue,
-} from '@chakra-ui/react';
-import {
-    imagecontainer,
-    firstSectionContainer,
-} from '../styles/Reviews.module.scss';
+import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Avatar, chakra, Icon, useColorModeValue } from '@chakra-ui/react';
+import { imagecontainer, firstSectionContainer } from '../styles/Reviews.module.scss';
 import firstImage from '../public/images/reviews/reviews.jpg';
 import en from '../locales/en';
 import tr from '../locales/tr';
@@ -62,16 +41,6 @@ const testimonials = [
             'I can’t imagine what situation I would be in now if I hadn’t met my dear teacher Zeynep and Qi Gong! After my Parkinson’s diagnosis 2 years ago, I read that one of the best sports I can do is Qi Gong in many foreign university articles and I started this struggle 1-0 ahead. I think it’s been more than 4 years since we first met. Even though the movements that were very slow when we first started, it seemed boring at the end, because I felt very good at the end, my instincts said to continue. Over time, as I began to deepen, I realized how important and valuable we were doing. Especially to prevent the negativities that may happen to us after a certain age. You are already saying goodbye to shoulder, back and knee pain. You cannot believe that you have found a solution with such simple movements instead of physiotherapy for years. Not to mention his help with the negative effects of Parkinson’s… By the way, I had the chance to go to Thailand with my teacher and work in the clinic for 2 weeks. I was having trouble walking on the way, my friends who observed me the most noticed the difference on the way back and couldn’t believe it! At that time I had not yet been diagnosed. I think I gained an extra 2 years thanks to Qi Qong. It is difficult to describe how valuable it is to learn to be at the center and correct the wrong habits of movement we have acquired over the years. The sooner you start, the more life will be easier and the quality will increase. Especially if you have this chance in a place like Sangha Aspat, you look forward to the lessons. Thank you Zeynep, my dear teacher. I’m glad you set your heart on this and we’re behind you.',
         avatar: '/images/reviews/serap.jpg',
     },
-    /* {
-        name: 'User',
-        roleTR: 'Role',
-        roleEN: 'Role',
-        contentTR:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        contentEN:
-            'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab fugiat ea corporis laudantium earum quos quas sequi nihil iusto recusandae, quo, itaque laborum repellat doloremque. Natus sequi, provident sint, atque deserunt alias in excepturi iste nulla facilis voluptatem repudiandae omnis cumque animi assumenda. Ea officiis blanditiis optio amet laboriosam?',
-        avatar: '',
-    }, */
 ];
 
 const backgrounds = [
@@ -82,16 +51,7 @@ const backgrounds = [
 ];
 
 function TestmonialCard(props) {
-    const {
-        name,
-        roleTR,
-        roleEN,
-        contentTR,
-        contentEN,
-        avatar,
-        locale,
-        index,
-    } = props;
+    const { name, roleTR, roleEN, contentTR, contentEN, avatar, locale, index } = props;
     return (
         <Flex
             boxShadow={'lg'}
@@ -129,29 +89,14 @@ function TestmonialCard(props) {
                 backgroundImage: backgrounds[index % 4],
             }}
         >
-            <Flex
-                direction={'column'}
-                textAlign={'left'}
-                justifyContent={'space-between'}
-            >
-                <chakra.p pb={4}>
-                    {locale == 'en' ? contentEN : contentTR}
-                </chakra.p>
+            <Flex direction={'column'} textAlign={'left'} justifyContent={'space-between'}>
+                <chakra.p pb={4}>{locale == 'en' ? contentEN : contentTR}</chakra.p>
                 <chakra.p fontWeight={'bold'}>
                     {name}
-                    <chakra.span fontWeight={'normal'}>
-                        {' '}
-                        - {locale == 'en' ? roleEN : roleTR}
-                    </chakra.span>
+                    <chakra.span fontWeight={'normal'}> - {locale == 'en' ? roleEN : roleTR}</chakra.span>
                 </chakra.p>
             </Flex>
-            <Avatar
-                src={avatar}
-                height={'80px'}
-                width={'80px'}
-                alignSelf={'center'}
-                m={{ base: '0 0 35px 0', md: '0 0 0 50px' }}
-            />
+            <Avatar src={avatar} height={'80px'} width={'80px'} alignSelf={'center'} m={{ base: '0 0 35px 0', md: '0 0 0 50px' }} />
         </Flex>
     );
 }
@@ -165,56 +110,28 @@ export default function Reviews(props) {
         <Layout>
             <CustomHead pageName={process.env.reviews} locale={locale} />
             <Band />
-            <Flex
-                w={'full'}
-                className={firstSectionContainer}
-                paddingBottom={12}
-                id="reviews"
-            >
+            <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="reviews">
                 <VStack w={'full'} spacing={12}>
                     <Container maxW="container.xl" className={imagecontainer}>
-                        <Image
-                            className={'image'}
-                            src={firstImage}
-                            alt={t.reviews.title}
-                            layout="responsive"
-                            width={1280}
-                            height={461}
-                            priority={true}
-                        />
+                        <Image className={'image'} src={firstImage} alt={t.reviews.title} width={1280} height={461} priority={true} />
                     </Container>
                     <Box textAlign="center">
                         <Heading as="h2" fontWeight="400">
                             {t.reviews.title}
                         </Heading>
-                        <Text mt={5} fontWeight="300">
+                        <Text mt={5} fontWeight="400">
                             {t.reviews.text}
                         </Text>
                     </Box>
                     <Container maxW="container.xl">
-                        <SimpleGrid
-                            columns={{ base: 1, xl: 2 }}
-                            spacing={'20'}
-                            mt={16}
-                            mx={'auto'}
-                        >
+                        <SimpleGrid columns={{ base: 1, xl: 2 }} spacing={'20'} mt={16} mx={'auto'}>
                             {testimonials.map((cardInfo, index) => (
-                                <TestmonialCard
-                                    key={index}
-                                    {...cardInfo}
-                                    index={index}
-                                    locale={locale}
-                                />
+                                <TestmonialCard key={index} {...cardInfo} index={index} locale={locale} />
                             ))}
                         </SimpleGrid>
                     </Container>
                     <Box>
-                        <Icon
-                            viewBox="0 0 40 35"
-                            mt={14}
-                            boxSize={10}
-                            color={'white'}
-                        >
+                        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'white'}>
                             <path
                                 fill={'currentColor'}
                                 d="M10.7964 5.04553e-07C8.66112 -0.000123335 6.57374 0.632971 4.79827 1.81922C3.0228 3.00547 1.63898 4.69158 0.82182 6.66433C0.00466116 8.63708 -0.209132 10.8079 0.207477 12.9021C0.624087 14.9964 1.65239 16.9201 3.16233 18.4299L19.1153 34.3828C19.2395 34.5074 19.3871 34.6062 19.5496 34.6736C19.7121 34.741 19.8863 34.7757 20.0622 34.7757C20.2381 34.7757 20.4123 34.741 20.5748 34.6736C20.7373 34.6062 20.8848 34.5074 21.0091 34.3828L36.962 18.4272C38.9319 16.3917 40.0228 13.6636 39.9996 10.8311C39.9764 7.99858 38.8409 5.28867 36.838 3.28573C34.835 1.28279 32.1251 0.147283 29.2926 0.124081C26.4601 0.100879 23.732 1.19184 21.6965 3.1617L20.0622 4.79337L18.4305 3.1617C17.4276 2.15892 16.237 1.36356 14.9267 0.821064C13.6163 0.278568 12.2119 -0.000433066 10.7937 5.04553e-07H10.7964Z"

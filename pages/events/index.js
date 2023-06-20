@@ -63,10 +63,10 @@ export default function Events(props) {
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="events">
                 <VStack w={'full'} spacing={12}>
                     <Container maxW="container.xl" className={imagecontainer}>
-                        <Image className={'image'} src={firstImage} alt={t.events.title} layout="responsive" width={1280} height={461} priority={true} />
+                        <Image className={'image'} src={firstImage} alt={t.events.title} width={1280} height={461} priority={true} />
                     </Container>
                     <Box textAlign="center">
-                        <Heading as="h2" size="2xl" fontWeight="300">
+                        <Heading as="h2" fontWeight="400">
                             {t.events.title}
                         </Heading>
                     </Box>
@@ -75,7 +75,7 @@ export default function Events(props) {
                             <VStack h="100%" spacing={2} direction="column" alignItems="flex-start" justifyContent="space-between">
                                 <Box>
                                     <Image src={workshopsImage} alt={props.workshopsResults.properties.title.title[0].text.content} rounded={8} />
-                                    <Heading as="h4" size="lg" marginTop={4} marginBottom={2} fontWeight="300">
+                                    <Heading as="h4" size="lg" marginTop={4} marginBottom={2} fontWeight="400">
                                         {props.workshopsResults.properties.title.title[0].text.content}
                                     </Heading>
                                     {props.workshopsContents.map((content, i) => (
@@ -94,7 +94,7 @@ export default function Events(props) {
                             <VStack h="100%" spacing={2} direction="column" alignItems="flex-start" justifyContent="space-between">
                                 <Box>
                                     <Image src={kidsImage} alt={props.kidsResults.properties.title.title[0].text.content} rounded={8} />
-                                    <Heading as="h4" size="lg" marginTop={4} marginBottom={2} fontWeight="300">
+                                    <Heading as="h4" size="lg" marginTop={4} marginBottom={2} fontWeight="400">
                                         {props.kidsResults.properties.title.title[0].text.content}
                                     </Heading>
                                     {props.kidsContents.map((content, i) => (
@@ -121,7 +121,7 @@ export default function Events(props) {
                         </SimpleGrid>
                     </Container>
                     <Box textAlign="center">
-                        <Text mt={5} fontWeight="300">
+                        <Text mt={5} fontWeight="400">
                             {t.events.text}
                         </Text>
                     </Box>

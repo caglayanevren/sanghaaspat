@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 const Button = {
     // The styles all button have in common
     baseStyle: {
@@ -70,7 +71,6 @@ export default {
     initialColorMode: 'dark',
     useSystemColorMode: true,
     fonts: {
-        //heading: 'Playfair Display',
         heading: 'Raleway',
         body: 'Raleway',
     },

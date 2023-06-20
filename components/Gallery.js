@@ -18,10 +18,9 @@ export default function Gallery({ images }) {
                                 <Image
                                     alt={item.alt}
                                     src={item.src}
-                                    layout="responsive"
                                     width={300}
                                     height={300}
-                                    objectFit="cover"
+                                    style={{ objectFit: 'cover' }}
                                     onClick={() => {
                                         setviewerVisible('true');
                                         setActiveIndex(index);

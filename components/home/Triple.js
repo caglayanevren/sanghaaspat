@@ -11,7 +11,7 @@ export function Sek({ title, text, imagesrc, link }) {
     return (
         <VStack width={{ base: '100%', md: '33.33%' }} spacing={2} direction="column" alignItems="flex-start" justifyContent="space-between">
             <Box className={imagecontainer} mb={8}>
-                <Image className={'image'} src={imagesrc} alt={title} layout="responsive" width={350} height={257} rounded={8} placeholder="blur" blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                <Image className={'image'} src={imagesrc} alt={title} width={350} height={257} rounded={8} placeholder="blur" blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
             </Box>
             <VStack h="100%" spacing={2} direction="column" alignItems="flex-start" justifyContent="space-between">
                 <Box mb={4}>

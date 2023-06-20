@@ -45,16 +45,17 @@ export default function LocaleSwitcher() {
                 {otherLocales.map((locale) => {
                     return (
                         <li key={locale} style={{ listStyle: 'none' }}>
-                            <Link href={translatedPath} as={as} locale={locale}>
-                                <a
-                                    style={{
-                                        textTransform: 'uppercase',
-                                        color: ' #fff',
-                                        fontWeight: 'medium',
-                                    }}
-                                >
-                                    {locale}
-                                </a>
+                            <Link
+                                href={translatedPath}
+                                as={as}
+                                locale={locale}
+                                style={{
+                                    textTransform: 'uppercase',
+                                    color: ' #fff',
+                                    fontWeight: 'medium',
+                                }}
+                            >
+                                {locale}
                             </Link>
                         </li>
                     );
