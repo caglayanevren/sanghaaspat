@@ -1,4 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { Raleway } from '@next/font/google';
+
+const raleway = Raleway({
+    weight: ['400', '500', '600', '900'],
+    subsets: ['latin'],
+});
+
 const Button = {
     // The styles all button have in common
     baseStyle: {
@@ -71,8 +78,8 @@ export default {
     initialColorMode: 'dark',
     useSystemColorMode: true,
     fonts: {
-        heading: 'Raleway',
-        body: 'Raleway',
+        heading: raleway.style.fontFamily,
+        body: raleway.style.fontFamily,
     },
     styles: {
         global: {
