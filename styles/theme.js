@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { Raleway } from '@next/font/google';
+import { Raleway } from 'next/font/google';
 
 const raleway = Raleway({
     weight: ['400', '500', '600', '900'],
-    subsets: ['latin'],
+    subsets: ['latin-ext'],
 });
 
 const Button = {
