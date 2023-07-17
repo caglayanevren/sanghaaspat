@@ -1,4 +1,8 @@
 module.exports = {
+    experimental: {
+        appDir: true,
+    },
+
     swcMinify: false,
     reactStrictMode: false,
     i18n: {
@@ -8,17 +12,35 @@ module.exports = {
     },
     images: {
         domains: ['lh3.googleusercontent.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.notion.so',
+            },
+        ],
     },
     trailingSlash: true,
-    webpack(config) {
+    webpack: (config, { webpack }) => {
         config.module.rules.push({
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
+        config.plugins.push(
+                new webpack.ContextReplacementPlugin(/\/keyv\//, (data) => {
+                    delete data.dependencies[0].critical;
+                    return data;
+                })
+            );
+
         return config;
     },
     async rewrites() {
         return [
+            {
+                source: '/blog',
+                destination: '/tr/blog',
+                locale: false,
+            },
             {
                 source: '/tr/sangha-hakkinda',
                 destination: '/tr/about-sangha',
