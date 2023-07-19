@@ -9,16 +9,23 @@ html {
     scroll-behavior: smooth;
 }
 
+// ImageSlider.module
+// className'de dash(-) kabul etmediği için module yerine buraya koymak zorunda kaldım ///EVREN 20230719
+
 .keen-slider__slide {
     //background: grey;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 50px;
     color: #fff;
     font-weight: 500;
-    height: auto;
+    height: 700px;
     max-height: 100vh;
+    @media (max-width: 550px) {
+        height: 500px;
+    }
 }
 
 .navigation-wrapper {

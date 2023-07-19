@@ -11,7 +11,7 @@ import firstImage from '../public/images/qigong-classes/qigong-classes.jpg';
 import { imagecontainer, firstSectionContainer } from '../styles/QiGongClasses.module.scss';
 import en from '../locales/en';
 import tr from '../locales/tr';
-import Gallery from '../components/Gallery';
+//import Gallery from '../components/Gallery';
 import ImageSlider from '../components/ImageSlider';
 
 export async function getStaticProps({ locale }) {
