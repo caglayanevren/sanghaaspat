@@ -11,7 +11,8 @@ import firstImage from '../public/images/qigong-classes/qigong-classes.jpg';
 import { imagecontainer, firstSectionContainer } from '../styles/QiGongClasses.module.scss';
 import en from '../locales/en';
 import tr from '../locales/tr';
-import Gallery from '../components/Gallery';
+//import Gallery from '../components/Gallery';
+import ImageSlider from '../components/ImageSlider';
 
 export async function getStaticProps({ locale }) {
     //const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -156,8 +157,8 @@ export default function QiGongClasses(props) {
                             </Box>
                         </SimpleGrid>
                     </Container>
-                    <Container maxW="container.xl">
-                        <Gallery images={images} />
+                    <Container maxW="container.lg">
+                        <ImageSlider images={images} />
                     </Container>
                 </VStack>
             </Flex>

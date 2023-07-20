@@ -4,8 +4,9 @@ import Layout from '../components/layout';
 import Band from '../components/Band';
 import CustomHead from '../components/CustomHead';
 import FirstSection from '../components/qimassage/FirstSection';
-import Gallery from '../components/Gallery';
+//import Gallery from '../components/Gallery';
 import { Container } from '@chakra-ui/react';
+import ImageSlider from '../components/ImageSlider';
 
 export async function getStaticProps({ locale }) {
     //const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -52,8 +53,8 @@ export default function QiMassage(props) {
             <CustomHead pageName={process.env.qimassage} locale={props.locale} />
             <Band />
             <FirstSection title={props.results.properties.Title.title[0].text.content} contents={props.contents} />
-            <Container maxW="container.xl">
-                <Gallery images={images} />
+            <Container maxW="container.lg">
+                <ImageSlider images={images} />
             </Container>
         </Layout>
     );
