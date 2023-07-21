@@ -7,7 +7,21 @@ module.exports = {
         localeDetection: false,
     },
     images: {
-        domains: ['lh3.googleusercontent.com'],
+        domains: ['lh3.googleusercontent.com', 'www.notion.so', 'secure.notion-static.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.notion.so',
+            },
+            {
+                protocol: 'https',
+                hostname: 's3-us-west-2.amazonaws.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'secure.notion-static.com',
+            },
+        ],
     },
     trailingSlash: true,
     webpack(config) {
