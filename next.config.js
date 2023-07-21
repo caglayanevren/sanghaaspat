@@ -7,7 +7,7 @@ module.exports = {
         localeDetection: false,
     },
     images: {
-        domains: ['lh3.googleusercontent.com', 'www.notion.so', 'secure.notion-static.com'],
+        domains: ['lh3.googleusercontent.com'],
         remotePatterns: [
             {
                 protocol: 'https',
@@ -16,10 +16,6 @@ module.exports = {
             {
                 protocol: 'https',
                 hostname: 's3-us-west-2.amazonaws.com',
-            },
-            {
-                protocol: 'https',
-                hostname: 'secure.notion-static.com',
             },
         ],
     },
