@@ -11,26 +11,20 @@ import firstImage from '../public/images/qigong-classes/qigong-classes.jpg';
 import { imagecontainer, firstSectionContainer } from '../styles/QiGongClasses.module.scss';
 import en from '../locales/en';
 import tr from '../locales/tr';
-import Gallery from '../components/Gallery';
+import ImageSlider from '../components/ImageSlider2';
+
+import { getAllImagesFromQiGongClassesSlider } from '@/services/getQiGongClassesSliderImages';
 
 export async function getStaticProps({ locale }) {
-    //const notion = new Client({ auth: process.env.NOTION_API_KEY });
+    const allPosts = await getAllImagesFromQiGongClassesSlider();
+
     const pageIdEn = process.env.qigongClasses.english.notionPageId;
     const pageIdTr = process.env.qigongClasses.turkish.notionPageId;
-    const galleryId = process.env.qigongClasses.galleryId;
 
     const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
     const pageresponse = await getPage(pageId);
     const blockresponse = await getBlocks(pageId);
-    const galleryImageData = await getBlocks(galleryId);
-
-    const galleryImages = galleryImageData.results.map((result) => {
-        return {
-            src: result.table_row.cells[1][0].plain_text,
-            alt: result.table_row.cells[2][0].plain_text,
-        };
-    });
 
     return {
         props: {
@@ -38,7 +32,7 @@ export async function getStaticProps({ locale }) {
             blockresponse,
             locale,
             pageId,
-            galleryImages,
+            allPosts,
         },
         revalidate: 30,
     };
@@ -48,16 +42,11 @@ export default function QiGongClasses(props) {
     const router = useRouter();
     const { locale } = router;
     const t = locale === 'en' ? en : tr;
-    const images = props.galleryImages;
+    const slider_images = props.allPosts;
     return (
         <Layout>
             <CustomHead pageName={process.env.qigongClasses} locale={props.locale} />
             <Band />
-            {/* {console.log('pageresponse: ', props.pageresponse)} */}
-            {/* {console.log('blockresponse: ', props.blockresponse)} */}
-            {/* {console.log('galleryImages: ', props.galleryImages)} */}
-            {/* {console.log('IMAGES:', props.galleryImages)} */}
-            {/* {console.log('IMAGES2:', images)} */}
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} id="qigongclasses">
                 <VStack w={'full'} spacing={12}>
                     <Container maxW="container.xl" className={imagecontainer}>
@@ -156,8 +145,8 @@ export default function QiGongClasses(props) {
                             </Box>
                         </SimpleGrid>
                     </Container>
-                    <Container maxW="container.xl">
-                        <Gallery images={images} />
+                    <Container maxW="container.lg">
+                        <ImageSlider images={slider_images} />
                     </Container>
                 </VStack>
             </Flex>
