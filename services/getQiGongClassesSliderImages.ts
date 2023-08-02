@@ -35,10 +35,15 @@ export async function getAllImagesFromQiGongClassesSlider() {
 
             allPosts.push({
                 id,
-                imageid,
+                imageid: imageid || '',
                 imageurl: mapImageUrl(images, block[pageId].value) || '',
                 published,
                 lastEditedAt,
+                slug: '',
+                title: '',
+                language: '',
+                cover: '',
+                date: ''
             });
         }
     });

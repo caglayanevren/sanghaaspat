@@ -1,9 +1,9 @@
-import { getRecordMap, mapImageUrl } from '@/lib/notionapi';
+import { getRecordMap, mapImageUrl } from '@/libs/notion';
 import { Post } from '@/types/post';
 
-export async function getAllImagesFromQiMassageSlider() {
+export async function getAllPostsFromNotion() {
     const allPosts: Post[] = [];
-    const recordMap = await getRecordMap(process.env.QI_MASSAGE_SLIDER_ID!);
+    const recordMap = await getRecordMap(process.env.NOTION_DATABASE_ID!);
     const { block, collection } = recordMap;
     const schema = Object.values(collection)[0].value.schema;
     const propertyMap: Record<string, string> = {};
@@ -13,11 +13,7 @@ export async function getAllImagesFromQiMassageSlider() {
     });
 
     Object.keys(block).forEach((pageId) => {
-        if (
-            block[pageId].value.type === 'page'
-            && block[pageId].value.properties[propertyMap['Image']]
-            && block[pageId].value.properties[propertyMap['Published']][0][0] === 'Yes'
-        ) {
+        if (block[pageId].value.type === 'page' && block[pageId].value.properties[propertyMap['Slug']]) {
             const { properties, last_edited_time } = block[pageId].value;
 
             const contents = block[pageId].value.content || [];
@@ -29,24 +25,28 @@ export async function getAllImagesFromQiMassageSlider() {
             const lastEditedAt = dates[0];
 
             const id = pageId;
-            const imageid = properties[propertyMap['ImageId']][0][0];
-            const images = properties[propertyMap['Image']][0][1][0][1];
+            const slug = properties[propertyMap['Slug']][0][0];
+            const title = properties[propertyMap['Page']][0][0];
+            const language = properties[propertyMap['Lang']][0][0];
+            const cover = properties[propertyMap['Cover']][0][1][0][1];
+            const date = properties[propertyMap['Date']][0][1][0][1]['start_date'];
             const published = properties[propertyMap['Published']][0][0] === 'Yes';
-
+//console.log("LANGUAGE: ", language)
             allPosts.push({
                 id,
-                imageid: imageid || '',
-                imageurl: mapImageUrl(images, block[pageId].value) || '',
+                title,
+                slug,
+                language,
+                // Fix 403 error for images.
+                // https://github.com/NotionX/react-notion-x/issues/211
+                cover: mapImageUrl(cover, block[pageId].value) || '',
+                date,
                 published,
                 lastEditedAt,
-                slug: '',
-                title: '',
-                language: '',
-                cover: '',
-                date: ''
+                imageid: '',
+                imageurl: ''
             });
         }
     });
-
     return allPosts;
 }

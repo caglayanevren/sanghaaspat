@@ -1,8 +1,4 @@
 module.exports = {
-    experimental: {
-        appDir: true,
-    },
-
     swcMinify: false,
     reactStrictMode: false,
     i18n: {
@@ -41,11 +37,6 @@ module.exports = {
     async rewrites() {
         return [
             {
-                source: '/blog',
-                destination: '/tr/blog',
-                locale: false,
-            },
-            {
                 source: '/tr/sangha-hakkinda',
                 destination: '/tr/about-sangha',
                 locale: false,
@@ -66,20 +57,8 @@ module.exports = {
                 locale: false,
             },
             {
-                source: '/tr/inziva',
-                destination: '/tr/retreats',
-                source: '/tr/etkinlikler/workshoplar',
-                destination: '/tr/events/workshops',
-                locale: false,
-            },
-            {
-                source: '/tr/etkinlikler/denge',
-                destination: '/tr/events/balance',
-                locale: false,
-            },
-            {
-                source: '/tr/etkinlikler/cocuklar-icin',
-                destination: '/tr/events/for-kids',
+                source: '/tr/etkinlikler/:slug',
+                destination: '/events/:slug',
                 locale: false,
             },
             {
@@ -266,8 +245,7 @@ module.exports = {
                 '/qimassage': '/qimasaj',
                 '/events': '/etkinlikler',
                 '/events/workshops': '/etkinlikler/workshoplar',
-                '/events/balance': '/etkinlikler/denge',
-                '/events/for-kids': '/etkinlikler/cocuklar-icin',
+                '/events/[slug]': '/etkinlikler',
                 '/retreats': '/inziva',
                 '/reviews': '/yorumlar',
                 '/contact': '/iletisim',
@@ -279,8 +257,7 @@ module.exports = {
                 '/qimassage': '/qimassage',
                 '/events': '/events',
                 '/events/workshops': '/events/workshops',
-                '/events/balance': '/events/balance',
-                '/events/for-kids': '/events/for-kids',
+                '/events/[slug]': '/events',
                 '/retreats': '/retreats',
                 '/reviews': '/reviews',
                 '/contact': '/contact',

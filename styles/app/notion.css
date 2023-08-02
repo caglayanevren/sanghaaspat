@@ -31,3 +31,7 @@
 .notion-page-content img{
   position: static !important;
 }
+
+.vp-center {
+  background-color: #3f3f3f;
+}

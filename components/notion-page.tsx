@@ -9,7 +9,6 @@ import { NotionRenderer } from 'react-notion-x';
 
 import CategoryList from '@/components/category-list';
 import useMounted from '@/hooks/use-mounted';
-import '@/styles/app/notion.css';
 import { Post } from '@/types/post';
 
 export default function NotionPage({ post, recordMap }: { post: Post; recordMap: ExtendedRecordMap }) {
@@ -25,11 +24,11 @@ export default function NotionPage({ post, recordMap }: { post: Post; recordMap:
             forceCustomImages
             showTableOfContents
             disableHeader
-            pageHeader={
-                <div className="mb-4">
-                    <CategoryList categories={post.categories} />
-                </div>
-            }
+            //pageHeader={
+            //    <div className="mb-4">
+            //        <CategoryList categories={post.categories} />
+            //    </div>
+            //}
             mapImageUrl={(url, block) => mapImageUrl(url, block) || ''}
             components={{
                 Code,
@@ -43,9 +42,9 @@ export default function NotionPage({ post, recordMap }: { post: Post; recordMap:
     );
 }
 
-const Code = dynamic(() => import('react-notion-x/build/third-party/code').then((m) => m.Code));
-const Collection = dynamic(() => import('react-notion-x/build/third-party/collection').then((m) => m.Collection));
-const Equation = dynamic(() => import('react-notion-x/build/third-party/equation').then((m) => m.Equation));
+const Code = dynamic(() => import('react-notion-x/build/third-party/code').then((m) => m.Code), { ssr: false });
+const Collection = dynamic(() => import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: false });
+const Equation = dynamic(() => import('react-notion-x/build/third-party/equation').then((m) => m.Equation), { ssr: false });
 const Pdf = dynamic(() => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf), {
     ssr: false,
 });

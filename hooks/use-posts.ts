@@ -28,7 +28,7 @@ export default function usePosts(allPosts: Post[]) {
                 }
 
                 if (categories.selected.length) {
-                    const isCategoryMatch = categories.selected.every((cat) => post.categories.includes(cat));
+                    const isCategoryMatch = categories.selected.every((cat) => post.language.includes(cat));
                     if (!isCategoryMatch) {
                         return false;
                     }
@@ -47,7 +47,7 @@ export default function usePosts(allPosts: Post[]) {
     useEffect(() => {
         setCategories((prevCategories) => ({
             ...prevCategories,
-            active: toUniqueArray(allPostsFiltered.map((post) => post.categories).flat()),
+            active: toUniqueArray(allPostsFiltered.map((post) => post.language).flat()),
         }));
     }, [allPostsFiltered, setCategories]);
 

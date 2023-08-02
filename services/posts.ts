@@ -43,6 +43,7 @@ export async function getAllPostsFromNotion() {
                 date,
                 published,
                 lastEditedAt,
+                locale: ''
             });
         }
     });
