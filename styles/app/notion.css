@@ -10,6 +10,7 @@
 
 .notion {
   @apply !bg-transparent;
+  font-family: var(--chakra-fonts-body) !important;
 }
 
 .notion-aside-table-of-contents {
@@ -34,8 +35,4 @@
 
 .vp-center {
   background-color: #3f3f3f;
-}
-
-#events article {
-  --notion-font: Raleway;
 }
