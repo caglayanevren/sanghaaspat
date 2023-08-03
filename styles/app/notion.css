@@ -35,3 +35,7 @@
 .vp-center {
   background-color: #3f3f3f;
 }
+
+#events article {
+  --notion-font: Raleway;
+}

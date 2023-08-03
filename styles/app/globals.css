@@ -30,3 +30,15 @@ div,
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+#posts-grid a:hover .posts-grid-links{
+  background-color:#424242;
+}
+#posts-grid a:hover h3, #posts-grid a:hover time{
+  font-weight:400;
+}
+
+iframe.notion-asset-object-fit {
+  height: auto;
+  aspect-ratio: 16/9;
+}

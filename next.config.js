@@ -58,7 +58,7 @@ module.exports = {
             },
             {
                 source: '/tr/etkinlikler/:slug',
-                destination: '/events/:slug',
+                destination: '/tr/events/:slug',
                 locale: false,
             },
             {

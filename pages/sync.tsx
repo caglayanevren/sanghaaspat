@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { Post } from '@/types/post';
 
 export default function SyncPage() {
@@ -8,8 +7,8 @@ export default function SyncPage() {
 
     const sync = async (password: string) => {
         setMessage('Detecting changes');
-        const postsRes = await fetch(`/api/posts?password=${password}`);
-
+        const postsRes = await fetch(`api/posts?password=${password}`);
+console.log("postsRes: ", postsRes)
         if (postsRes.status === 403) {
             setMessage('Wrong password');
             return false;
@@ -20,7 +19,7 @@ export default function SyncPage() {
         }
 
         const { posts }: { posts: Post[] } = await postsRes.json();
-        const prevPostsRes = await fetch(`/api/posts/cache?password=${password}`);
+        const prevPostsRes = await fetch(`api/posts/cache?password=${password}`);
         const { posts: prevPosts }: { posts: Post[] } = await prevPostsRes.json();
 
         const slugsToRevalidate: string[] = [];
@@ -46,12 +45,13 @@ export default function SyncPage() {
             setSlugs(slugsToRevalidate);
 
             const promises: Promise<Response>[] = [];
-            promises.push(fetch(`/api/revalidate?path=/api/posts/cache&password=${password}`));
-            promises.push(fetch(`/api/revalidate?path=/sitemap.xml&password=${password}`));
-            promises.push(fetch(`/api/revalidate?path=/blog&password=${password}`));
+            promises.push(fetch(`api/revalidate?path=api/posts/cache&password=${password}`));
+            promises.push(fetch(`api/revalidate?path=/sitemap.xml&password=${password}`));
+            promises.push(fetch(`api/revalidate?path=/events&password=${password}`));
             slugsToRevalidate.forEach((slug) => {
-                promises.push(fetch(`/api/revalidate?path=/blog/${slug}&password=${password}`));
+                promises.push(fetch(`api/revalidate?path=/events/${slug}&password=${password}`));
             });
+console.log("promises: ", promises)            
             await Promise.all(promises);
             return true;
         }

@@ -2,9 +2,7 @@ import Layout from '@/components/layout';
 import Band from '@/components/Band';
 import CustomHead from '@/components/CustomHead';
 import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, SimpleGrid, Skeleton, SkeletonCircle, SkeletonText, Icon } from '@chakra-ui/react';
-//import { useRouter } from 'next/router';
 import Image from 'next/image';
-//import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import NotionPage from '@/components/notion-page';
 import { getRecordMap } from '@/libs/notion';
@@ -12,31 +10,32 @@ import { getAllPostsFromNotion } from '@/services/events';
 import { Post } from '@/types/post';
 import { ExtendedRecordMap } from 'notion-types';
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }: {locales: string[]}) {
     const allPosts = await getAllPostsFromNotion();
+    let paths: { params: { slug: string; }; locale: string; }[] = [];
 
-    const paths = allPosts.map((post) => ({
-        params: {
-            slug: post.slug
-        },
-    }))
+    allPosts.forEach((post) => {
+        for (const locale of locales) {
+            if (post.language === locale) {
+                paths.push({
+                    params: {
+                        slug: String(post.slug)
+                    },
+                    locale
+                });
+            }
+        }
+    })
 
-    // { fallback: false } means other routes should 404.
-    //console.log("PATHS:", paths);
     return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params, locale }:{ params: { slug: string }, locale: string }) {
-    //console.log("2PARAMSLANG: ", params.lang);
-    //console.log("2PARAMSSLUG:", params.slug);
     let recordMap;
     const allPosts = await getAllPostsFromNotion();
-    // console.log("ALLPOSTS:", allPosts);
     const post = allPosts.find((p) => { 
-        return p.slug === params.slug
+        return String(p.slug) === String(params.slug) && String(p.language) === String(locale)
     });
-    //console.log("POST:", post);
-    //console.log("LOCALE:", locale);
     if(post) {
         recordMap = await getRecordMap(post.id);
     }
@@ -44,23 +43,19 @@ export async function getStaticProps({ params, locale }:{ params: { slug: string
         props: { 
             post,
             recordMap,
-            locale
+            lang: locale
         },
         revalidate: 30, 
     }
 }
 
-export default function PostPage( props : { post: Post, recordMap: ExtendedRecordMap, locale: string }) {
+export default function PostPage( props : { post: Post, recordMap: ExtendedRecordMap, lang: string }) {
     
-    //const router = useRouter();
-    //const { locale } = router;
-
-
-    /* if (!props.post) {
+    if (!props.post) {
         return notFound();
-    } */
+    }
 
-    /* if (!props.post.published) {
+    if (!props.post.published) {
         return (
             <article data-revalidated-at={new Date().getTime()} className="mx-auto mt-40 text-center" suppressHydrationWarning>
                 <h2 className="mb-4 text-3xl font-bold">Post Not Found</h2>
@@ -70,14 +65,11 @@ export default function PostPage( props : { post: Post, recordMap: ExtendedRecor
                 </Link>
             </article>
         );
-    } */
-    
+    }
 
     return (
         <Layout>
-            {/* {console.log("AAAAAAAAA: ",props.post)} */}
-            {/* {console.log("BBBBBBBBB: ",props.recordMap)} */}
-            <CustomHead pageName={process.env.events} locale={props.locale} />
+            <CustomHead pageName={process.env.events} locale={props.lang} />
             <Band />
             <Flex w={'full'} paddingBottom={12} id="events">
                 <VStack w={'full'} spacing={12}>
