@@ -9,10 +9,10 @@ import { Post } from '@/types/post';
 
 export default function PostsGrid({ allPosts }: { allPosts: Post[] }) {
     // const { posts, totalPages } = usePosts(allPosts);
-    const rootRef = useRef<HTMLDivElement>(null);
-
+    //const rootRef = useRef<HTMLDivElement>(null);
+    
     return (
-        <section ref={rootRef} className="flex scroll-mt-12 flex-col items-center space-y-16">
+        <section className="flex scroll-mt-12 flex-col items-center space-y-16">{/*  ref={rootRef} */}
             {allPosts.length ? (
                 <ul id="posts-grid" className="grid w-full grid-cols-1 gap-x-8 gap-y-8">
                     {/*  md:grid-cols-2 xl:grid-cols-3 */}

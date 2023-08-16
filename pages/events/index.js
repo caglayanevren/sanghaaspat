@@ -8,7 +8,7 @@ import { getAllPostsFromNotion } from '../../services/events';
 
 export async function getStaticProps({ locale }) {
     const allPosts = await getAllPostsFromNotion();
-    const posts = allPosts.filter((p) => p.language === locale);
+    const posts = allPosts.filter((p) => p.language === locale).filter((a) => a.published === true);
     return {
         props: {
             locale,

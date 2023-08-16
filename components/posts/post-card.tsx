@@ -11,7 +11,7 @@ export default function PostCard({ post: { slug, title, date, cover, language } 
         <Link href={`${locale==='en' ? 'events/' : 'tr/etkinlikler/'}${slug}`} className='hover:no-underline'>
             <article className="w-full mx-auto flex flex-col overflow-hidden rounded-md shadow-sm shadow-gray-300 transition-all duration-300 hover:shadow-md dark:shadow-black lg:flex-row">
                 <div className="relative h-64 w-full lg:w-1/3">
-                    <Image src={cover} alt="cover image" fill style={{ objectFit: 'cover' }} sizes="(max-width: 900px) 100vw, 100vw" priority={false} />
+                    <Image src={cover} alt="cover image" fill style={{ objectFit: 'cover' }} sizes="(max-width: 900px) 100vw, 100vw" priority={true} />
                 </div>
                 <div className="flex h-40 flex-col justify-between p-5 sm:p-8 lg:h-64 lg:w-2/3 posts-grid-links">
                     <div>
