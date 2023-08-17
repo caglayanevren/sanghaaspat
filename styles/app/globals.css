@@ -38,7 +38,21 @@ button {
   font-weight:400;
 }
 
+.notion-asset-wrapper {
+  margin: 1rem 0;
+}
+
 iframe.notion-asset-object-fit {
   height: auto;
   aspect-ratio: 16/9;
+}
+
+figure.notion-asset-wrapper-video {
+  height: auto;
+  aspect-ratio:16/9;
+}
+
+figure.notion-asset-wrapper-video > div {
+  height: auto !important;
+  aspect-ratio:16/9;
 }
