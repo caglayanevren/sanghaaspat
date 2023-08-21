@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 
-import { getAllPostsFromNotion } from '@/services/posts';
+import { getAllPostsFromNotion } from '@/services/events';
 import { getErrorMessage } from '@/utils/get-error-message';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
