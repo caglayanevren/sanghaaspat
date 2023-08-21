@@ -29,9 +29,36 @@ export async function getAllPostsFromNotion() {
             const title = properties[propertyMap['Page']][0][0];
             const language = properties[propertyMap['Lang']][0][0];
             const cover = properties[propertyMap['Cover']][0][1][0][1];
-            const date = properties[propertyMap['Date']][0][1][0][1]['start_date'];
             const published = properties[propertyMap['Published']][0][0] === 'Yes';
-//console.log("LANGUAGE: ", language)
+            let date;
+            const datePath = (p: string) => properties[propertyMap['Date']][0][1][0][1][p]; 
+            const dateType = datePath('type');
+            const startDate = datePath('start_date');
+            const startTime = datePath('start_time');
+            const endDate = datePath('end_date');
+            const endTime = datePath('end_time');
+            switch (dateType) {
+                case "date":
+                    date = startDate;
+                    break;
+                case "datetime":
+                    date = startDate.concat(", ",startTime);
+                    break;
+                case "daterange":
+                    date = startDate.concat(", ",endDate);
+                    break;
+                case "datetimerange":
+                    if(startDate == endDate) {
+                        date = startDate.concat(", ",startTime,"-",endTime);
+                    } else {
+                        date = startDate.concat(", ",startTime," / ",endDate,", ",endTime);
+                    }
+                    break;
+                default:
+                    date = startDate;
+                    break;
+            }
+console.log("DATE: ", properties[propertyMap['Date']][0][1][0][1])
             allPosts.push({
                 id,
                 title,

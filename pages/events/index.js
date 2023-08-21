@@ -9,6 +9,7 @@ import { getAllPostsFromNotion } from '../../services/events';
 export async function getStaticProps({ locale }) {
     const allPosts = await getAllPostsFromNotion();
     const posts = allPosts.filter((p) => p.language === locale).filter((a) => a.published === true);
+    // console.log("allPosts:", allPosts)
     return {
         props: {
             locale,
@@ -16,12 +17,13 @@ export async function getStaticProps({ locale }) {
         },
         revalidate: 30,
     };
-
+    
 }
 
 export default function Events(props) {
     return (
         <Layout>
+            {/* {console.log("props.posts:", props.posts)} */}
             <CustomHead pageName={process.env.events} locale={props.locale} />
             <Band />
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} paddingTop={8} id="events">
