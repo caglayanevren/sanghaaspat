@@ -7,7 +7,7 @@ import PostsGrid from '../../components/posts/posts-grid';
 import { getAllPostsFromNotion } from '../../services/events';
 
 export async function getStaticProps({ locale }) {
-    const allPosts = await getAllPostsFromNotion();
+    const allPosts = await getAllPostsFromNotion(locale);
     const posts = allPosts.filter((p) => p.language === locale).filter((a) => a.published === true);
     // console.log("allPosts:", allPosts)
     return {
@@ -23,7 +23,7 @@ export async function getStaticProps({ locale }) {
 export default function Events(props) {
     return (
         <Layout>
-            {/* {console.log("props.posts:", props.posts)} */}
+            {/* {console.log("props.locale:", props.locale)} */}
             <CustomHead pageName={process.env.events} locale={props.locale} />
             <Band />
             <Flex w={'full'} className={firstSectionContainer} paddingBottom={12} paddingTop={8} id="events">

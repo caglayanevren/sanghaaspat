@@ -1,7 +1,8 @@
 import { getRecordMap, mapImageUrl } from '@/libs/notion';
 import { Post } from '@/types/post';
+import { Interval, DateTime } from 'luxon';
 
-export async function getAllPostsFromNotion() {
+export async function getAllPostsFromNotion( loc:string ) {
     const allPosts: Post[] = [];
     const recordMap = await getRecordMap(process.env.NOTION_DATABASE_ID!);
     const { block, collection } = recordMap;
@@ -30,8 +31,9 @@ export async function getAllPostsFromNotion() {
             const language = properties[propertyMap['Lang']][0][0];
             const cover = properties[propertyMap['Cover']][0][1][0][1];
             const published = properties[propertyMap['Published']][0][0] === 'Yes';
-            let date;
-            const datePath = (p: string) => properties[propertyMap['Date']][0][1][0][1][p]; 
+            let date = "";
+            const datePath = (p: string) => properties[propertyMap['Date']][0][1][0][1][p];
+            const format:{ day: "2-digit" | "numeric" | undefined, month: 'long' | 'short', year: "2-digit" | "numeric" | undefined, hour: "2-digit" | "numeric" | undefined, minute: "2-digit" | "numeric" | undefined} = { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }; 
             const dateType = datePath('type');
             const startDate = datePath('start_date');
             const startTime = datePath('start_time');
@@ -39,26 +41,22 @@ export async function getAllPostsFromNotion() {
             const endTime = datePath('end_time');
             switch (dateType) {
                 case "date":
-                    date = startDate;
+                    date = DateTime.fromISO(startDate).toLocaleString(DateTime.DATE_FULL, { locale: loc });
                     break;
                 case "datetime":
-                    date = startDate.concat(", ",startTime);
+                    date = DateTime.fromISO(startDate.concat("T",startTime)).toLocaleString(format, { locale: loc });
                     break;
                 case "daterange":
-                    date = startDate.concat(", ",endDate);
+                    date = Interval.fromISO(startDate.concat("/",endDate)).toLocaleString(DateTime.DATE_FULL, { locale: loc });
                     break;
                 case "datetimerange":
-                    if(startDate == endDate) {
-                        date = startDate.concat(", ",startTime,"-",endTime);
-                    } else {
-                        date = startDate.concat(", ",startTime," / ",endDate,", ",endTime);
-                    }
+                    date = Interval.fromISO(startDate.concat("T",startTime,"/",endDate,"T",endTime)).toLocaleString(format, { locale: loc });
                     break;
                 default:
                     date = startDate;
                     break;
             }
-console.log("DATE: ", properties[propertyMap['Date']][0][1][0][1])
+            // console.log("DATE1: ", date)
             allPosts.push({
                 id,
                 title,
