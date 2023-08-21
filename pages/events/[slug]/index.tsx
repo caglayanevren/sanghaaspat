@@ -12,6 +12,7 @@ import { ExtendedRecordMap } from 'notion-types';
 
 export async function getStaticPaths({ locales }: {locales: string[]}) {
     const allPosts = await getAllPostsFromNotion();
+    console.log("allPosts::",allPosts)
     let paths: { params: { slug: string; }; locale: string; }[] = [];
 
     allPosts.forEach((post) => {

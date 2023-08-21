@@ -7,7 +7,7 @@ import PostsGrid from '../../components/posts/posts-grid';
 import { getAllPostsFromNotion } from '../../services/events';
 
 export async function getStaticProps({ locale }) {
-    const allPosts = await getAllPostsFromNotion(locale);
+    const allPosts = await getAllPostsFromNotion();
     const posts = allPosts.filter((p) => p.language === locale).filter((a) => a.published === true);
     // console.log("allPosts:", allPosts)
     return {
