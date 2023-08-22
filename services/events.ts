@@ -2,7 +2,7 @@ import { getRecordMap, mapImageUrl } from '@/libs/notion';
 import { Post } from '@/types/post';
 import { Interval, DateTime } from 'luxon';
 
-export async function getAllPostsFromNotion( loc:string ) {
+export async function getAllPostsFromNotion() {
     const allPosts: Post[] = [];
     const recordMap = await getRecordMap(process.env.NOTION_DATABASE_ID!);
     const { block, collection } = recordMap;
@@ -41,16 +41,16 @@ export async function getAllPostsFromNotion( loc:string ) {
             const endTime = datePath('end_time');
             switch (dateType) {
                 case "date":
-                    date = DateTime.fromISO(startDate).toLocaleString(DateTime.DATE_FULL, { locale: loc });
+                    date = DateTime.fromISO(startDate).toLocaleString(DateTime.DATE_FULL, { locale: language });
                     break;
                 case "datetime":
-                    date = DateTime.fromISO(startDate.concat("T",startTime)).toLocaleString(format, { locale: loc });
+                    date = DateTime.fromISO(startDate.concat("T",startTime)).toLocaleString(format, { locale: language });
                     break;
                 case "daterange":
-                    date = Interval.fromISO(startDate.concat("/",endDate)).toLocaleString(DateTime.DATE_FULL, { locale: loc });
+                    date = Interval.fromISO(startDate.concat("/",endDate)).toLocaleString(DateTime.DATE_FULL, { locale: language });
                     break;
                 case "datetimerange":
-                    date = Interval.fromISO(startDate.concat("T",startTime,"/",endDate,"T",endTime)).toLocaleString(format, { locale: loc });
+                    date = Interval.fromISO(startDate.concat("T",startTime,"/",endDate,"T",endTime)).toLocaleString(format, { locale: language });
                     break;
                 default:
                     date = startDate;
