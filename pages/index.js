@@ -3,8 +3,10 @@ import CustomHead from '../components/CustomHead';
 import Hero from '../components/home/Hero';
 import Triple from '../components/home/Triple';
 import Subscribe from '../components/home/Subscribe';
+import Program from '../components/timetable/program';
 const { Client } = require('@notionhq/client');
 import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
+import { getAllProgramFromNotion } from '../services/program';
 
 export async function getStaticProps({ locale }) {
     //const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -14,11 +16,15 @@ export async function getStaticProps({ locale }) {
     const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
 
     const response = await getBlocks(pageId);
+
+
+    const allProgram = await getAllProgramFromNotion();
     return {
         props: {
             results: response,
             locale,
             pageId,
+            allProgram,
         },
         revalidate: 30,
     };
@@ -27,7 +33,7 @@ export async function getStaticProps({ locale }) {
 export default function Home(props) {
     return (
         <Layout>
-            {/* {console.log('ALL: ', props.results)} */}
+            {/* {console.log('allProgram: ', props.allProgram)} */}
             <CustomHead pageName={process.env.home} locale={props.locale} />
             <Hero motto={props.results.results[0].paragraph.rich_text[0].text.content} />
             <Triple
@@ -38,6 +44,7 @@ export default function Home(props) {
                 qigongtext={props.results.results[4].paragraph.rich_text[0].text.content}
                 tqhtext={props.results.results[6].paragraph.rich_text[0].text.content}
             />
+            <Program allProgram={props.allProgram} />
             <Subscribe />
         </Layout>
     );

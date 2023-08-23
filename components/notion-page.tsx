@@ -3,17 +3,17 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
-import { useTheme } from 'next-themes';
+//import { useTheme } from 'next-themes';
 import { Block, ExtendedRecordMap } from 'notion-types';
 import { NotionRenderer } from 'react-notion-x';
 
-import CategoryList from '@/components/category-list';
-import useMounted from '@/hooks/use-mounted';
+//import CategoryList from '@/components/category-list';
+//import useMounted from '@/hooks/use-mounted';
 import { Post } from '@/types/post';
 
 export default function NotionPage({ post, recordMap }: { post: Post; recordMap: ExtendedRecordMap }) {
-    const { theme } = useTheme();
-    const mounted = useMounted();
+    //const { theme } = useTheme();
+    //const mounted = useMounted();
 
     return (
         <NotionRenderer
@@ -45,12 +45,8 @@ export default function NotionPage({ post, recordMap }: { post: Post; recordMap:
 const Code = dynamic(() => import('react-notion-x/build/third-party/code').then((m) => m.Code), { ssr: false });
 const Collection = dynamic(() => import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: false });
 const Equation = dynamic(() => import('react-notion-x/build/third-party/equation').then((m) => m.Equation), { ssr: false });
-const Pdf = dynamic(() => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf), {
-    ssr: false,
-});
-const Modal = dynamic(() => import('react-notion-x/build/third-party/modal').then((m) => m.Modal), {
-    ssr: false,
-});
+const Pdf = dynamic(() => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf), { ssr: false });
+const Modal = dynamic(() => import('react-notion-x/build/third-party/modal').then((m) => m.Modal), { ssr: false });
 
 export function mapImageUrl(url: string, block: Block): string | null {
     if (!url) {
