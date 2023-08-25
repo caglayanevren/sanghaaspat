@@ -8,23 +8,31 @@ const { Client } = require('@notionhq/client');
 import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
 import { getAllProgramFromNotion } from '../services/program';
 
+import { getRecordMap } from '../libs/notion';
+import { getPageTitle } from 'notion-utils'
+
 export async function getStaticProps({ locale }) {
     //const notion = new Client({ auth: process.env.NOTION_API_KEY });
     const pageIdEn = process.env.home.english.notionPageId;
     const pageIdTr = process.env.home.turkish.notionPageId;
-
     const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
-
     const response = await getBlocks(pageId);
+    
+    const dbid = locale === 'en' ? process.env.SANGHAASPAT_EN_PROGRAM_DATABASE_ID : locale === 'tr' ? process.env.SANGHAASPAT_TR_PROGRAM_DATABASE_ID : 'lang error';
 
+    const allPrograms = await getAllProgramFromNotion(locale);
+    const recordMap = await getRecordMap(dbid);
+    const collectionTitle = getPageTitle(recordMap); 
 
-    const allProgram = await getAllProgramFromNotion();
     return {
         props: {
             results: response,
             locale,
             pageId,
-            allProgram,
+            allPrograms: allPrograms.sort((a,b)=> {
+                return a.sort - b.sort
+            }),
+            collectionTitle,
         },
         revalidate: 30,
     };
@@ -33,7 +41,7 @@ export async function getStaticProps({ locale }) {
 export default function Home(props) {
     return (
         <Layout>
-            {/* {console.log('allProgram: ', props.allProgram)} */}
+            {/* {console.log('allPrograms: ', props.allPrograms)} */}
             <CustomHead pageName={process.env.home} locale={props.locale} />
             <Hero motto={props.results.results[0].paragraph.rich_text[0].text.content} />
             <Triple
@@ -44,7 +52,7 @@ export default function Home(props) {
                 qigongtext={props.results.results[4].paragraph.rich_text[0].text.content}
                 tqhtext={props.results.results[6].paragraph.rich_text[0].text.content}
             />
-            <Program allProgram={props.allProgram} />
+            <Program allPrograms={props.allPrograms} title={props.collectionTitle} locale={props.locale} />
             <Subscribe />
         </Layout>
     );

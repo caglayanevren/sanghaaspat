@@ -5081,7 +5081,7 @@ notion-types@^6.16.0:
 
 notion-utils@^6.16.0:
   version "6.16.0"
-  resolved "https://registry.npmjs.org/notion-utils/-/notion-utils-6.16.0.tgz"
+  resolved "https://registry.yarnpkg.com/notion-utils/-/notion-utils-6.16.0.tgz#b81567b9d8d7ee6199383b9b41f58f5f297a1c36"
   integrity sha512-DxToriZAJW/64O1xlAjyU/50dRmkO1e54+i0dEAPDij0MlHyihEivAMsdEG/6/4eFC972BIsEKZ6BXsSTUYKlQ==
   dependencies:
     is-url-superb "^6.1.0"

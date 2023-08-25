@@ -1,6 +1,6 @@
 export type Program = {
     id: string;
-    title: string;
+    sort: number;
     days: string;
     classes: string;
     time: string;
