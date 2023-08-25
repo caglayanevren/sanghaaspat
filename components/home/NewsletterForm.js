@@ -93,7 +93,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     };
 
     return (
-        <Flex w={'full'} pb={0} pt={6} id="sangha">
+        <Flex w={'full'} pb={0} pt={12} id="sanghasubscribe">
             <Container maxW="container.xl">
                 <Stack direction={{ base: 'column', md: 'row' }} w={'full'} spacing={12}>
                     <Heading as="h2" fontWeight="400" mb={6}>
