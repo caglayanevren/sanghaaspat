@@ -5,11 +5,14 @@ import { Link, Flex, VStack, Box, Spacer, Heading, Text, Container, Button, Simp
 import { imagecontainer, firstSectionContainer } from '../../styles/Events.module.scss';
 import PostsGrid from '../../components/posts/posts-grid';
 import { getAllPostsFromNotion } from '../../services/events';
+import { Interval, DateTime } from 'luxon';
 
 export async function getStaticProps({ locale }) {
     const allPosts = await getAllPostsFromNotion();
-    const posts = allPosts.filter((p) => p.language === locale).filter((a) => a.published === true);
-    // console.log("allPosts:", allPosts)
+    const posts = allPosts.filter((p) => p.language === locale)
+                        .filter((a) => a.published === true)
+                        .sort((a,b) => DateTime.fromFormat(b.startDate, 'y-LL-dd', {locale: b.language}).valueOf() - DateTime.fromFormat(a.startDate, 'y-LL-dd', {locale: a.language}).valueOf());
+    //console.log("posts:", posts)
     return {
         props: {
             locale,

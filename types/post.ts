@@ -9,4 +9,5 @@ export type Post = {
     date: string;
     published: boolean;
     lastEditedAt: number;
+    startDate: string;
 };

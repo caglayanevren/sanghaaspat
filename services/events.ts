@@ -69,7 +69,8 @@ export async function getAllPostsFromNotion() {
                 published,
                 lastEditedAt,
                 imageid: '',
-                imageurl: ''
+                imageurl: '',
+                startDate
             });
         }
     });
