@@ -61,45 +61,33 @@ export default function QiGongClasses(props) {
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[0].heading_2.rich_text[0].plain_text}
                                 </Text>
-                                <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[1].heading_3.rich_text[0].plain_text}
-                                </Text>
                                 <Text as="p" fontStyle="italic">
+                                    {props.blockresponse.results[1].paragraph.rich_text[0].plain_text}
+                                </Text>
+                                <Text as="p" marginTop="1rem">
                                     {props.blockresponse.results[2].paragraph.rich_text[0].plain_text}
                                 </Text>
+                            </Box>
+                            <Box>
+                                <Text as="h2" fontSize="2xl" fontWeight="500">
+                                    {props.blockresponse.results[3].heading_2.rich_text[0].plain_text}
+                                </Text>
+                                <Text as="p" fontStyle="italic">
+                                    {props.blockresponse.results[4].paragraph.rich_text[0].plain_text}
+                                </Text>
                                 <Text as="p" marginTop="1rem">
-                                    {props.blockresponse.results[3].paragraph.rich_text[0].plain_text}
+                                    {props.blockresponse.results[5].paragraph.rich_text[0].plain_text}
                                 </Text>
                             </Box>
                             <Box>
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
-                                    {props.blockresponse.results[4].heading_2.rich_text[0].plain_text}
-                                </Text>
-                                <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[5].heading_3.rich_text[0].plain_text}
+                                    {props.blockresponse.results[6].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="p" fontStyle="italic">
-                                    {props.blockresponse.results[6].paragraph.rich_text[0].plain_text}
-                                </Text>
-                                <Text as="p" marginTop="1rem">
                                     {props.blockresponse.results[7].paragraph.rich_text[0].plain_text}
                                 </Text>
-                            </Box>
-                            <Box>
-                                <Text as="h2" fontSize="2xl" fontWeight="500">
-                                    {props.blockresponse.results[8].heading_2.rich_text[0].plain_text}
-                                </Text>
-                                <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[9].heading_3.rich_text[0].plain_text}
-                                </Text>
-                                <Text as="p" fontStyle="italic">
-                                    {props.blockresponse.results[10].paragraph.rich_text[0].plain_text}
-                                </Text>
                                 <Text as="p" marginTop="1rem">
-                                    {props.blockresponse.results[11].paragraph.rich_text[0].plain_text}
-                                </Text>
-                                <Text as="p" marginTop="1rem">
-                                    {props.blockresponse.results[12].paragraph.rich_text[0].plain_text}
+                                    {props.blockresponse.results[8].paragraph.rich_text[0].plain_text}
                                 </Text>
                             </Box>
                         </SimpleGrid>
@@ -108,37 +96,34 @@ export default function QiGongClasses(props) {
                         <SimpleGrid columns={{ base: '1', md: '3' }} spacing={10}>
                             <Box>
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
-                                    {props.blockresponse.results[13].heading_2.rich_text[0].plain_text}
-                                </Text>
-                                <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[14].heading_3.rich_text[0].plain_text}
+                                    {props.blockresponse.results[9].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="p" fontStyle="italic">
-                                    {props.blockresponse.results[15].paragraph.rich_text[0].plain_text}
+                                    {props.blockresponse.results[10].paragraph.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="p" marginTop="1rem">
-                                    {props.blockresponse.results[16].paragraph.rich_text[0].plain_text}
+                                    {props.blockresponse.results[11].paragraph.rich_text[0].plain_text}
                                 </Text>
                             </Box>
                             <Box>
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
-                                    {props.blockresponse.results[17].heading_2.rich_text[0].plain_text}
+                                    {props.blockresponse.results[12].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[18].heading_3.rich_text[0].plain_text}
+                                    {props.blockresponse.results[13].paragraph.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="p" fontStyle="italic">
-                                    {props.blockresponse.results[19].paragraph.rich_text[0].plain_text}
+                                    {props.blockresponse.results[14].paragraph.rich_text[0].plain_text}
                                 </Text>
                             </Box>
                             <Box>
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
-                                    {props.blockresponse.results[20].heading_2.rich_text[0].plain_text}
+                                    {props.blockresponse.results[15].heading_2.rich_text[0].plain_text}
                                 </Text>
                                 <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[21].heading_3.rich_text[0].plain_text}
+                                    {props.blockresponse.results[16].heading_3.rich_text[0].plain_text}
                                 </Text>
-                                <Text as="p">{props.blockresponse.results[22].paragraph.rich_text[0].plain_text}</Text>
+                                <Text as="p">{props.blockresponse.results[17].paragraph.rich_text[0].plain_text}</Text>
                                 <Link href={locale == 'en' ? process.env.qimassage.english.path : `/tr${process.env.qimassage.turkish.path}`} _hover={{ textDecoration: 'none' }}>
                                     <Button rightIcon={<ArrowForwardIcon />}>{t.qigongClasses.qigongmassageLinkText}</Button>
                                 </Link>
