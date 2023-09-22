@@ -6,7 +6,8 @@ export type Post = {
     cover: string;
     imageid: string;
     imageurl: string;
-    date: string;
+    date?: string;
     published: boolean;
     lastEditedAt: number;
+    startDate?: string;
 };

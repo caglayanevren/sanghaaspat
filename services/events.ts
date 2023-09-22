@@ -32,14 +32,23 @@ export async function getAllPostsFromNotion() {
             const cover = properties[propertyMap['Cover']][0][1][0][1];
             const published = properties[propertyMap['Published']][0][0] === 'Yes';
             let date = "";
-            const datePath = (p: string) => properties[propertyMap['Date']][0][1][0][1][p];
             const format:{ day: "2-digit" | "numeric" | undefined, month: 'long' | 'short', year: "2-digit" | "numeric" | undefined, hour: "2-digit" | "numeric" | undefined, minute: "2-digit" | "numeric" | undefined} = { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }; 
+            let datePath;
+            //console.log("ddddd: ", properties[propertyMap['Date']][0][1]);
+            if(properties[propertyMap['Date']]) {
+                datePath = (p: string) => properties[propertyMap['Date']][0][1][0][1][p];
+            } else {
+                datePath = (p: string) => { return "undefined" };
+            }
             const dateType = datePath('type');
             const startDate = datePath('start_date');
             const startTime = datePath('start_time');
             const endDate = datePath('end_date');
             const endTime = datePath('end_time');
             switch (dateType) {
+                case "undefined":
+                    date = DateTime.now().toLocaleString(DateTime.DATE_FULL, { locale: language });
+                    break;
                 case "date":
                     date = DateTime.fromISO(startDate).toLocaleString(DateTime.DATE_FULL, { locale: language });
                     break;
@@ -69,7 +78,8 @@ export async function getAllPostsFromNotion() {
                 published,
                 lastEditedAt,
                 imageid: '',
-                imageurl: ''
+                imageurl: '',
+                startDate
             });
         }
     });

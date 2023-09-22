@@ -45,6 +45,8 @@ export default {
         title: 'Events',
         text: 'Our other events coming soon on this page! Stay tuned',
         workshops: 'Workshops',
+        eventnotfound: 'Event Not Found',
+        gotoeventspage: 'Go to Events page'
     },
     reviews: {
         title: 'Reviews',

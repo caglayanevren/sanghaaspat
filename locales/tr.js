@@ -45,6 +45,8 @@ export default {
         title: 'Etkinlikler',
         text: 'Çok yakında diğer etkinliklerimiz bu sayfada! Takipte kalın',
         workshops: 'Workshoplar',
+        eventnotfound: 'Etkinlik bulunamadı',
+        gotoeventspage: 'Etkinlik sayfasına git'
     },
     reviews: {
         title: 'Yorumlar',
