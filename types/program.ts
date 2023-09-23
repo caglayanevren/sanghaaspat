@@ -1,9 +1,9 @@
+import { Block } from "notion-types";
 export type Program = {
     id: string;
     sort: number;
     days: string;
-    classes: string;
-    time: string;
-    place: string;
+    published: boolean;
+    body: Block[];
     lastEditedAt: number;
 };

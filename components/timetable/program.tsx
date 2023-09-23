@@ -14,12 +14,31 @@ export default function ProgramGrid({ allPrograms, title, locale }: { allProgram
                 {allPrograms.length ? (
                     <SimpleGrid as='ul' columns={{ sm: 2, md: 3, xl: 5 }} columnGap={6}>
                         {allPrograms.map((program) => (
-                            <Box as='li' mt={8} textAlign={{ base: 'left', sm: 'left', md: 'left', xl: 'left' }} key={program.id}>
-                                <Text fontWeight="700">{program.days}</Text>
-                                <Text fontSize={'xl'}>{program.classes}</Text>
-                                <Text><i>{program.time}</i></Text>
-                                <Text><i>{program.place}</i></Text>
-                            </Box>
+                            program.published && (
+                                <Box as="li" mt={{ base: '6', md: '10' }} textAlign={{ base: 'left', sm: 'left', md: 'left', xl: 'left' }} key={program.id}>
+                                    <Heading size='md' fontWeight="700">{program.days}</Heading>
+                                    {program.body.map((item, index) => {
+                                        let elementToRender;
+                                        switch (item.type) {
+                                            case 'text':
+                                                elementToRender = <Text key={index} as='i'>{item.properties?.title[0][0]}</Text>;
+                                                break;
+                                            case 'header':
+                                                elementToRender = <Heading fontWeight="600" size='lg' mt={{ base: '2', md: '4' }} key={index}>{item.properties?.title[0][0]}</Heading>;
+                                                break;
+                                            case 'sub_header':
+                                                elementToRender = <Heading fontWeight="600" size='md' mt={{ base: '2', md: '4' }} key={index}>{item.properties?.title[0][0]}</Heading>;
+                                                break;
+                                            case 'sub_sub_header':
+                                                elementToRender = <Heading fontWeight="600" size='sm' mt={{ base: '2', md: '4' }} key={index}>{item.properties?.title[0][0]}</Heading>;
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                        return elementToRender;
+                                    })}
+                                </Box>
+                            )
                         ))}
                     </SimpleGrid>
                 ) : (

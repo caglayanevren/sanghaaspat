@@ -10,9 +10,9 @@ import { getAllPostsFromNotion } from '@/services/events';
 import { Post } from '@/types/post';
 import { ExtendedRecordMap } from 'notion-types';
 
-export async function getStaticPaths({ locales }: {locales: string[]}) {
+export async function getStaticPaths({ locales }: { locales: string[] }) {
     const allPosts = await getAllPostsFromNotion();
-    console.log("allPosts::",allPosts)
+    //console.log("allPosts::",allPosts)
     let paths: { params: { slug: string; }; locale: string; }[] = [];
 
     allPosts.forEach((post) => {
@@ -31,30 +31,28 @@ export async function getStaticPaths({ locales }: {locales: string[]}) {
     return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params, locale }:{ params: { slug: string }, locale: string }) {
+export async function getStaticProps({ params, locale }: { params: { slug: string }, locale: string }) {
     let recordMap;
     const allPosts = await getAllPostsFromNotion();
-    const post = allPosts.find((p) => { 
+    const post = allPosts.find((p) => {
         return String(p.slug) === String(params.slug) && String(p.language) === String(locale)
     });
-    if(post) {
+    if (post) {
         recordMap = await getRecordMap(post.id);
     }
-    return { 
-        props: { 
+    return {
+        props: {
             post,
             recordMap,
             lang: locale
         },
-        revalidate: 30, 
+        revalidate: 30,
     }
 }
 
-export default function PostPage( props : { post: Post, recordMap: ExtendedRecordMap, lang: string }) {
-    
-    if (!props.post) {
-        return notFound();
-    }
+export default function PostPage(props: { post: Post, recordMap: ExtendedRecordMap, lang: string }) {
+
+    if (!props.post) { return notFound() }
 
     if (!props.post.published) {
         return (

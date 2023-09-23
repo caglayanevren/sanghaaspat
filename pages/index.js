@@ -3,13 +3,12 @@ import CustomHead from '../components/CustomHead';
 import Hero from '../components/home/Hero';
 import Triple from '../components/home/Triple';
 import Subscribe from '../components/home/Subscribe';
-import Program from '../components/timetable/program';
 const { Client } = require('@notionhq/client');
 import { databaseId, getDatabase, getPage, getBlocks } from '../lib/notion';
-import { getAllProgramFromNotion } from '../services/program';
-
-import { getRecordMap } from '../libs/notion';
-import { getPageTitle } from 'notion-utils'
+//import ProgramGrid from '../components/timetable/program';
+//import { getAllProgramFromNotion } from '../services/program';
+//import { getRecordMap } from '../libs/notion';
+//import { getPageTitle, getTextContent } from 'notion-utils'
 
 export async function getStaticProps({ locale }) {
     //const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -18,21 +17,21 @@ export async function getStaticProps({ locale }) {
     const pageId = locale === 'en' ? pageIdEn : locale === 'tr' ? pageIdTr : 'lang error';
     const response = await getBlocks(pageId);
     
-    const dbid = locale === 'en' ? process.env.SANGHAASPAT_EN_PROGRAM_DATABASE_ID : locale === 'tr' ? process.env.SANGHAASPAT_TR_PROGRAM_DATABASE_ID : 'lang error';
+    //const dbid = locale === 'en' ? process.env.SANGHAASPAT_EN_PROGRAM_DATABASE_ID : locale === 'tr' ? process.env.SANGHAASPAT_TR_PROGRAM_DATABASE_ID : 'lang error';
 
-    const allPrograms = await getAllProgramFromNotion(locale);
-    const recordMap = await getRecordMap(dbid);
-    const collectionTitle = getPageTitle(recordMap); 
+    //const allPrograms = await getAllProgramFromNotion(locale);
+    //const recordMap = await getRecordMap(dbid);
+    //const collectionTitle = getPageTitle(recordMap); 
 
     return {
         props: {
             results: response,
             locale,
             pageId,
-            allPrograms: allPrograms.sort((a,b)=> {
-                return a.sort - b.sort
-            }),
-            collectionTitle,
+            //allPrograms: allPrograms.sort((a,b)=> {
+            //    return a.sort - b.sort
+            //}),
+            //collectionTitle,
         },
         revalidate: 30,
     };
@@ -52,7 +51,7 @@ export default function Home(props) {
                 qigongtext={props.results.results[4].paragraph.rich_text[0].text.content}
                 tqhtext={props.results.results[6].paragraph.rich_text[0].text.content}
             />
-            <Program allPrograms={props.allPrograms} title={props.collectionTitle} locale={props.locale} />
+            {/* <ProgramGrid allPrograms={props.allPrograms} title={props.collectionTitle} locale={props.locale} /> */}
             <Subscribe />
         </Layout>
     );
