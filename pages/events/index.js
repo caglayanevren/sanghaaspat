@@ -16,11 +16,10 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             locale,
-            posts
+            posts,
         },
         revalidate: 30,
     };
-    
 }
 
 export default function Events(props) {

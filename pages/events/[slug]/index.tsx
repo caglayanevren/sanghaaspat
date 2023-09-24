@@ -9,6 +9,9 @@ import { getRecordMap } from '@/libs/notion';
 import { getAllPostsFromNotion } from '@/services/events';
 import { Post } from '@/types/post';
 import { ExtendedRecordMap } from 'notion-types';
+import en from '@/locales/en';
+import tr from '@/locales/tr';
+import { useRouter } from 'next/router';
 
 export async function getStaticPaths({ locales }: { locales: string[] }) {
     const allPosts = await getAllPostsFromNotion();
@@ -44,7 +47,8 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
         props: {
             post,
             recordMap,
-            lang: locale
+            lang: locale,
+            locale
         },
         revalidate: 30,
     }
@@ -57,10 +61,10 @@ export default function PostPage(props: { post: Post, recordMap: ExtendedRecordM
     if (!props.post.published) {
         return (
             <article data-revalidated-at={new Date().getTime()} className="mx-auto mt-40 text-center" suppressHydrationWarning>
-                <h2 className="mb-4 text-3xl font-bold">Post Not Found</h2>
+                <h2 className="mb-4 text-3xl font-bold">{t.events.eventnotfound}</h2>
                 <Link href="/events">
                     <span className="mr-2">&larr;</span>
-                    <span>Go to list page</span>
+                    <span>{t.events.gotoeventspage}</span>
                 </Link>
             </article>
         );
