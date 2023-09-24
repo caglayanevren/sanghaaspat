@@ -56,6 +56,10 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
 
 export default function PostPage(props: { post: Post, recordMap: ExtendedRecordMap, lang: string }) {
 
+    const router = useRouter();
+    const { locale } = router;
+    const t = locale === 'en' ? en : tr;
+
     if (!props.post) { return notFound() }
 
     if (!props.post.published) {
