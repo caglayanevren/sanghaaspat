@@ -124,10 +124,10 @@ export default function QiGongClasses(props) {
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[12].heading_2.rich_text[0].plain_text}
                                 </Text>
-                                <Text as="h3" fontSize="xl">
+                                <Text as="p" fontStyle="italic">
                                     {props.blockresponse.results[13].paragraph.rich_text[0].plain_text}
                                 </Text>
-                                <Text as="p" fontStyle="italic">
+                                <Text as="p" marginTop="1rem">
                                     {props.blockresponse.results[14].paragraph.rich_text[0].plain_text}
                                 </Text>
                             </Box>
@@ -135,10 +135,10 @@ export default function QiGongClasses(props) {
                                 <Text as="h2" fontSize="2xl" fontWeight="500">
                                     {props.blockresponse.results[15].heading_2.rich_text[0].plain_text}
                                 </Text>
-                                <Text as="h3" fontSize="xl">
-                                    {props.blockresponse.results[16].heading_3.rich_text[0].plain_text}
+                                <Text as="p" fontStyle="italic">
+                                    {props.blockresponse.results[16].paragraph.rich_text[0].plain_text}
                                 </Text>
-                                <Text as="p">{props.blockresponse.results[17].paragraph.rich_text[0].plain_text}</Text>
+                                <Text as="p" marginTop="1rem">{props.blockresponse.results[17].paragraph.rich_text[0].plain_text}</Text>
                                 <Link href={locale == 'en' ? process.env.qimassage.english.path : `/tr${process.env.qimassage.turkish.path}`} _hover={{ textDecoration: 'none' }}>
                                     <Button rightIcon={<ArrowForwardIcon />}>{t.qigongClasses.qigongmassageLinkText}</Button>
                                 </Link>
