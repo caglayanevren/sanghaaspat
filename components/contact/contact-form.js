@@ -46,7 +46,7 @@ export default function ContactForm(params) {
             console.log('honeypot active!');
             return;
         }
-        const res = await fetch('https://www.sanghaaspat.com/api/submit-form', {
+        const res = await fetch('//www.sanghaaspat.com/api/submit-form', {
             method: 'POST',
             body: JSON.stringify({
                 name,
