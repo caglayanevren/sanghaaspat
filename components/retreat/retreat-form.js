@@ -46,8 +46,12 @@ export default function RetreatForm(params) {
             console.log('honeypot active!');
             return;
         }
-        const res = await fetch('//www.sanghaaspat.com/api/retreat-form-submit', {
+        const res = await fetch('/api/retreat-form-submit', {
             method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            },
             body: JSON.stringify({
                 name,
                 phone,
