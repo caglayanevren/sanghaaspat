@@ -48,10 +48,6 @@ export default function RetreatForm(params) {
         }
         const res = await fetch('/api/retreat-form-submit', {
             method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*"
-            },
             body: JSON.stringify({
                 name,
                 phone,
@@ -60,15 +56,15 @@ export default function RetreatForm(params) {
                 message,
             }),
         });
-        // Success if status code is 201
-        if (res.status === 201) {
-            toast(`${t.retreat.toastThanks}`, { type: 'success' });
+        // Success if status code is 201 or 200
+        if (res.status === 201 || res.status === 200) {
+            toast(`${t.contact.toastThanks}`, { type: 'success' });
             setDisabled(true);
             setTimeout(() => {
                 clearState();
             }, 1000);
         } else {
-            toast(`${t.retreat.toastError}`, { type: 'error' });
+            toast(`${t.contact.toastError}`, { type: 'error' });
         }
     };
 

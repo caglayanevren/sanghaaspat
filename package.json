@@ -53,6 +53,7 @@
     "devDependencies": {
         "@types/luxon": "^3.3.1",
         "autoprefixer": "^10.4.14",
+        "encoding": "^0.1.13",
         "eslint": "8.18.0",
         "eslint-config-next": "^13.4.6",
         "postcss": "^8.4.25",

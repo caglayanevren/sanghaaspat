@@ -1,25 +1,21 @@
+import { NextResponse } from 'next/server';
 const { Client } = require('@notionhq/client');
+import { getErrorMessage } from '@/utils/get-error-message';
 
 const notion = new Client({
     auth: process.env.NOTION_API_KEY,
 });
 
-export default async function handler(req, res) {
+export async function POST(req: Request) {
     if (req.method !== 'POST') {
-        return res.status(405).json({ message: `${req.method} requests are not allowed` });
+        return NextResponse.json({ message: `${req.method} requests are not allowed` });
     }
     try {
-        const { name, phone, email, message } = JSON.parse(req.body); //, purpose, newsapprove
-        //const response = await notion.users.list();
-        //console.log(response);
-
-        //const pageId = '315cf727703d473888a89132a28b06e9';
-        //const response = await notion.pages.retrieve({ page_id: pageId });
-        //console.log(response.properties.Notify.people);
+        const { name, phone, email, newsapprove, message } = await req.json(); //, purpose
 
         await notion.pages.create({
             parent: {
-                database_id: process.env.SANGHAASPAT_RETREAT_SUBMISSIONS_DATABASE_ID,
+                database_id: process.env.SANGHAASPAT_CONTACT_SUBMISSIONS_DATABASE_ID,
             },
             properties: {
                 Name: {
@@ -34,9 +30,9 @@ export default async function handler(req, res) {
                 Email: {
                     email: email,
                 },
-                /* 'NewsLetter Approved': {
+                'NewsLetter Approved': {
                     checkbox: newsapprove,
-                }, */
+                },
                 Phone: {
                     phone_number: phone,
                 },
@@ -73,8 +69,8 @@ export default async function handler(req, res) {
                 },
             },
         });
-        res.status(201).json({ msg: 'Success' });
+        return NextResponse.json({ msg: 'Success' });
     } catch (error) {
-        res.status(500).json({ msg: 'There was an error' });
+        return NextResponse.json({ error: getErrorMessage(error) }, { status: 500 });
     }
 }

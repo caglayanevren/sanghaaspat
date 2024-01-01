@@ -48,10 +48,6 @@ export default function ContactForm(params) {
         }
         const res = await fetch('/api/submit-form', {
             method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*"
-            },
             body: JSON.stringify({
                 name,
                 phone,
@@ -60,8 +56,8 @@ export default function ContactForm(params) {
                 message,
             }),
         });
-        // Success if status code is 201
-        if (res.status === 201) {
+        // Success if status code is 201 or 200
+        if (res.status === 201 || res.status === 200) {
             toast(`${t.contact.toastThanks}`, { type: 'success' });
             setDisabled(true);
             setTimeout(() => {
