@@ -80,16 +80,16 @@ export default function ContactForm(params) {
                 </div>
                 <div>
                     <FormLabel htmlFor="name">{t.contact.fullName}</FormLabel>
-                    <Input type="text" id="name" name="name" placeholder={t.contact.fullNamePlaceholder} value={name} onChange={(e) => setName(e.target.value)} required />
+                    <Input autoComplete="true" type="text" id="name" name="name" placeholder={t.contact.fullNamePlaceholder} value={name} onChange={(e) => setName(e.target.value)} required />
                 </div>
                 <FormControl id="phone">
                     <FormLabel htmlFor="phone">{t.contact.phone}</FormLabel>
-                    <Input as={InputMask} mask="999 999 99 99" maskChar={null} type="phone" name="phone" placeholder={t.contact.phonePlaceholder} value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                    <Input autoComplete="true" as={InputMask} mask="999 999 99 99" maskChar={null} type="phone" name="phone" placeholder={t.contact.phonePlaceholder} value={phone} onChange={(e) => setPhone(e.target.value)} required />
                 </FormControl>
                 <div className={styles.checkBox}>
                     <FormLabel htmlFor="email">{t.contact.emailText}</FormLabel>
-                    <Input type="email" name="email" placeholder={t.contact.emailPlaceholder} value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <Checkbox size="md" colorScheme="white" onChange={(e) => setNewsapprove(e.target.checked)} defaultChecked>
+                    <Input autoComplete="true" id="email" type="email" name="email" placeholder={t.contact.emailPlaceholder} value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <Checkbox id="newsletter_approve" size="md" colorScheme="white" onChange={(e) => setNewsapprove(e.target.checked)} defaultChecked>
                         {t.contact.newsapproveCheckText}
                     </Checkbox>
                 </div>
