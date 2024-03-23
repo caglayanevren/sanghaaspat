@@ -29,7 +29,7 @@ export default function FirstSection({ title, contents }) {
                                 }}
                             >
                                 {contents.map((content, i) => (
-                                    <Text key={i} marginBottom={8}>
+                                    <Text key={i} marginBottom={8} sx={{ textWrap: 'pretty' }}>
                                         {content}
                                     </Text>
                                 ))}
